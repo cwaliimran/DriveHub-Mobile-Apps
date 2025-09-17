@@ -1,0 +1,58 @@
+{
+  "select_language": "Select Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "turkish": "Turkish",
+  "select": "Select",
+    "onboarding": {
+    "slide1": {
+      "titleBlack": "Sürüşünü ",
+      "titleBlue": "Gig",
+      "titleAfter": " Basitleştir",
+      "desc": "Tüm ride-hailing ve teslimat uygulamalarınızı tek bir yerden yönetin. Özel filtrelere göre talepleri kabul edip reddederek kazancınızı maksimize edin ve otomatik çevrimiçi/çevrimdışı geçiş yapın."
+    },
+    "slide2": {
+      "titleBlack": "Otomasyonun ",
+      "titleBlue": "İşini",
+      "titleAfter": " Senin İçin Yapmasına İzin Ver",
+      "desc": "Otomatik kabul ve reddetme özelliklerimizle zaman kazanın ve dikkat dağıtıcı unsurları azaltın. Daha akıllıca sürmek için yol türü, ücret ve mesafe filtrelerini ayarlayın."
+    },
+    "slide3": {
+      "titleBlack": "Değerini ",
+      "titleBlue": "Bil",
+      "titleAfter": "",
+      "desc": "Kazançlarınızı gerçek zamanlı olarak takip edin. Saatlik ücretleriniz, mil başına kazançlar ve daha fazlası hakkında detaylı bilgiler edinin, böylece daha verimli çalışın."
+    }
+  },
+  "signin": {
+  "title": "Giriş Yap",
+  "subtitle": "Kişiselleştirilmiş bir deneyim için hesabınıza giriş yapın.",
+  "email": "E-posta Adresi",
+  "password": "Şifre",
+  "forgot": "Şifrenizi mi unuttunuz?",
+  "signinBtn": "Giriş Yap",
+  "or": "Veya Şununla Devam Et",
+  "google": "Google",
+  "apple": "Apple",
+  "noAccount": "Hesabınız yok mu?",
+  "create": "Yeni Hesap Oluştur"
+},
+"signup": {
+  "title": "Yeni Hesap Oluştur",
+  "fullname": "Tam Adı",
+  "phone": "Telefon Numarası",
+  "email": "E-posta Adresi",
+  "vehicleName": "Araç Adı",
+  "vehicleModel": "Araç Modeli",
+  "password": "Şifre",
+  "confirmPassword": "Şifreyi Onayla",
+  "terms1": "Kabul ediyorum",
+  "terms2": "şartlar ve koşullar",
+  "createBtn": "Hesap Oluştur",
+  "already": "Zaten bir hesabınız var mı?",
+  "signin": "Giriş Yap"
+}
+
+
+
+}

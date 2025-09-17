@@ -1,0 +1,55 @@
+{
+  "select_language": "Select Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "turkish": "Turkish",
+  "select": "Select",
+  "onboarding": {
+    "slide1": {
+      "titleBlack": "Simplify Your ",
+      "titleBlue": "Gig",
+      "titleAfter": " Driving",
+      "desc": "Manage all your ride-hailing and delivery apps in one place. Maximize your earnings by accepting or declining requests based on custom filters, with automatic online/offline switching."
+    },
+    "slide2": {
+      "titleBlack": "Let Automation ",
+      "titleBlue": "Work",
+      "titleAfter": " for You",
+      "desc": "Save time and reduce distractions with our auto-accept and auto-decline features. Set filters for trip type, fare, and distance to drive smarter, not harder."
+    },
+    "slide3": {
+      "titleBlack": "Know Your ",
+      "titleBlue": "Worth",
+      "titleAfter": "",
+      "desc": "Keep track of your earnings in real-time. Get detailed insights into your hourly rates, earnings per mile, and more, to help you work more efficiently."
+    }
+  },
+    "signin": {
+    "title": "Sign In",
+    "subtitle": "For personalized experience, login to your account.",
+    "email": "Email Address",
+    "password": "Password",
+    "forgot": "Forgot Password?",
+    "signinBtn": "Sign In",
+    "or": "Or Continue With",
+    "google": "Google",
+    "apple": "Apple",
+    "noAccount": "Don’t Have An Account?",
+    "create": "Create New Account"
+  },
+  "signup": {
+    "title": "Create New Account",
+    "fullname": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "vehicleName": "Vehicle Name",
+    "vehicleModel": "Vehicle Model",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "terms1": "I accept",
+    "terms2": "terms & conditions",
+    "createBtn": "Create Account",
+    "already": "Already Have An Account?",
+    "signin": "Sign In"
+  }
+}

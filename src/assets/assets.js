@@ -1,0 +1,35 @@
+export const Images = {
+  logo: require('./images/logo.png'),
+  backgroundEffect: require('./images/background-effect.png'),
+    onboarding1: require('./images/onboarding-1.png'),
+  onboarding2: require('./images/onboarding-2.png'),
+  onboarding3: require('./images/onboarding-3.png'),
+};
+
+export const Icons = {
+  check: require('./icons/check.png'),
+  uncheck: require('./icons/uncheck.png'),
+  flagUK: require('./icons/flags/uk.png'),
+  flagSpain: require('./icons/flags/spain.png'),
+  flagTurkey: require('./icons/flags/turkey.png'),
+  arrow: require('./icons/arrow.png'),
+  mail: require('./icons/mail.png'),
+  lock: require('./icons/lock.png'),
+  eyeOpen: require('./icons/eye-open.png'),
+  eyeClose: require('./icons/eye-close.png'),
+  google: require('./icons/google.png'),
+  apple: require('./icons/apple.png'),
+  back: require('./icons/header-back.png'),
+  person: require('./icons/person.png'),
+  phone: require('./icons/phone.png'),
+  vehicle: require('./icons/vehicle.png'),
+  calendar: require('./icons/calendar.png'),
+  lock: require('./icons/lock.png'),
+  camera: require('./icons/camera.png'),
+};
+export const Fonts = {
+  regular: 'Lexend-Regular',
+  medium: 'Lexend-Medium',
+  semibold: 'Lexend-SemiBold',
+  bold: 'Lexend-Bold',
+};

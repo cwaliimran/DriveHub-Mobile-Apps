@@ -1,0 +1,58 @@
+{
+  "select_language": "Select Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "turkish": "Turkish",
+  "select": "Select",
+  "onboarding": {
+    "slide1": {
+      "titleBlack": "Simplifica Tu ",
+      "titleBlue": "Gig",
+      "titleAfter": " Conducción",
+      "desc": "Gestiona todas tus aplicaciones de transporte y entrega en un solo lugar. Maximiza tus ganancias aceptando o rechazando solicitudes según filtros personalizados, con cambio automático entre online/offline."
+    },
+    "slide2": {
+      "titleBlack": "Deja Que La ",
+      "titleBlue": "Automatización",
+      "titleAfter": " Trabaje Para Ti",
+      "desc": "Ahorra tiempo y reduce distracciones con nuestras funciones de auto-aceptar y auto-rechazar. Configura filtros para tipo de viaje, tarifa y distancia para conducir de manera más inteligente, no más difícil."
+    },
+    "slide3": {
+      "titleBlack": "Conoce Tu ",
+      "titleBlue": "Valor",
+      "titleAfter": "",
+      "desc": "Mantén un seguimiento de tus ganancias en tiempo real. Obtén información detallada sobre tus tarifas por hora, ganancias por milla y más, para ayudarte a trabajar de manera más eficiente."
+    }
+  },
+  "signin": {
+  "title": "Iniciar sesión",
+  "subtitle": "Para una experiencia personalizada, accede a tu cuenta.",
+  "email": "Dirección de correo electrónico",
+  "password": "Contraseña",
+  "forgot": "¿Olvidaste tu contraseña?",
+  "signinBtn": "Iniciar sesión",
+  "or": "O continúa con",
+  "google": "Google",
+  "apple": "Apple",
+  "noAccount": "¿No tienes una cuenta?",
+  "create": "Crear nueva cuenta"
+},
+"signup": {
+  "title": "Crear nueva cuenta",
+  "fullname": "Nombre completo",
+  "phone": "Número de teléfono",
+  "email": "Dirección de correo electrónico",
+  "vehicleName": "Nombre del vehículo",
+  "vehicleModel": "Modelo del vehículo",
+  "password": "Contraseña",
+  "confirmPassword": "Confirmar contraseña",
+  "terms1": "Acepto",
+  "terms2": "términos y condiciones",
+  "createBtn": "Crear cuenta",
+  "already": "¿Ya tienes una cuenta?",
+  "signin": "Iniciar sesión"
+}
+
+
+}
+
