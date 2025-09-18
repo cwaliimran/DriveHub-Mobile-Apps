@@ -92,6 +92,51 @@
     "successTitle": "Password Reset",
     "successDesc": "Your password has been reset successfully",
     "continue": "Continue"
+},
+ "linkUber": {
+    "title": "Link Uber",
+    "subtitle": "Kick off your journey with Uber Driver",
+    "inputLabel": "Mobile Number or Email Address",
+    "placeholder": "Enter phone number or email",
+    "continue": "Continue",
+    "or": "Or Continue With",
+    "google": "Google",
+    "apple": "Apple",
+    "switchToPhone": "Continue With Phone Number",
+    "switchToEmail": "Continue With Email Address"
+  },
+  "verifyUber": {
+    "subtitle": "Enter the OTP sent via SMS at",
+    "enterCode": "Enter Code",
+    "verify": "Verify",
+    "didNotReceive": "Did not receive code?",
+    "sendAgain": "Send again in {{seconds}} seconds",
+    "resend": "Resend Code",
+    "tryAnother": "Try Another Way",
+    "alt": {
+      "title": "Choose another way to verify",
+      "email": "Email Address",
+      "password": "Password",
+      "changePhone": "Change Mobile Number"
+    }
+  },
+  "linkUberPassword": {
+  "welcome": "Welcome back,",
+  "password": "Password",
+  "continue": "Continue"
+},
+"setup": {
+  "loading": "Allow us a moment to set <bold>things</bold> up for you.",
+  "accessibilityTitle": "Accessibility Notice",
+  "accessibilityDesc": "DriveHub uses the Accessibility API to automate actions in the Driver app, such as tapping <bold>GO</bold> to go online.",
+  "points": {
+    "data": "<bold>Data Access:</bold> Drive Hub may interact with the app’s interface.",
+    "privacy": "<bold>Privacy:</bold> Data is used only for automation purposes.",
+    "control": "<bold>Control:</bold> You can disable this feature in the settings."
+  },
+  "finalNote": "To enable, tap <bold>Open Settings</bold> and activate the Drive Hub Access Service.",
+  "skip": "Skip",
+  "allow": "Allow Access"
 }
 
 

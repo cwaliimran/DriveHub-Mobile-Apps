@@ -91,7 +91,57 @@
   "successTitle": "Şifre Sıfırlandı",
   "successDesc": "Şifreniz başarıyla sıfırlandı",
   "continue": "Devam Et"
+},
+"linkUber": {
+  "title": "Uber'i Bağla",
+  "subtitle": "Uber Driver ile yolculuğunuza başlayın",
+  "inputLabel": "Telefon Numarası veya E-posta Adresi",
+  "placeholder": "Telefon numarası veya e-posta girin",
+  "continue": "Devam Et",
+  "or": "Veya Şununla Devam Et",
+  "google": "Google",
+  "apple": "Apple",
+  "switchToPhone": "Telefon Numarasıyla Devam Et",
+  "switchToEmail": "E-posta Adresiyle Devam Et"
+},
+"verifyUber": {
+  "subtitle": "SMS ile gönderilen OTP'yi girin:",
+  "enterCode": "Kodu Girin",
+  "verify": "Doğrula",
+  "didNotReceive": "Kodu almadınız mı?",
+  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+  "resend": "Kodu Tekrar Gönder",
+  "tryAnother": "Başka Bir Yöntem Dene",
+  "alt": {
+    "title": "Başka bir doğrulama yöntemi seçin",
+    "email": "E-posta Adresi",
+    "password": "Şifre",
+    "changePhone": "Telefon Numarasını Değiştir"
+  },
+  "linkUberPassword": {
+  "welcome": "Tekrar hoş geldiniz,",
+  "password": "Şifre",
+  "continue": "Devam Et"
+},
+"setup": {
+  "loading": "Sizin için <bold>her şeyi</bold> ayarlamamız için bize bir an verin.",
+  "accessibilityTitle": "Erişilebilirlik Bildirimi",
+  "accessibilityDesc": "DriveHub, Sürücü uygulamasında <bold>BAŞLA</bold>ya dokunarak çevrimiçi olma gibi işlemleri otomatikleştirmek için Erişilebilirlik API'sini kullanır.",
+  "points": {
+    "data": "<bold>Veri Erişimi:</bold> DriveHub uygulamanın arayüzüyle etkileşimde bulunabilir.",
+    "privacy": "<bold>Gizlilik:</bold> Veriler yalnızca otomasyon amaçlı kullanılır.",
+    "control": "<bold>Kontrol:</bold> Bu özelliği ayarlardan devre dışı bırakabilirsiniz."
+  },
+  "finalNote": "Etkinleştirmek için <bold>Ayarları Aç</bold>a dokunun ve DriveHub Erişim Servisini etkinleştirin.",
+  "skip": "Atla",
+  "allow": "Erişim İzni Ver"
 }
+
+
+}
+
+
+
 
 
 

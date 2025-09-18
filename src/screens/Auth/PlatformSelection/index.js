@@ -48,14 +48,20 @@ const PlatformSelectionScreen = ({ navigation }) => {
 
       {/* Button */}
       <View style={styles.bottom}>
-        <PrimaryButton
-          title={t('platform.select')}
-          disabled={selected.length === 0}
-          onPress={() => {
-            console.log('Selected services:', selected);
-            navigation.replace('Home'); // next step
-          }}
-        />
+<PrimaryButton
+  title={t('platform.select')}
+  disabled={selected.length === 0}
+  onPress={() => {
+    console.log('Selected services:', selected);
+
+    if (selected.includes('uber')) {
+      navigation.replace('LinkUber');  // 👈 take to Uber linking
+    } else {
+      navigation.replace('LinkUber');      // 👈 fallback to Home
+    }
+  }}
+/>
+
       </View>
     </View>
   );

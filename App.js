@@ -6,6 +6,10 @@ import lightTheme from './src/theme/light';
 import darkTheme from './src/theme/dark';
 
 import './src/localization/i18n';   // ✅ ensures i18n is initialized
+import { LogBox } from 'react-native';
+
+// ✅ Ignore ALL warnings
+LogBox.ignoreAllLogs(true);
 
 export default function App() {
   const colorScheme = Appearance.getColorScheme();

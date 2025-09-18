@@ -91,6 +91,52 @@
   "successTitle": "Contraseña restablecida",
   "successDesc": "Tu contraseña se ha restablecido correctamente",
   "continue": "Continuar"
+},
+"linkUber": {
+  "title": "Vincular Uber",
+  "subtitle": "Empieza tu viaje con Uber Driver",
+  "inputLabel": "Número de móvil o dirección de correo",
+  "placeholder": "Introduce número de teléfono o correo",
+  "continue": "Continuar",
+  "or": "O continúa con",
+  "google": "Google",
+  "apple": "Apple",
+  "switchToPhone": "Continuar con número de teléfono",
+  "switchToEmail": "Continuar con dirección de correo"
+},
+"verifyUber": {
+  "subtitle": "Introduce el código enviado por SMS a",
+  "enterCode": "Introducir código",
+  "verify": "Verificar",
+  "didNotReceive": "¿No recibiste el código?",
+  "sendAgain": "Reenviar en {{seconds}} segundos",
+  "resend": "Reenviar código",
+  "tryAnother": "Probar otra forma",
+  "alt": {
+    "title": "Elige otra forma de verificar",
+    "email": "Dirección de correo electrónico",
+    "password": "Contraseña",
+    "changePhone": "Cambiar número de móvil"
+  }
+},
+
+"linkUberPassword": {
+  "welcome": "Bienvenido de nuevo,",
+  "password": "Contraseña",
+  "continue": "Continuar"
+},
+"setup": {
+  "loading": "Danos un momento para configurar <bold>todo</bold> para ti.",
+  "accessibilityTitle": "Aviso de accesibilidad",
+  "accessibilityDesc": "DriveHub utiliza la API de accesibilidad para automatizar acciones en la aplicación del Conductor, como tocar <bold>IR</bold> para conectarse.",
+  "points": {
+    "data": "<bold>Acceso a datos:</bold> DriveHub puede interactuar con la interfaz de la aplicación.",
+    "privacy": "<bold>Privacidad:</bold> Los datos se utilizan solo con fines de automatización.",
+    "control": "<bold>Control:</bold> Puedes desactivar esta función en la configuración."
+  },
+  "finalNote": "Para habilitarlo, toca <bold>Abrir configuración</bold> y activa el servicio de acceso de DriveHub.",
+  "skip": "Omitir",
+  "allow": "Permitir acceso"
 }
 
 

@@ -9,9 +9,12 @@ import SignUpScreen from '../screens/Auth/SignUp';
 import VerifyOTPScreen from '../screens/Auth/VerifyOTP';
 import ForgotVerifyOTPScreen from '../screens/Auth/ForgotVerifyOTP';
 import ResetPasswordScreen from '../screens/Auth/ResetPassword';
-
 import PlatformSelectionScreen from '../screens/Auth/PlatformSelection';
 import ForgotPasswordScreen from '../screens/Auth/ForgotPassword';
+import LinkUberScreen from '../screens/Auth/LinkUberScreen';
+import VerifyUberOTPScreen from '../screens/Uber/VerifyUberOTP';
+import LinkUberPasswordScreen from '../screens/Uber/Auth/LinkUberPasswordScreen';
+import SetupAccessibilityScreen from '../screens/Auth/Common/SetupAccessibilityScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,20 +22,31 @@ const AppNavigator = () => (
   <Stack.Navigator
     initialRouteName="Splash"
     screenOptions={{
-      headerShown: false, 
+      headerShown: false,
     }}
   >
     <Stack.Screen name="Splash" component={SplashScreen} />
-  <Stack.Screen name="LanguageSelection" component={LanguageSelectionScreen} />
+    <Stack.Screen name="LanguageSelection" component={LanguageSelectionScreen} />
     <Stack.Screen name="Onboarding" component={OnboardingScreen} />
     <Stack.Screen name="SignIn" component={SignInScreen} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
-<Stack.Screen name="VerifyOTP" component={VerifyOTPScreen} />
-<Stack.Screen name="PlatformSelection" component={PlatformSelectionScreen} />
-<Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-<Stack.Screen name="ForgotVerifyOTP" component={ForgotVerifyOTPScreen} />
-<Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
-
+    <Stack.Screen name="SignUp" component={SignUpScreen} />
+    <Stack.Screen name="VerifyOTP" component={VerifyOTPScreen} />
+    <Stack.Screen name="PlatformSelection" component={PlatformSelectionScreen} />
+    <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+    <Stack.Screen name="ForgotVerifyOTP" component={ForgotVerifyOTPScreen} />
+    <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+    <Stack.Screen name="LinkUber" component={LinkUberScreen} />
+    <Stack.Screen name="VerifyUberOTP" component={VerifyUberOTPScreen} />
+<Stack.Screen 
+  name="LinkUberPassword" 
+  component={LinkUberPasswordScreen} 
+  options={{ headerShown: false }} 
+/>
+<Stack.Screen
+  name="SetupAccessibility"
+  component={SetupAccessibilityScreen}
+  options={{ headerShown: false }}
+/>
   </Stack.Navigator>
 );
 

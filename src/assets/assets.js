@@ -9,6 +9,9 @@ export const Images = {
   uber: require('./images/uber.png'),
   doorDash: require('./images/door-dash.png'),
    forgotModal: require('./images/forgot-modal.png'),
+     uberOnboarding: require('./images/uber-onboarding.png'),
+  setupPicture: require('./images/setup-picture.png'),
+  accessibility: require('./images/accessibility.png'),
 };
 
 export const Icons = {
@@ -31,6 +34,9 @@ export const Icons = {
   calendar: require('./icons/calendar.png'),
   lock: require('./icons/lock.png'),
   camera: require('./icons/camera.png'),
+    bottomMail: require('./icons/bottom-mail.png'),
+  bottomPassword: require('./icons/bottom-password.png'),
+  bottomPhone: require('./icons/bottom-phone.png'),
 };
 export const Fonts = {
   regular: 'Lexend-Regular',
