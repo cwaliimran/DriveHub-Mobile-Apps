@@ -51,7 +51,53 @@
   "createBtn": "Hesap Oluştur",
   "already": "Zaten bir hesabınız var mı?",
   "signin": "Giriş Yap"
+},
+"otp": {
+  "title": "OTP Doğrula",
+  "subtitle": "Tek kullanımlık şifreyi gönderdik:",
+  "enterCode": "Kodu Girin",
+  "verify": "Doğrula",
+  "didntReceive": "Kodu almadınız mı?",
+  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+  "resend": "Kodu Tekrar Gönder"
+},
+"confirmation": {
+  "accountCreatedTitle": "Hesap Oluşturuldu",
+  "accountCreatedDesc": "Hesabınız başarıyla oluşturuldu",
+  "continue": "Devam Et"
+},
+"platform": {
+  "heading": "Hangi hizmeti kullanıyorsunuz?",
+  "select": "Seç"
+},
+"forgotPassword": {
+  "title": "Şifremi Unuttum",
+  "subtitle": "Kayıtlı e-posta adresinize tek kullanımlık bir şifre göndereceğiz.",
+  "email": "E-posta Adresi",
+  "continue": "Devam Et"
+  
+},
+"passwordUpdated": {
+  "title": "Şifre Güncellendi",
+  "description": "Şifreniz başarıyla güncellendi",
+  "button": "Giriş Yap"
+},
+"resetPassword": {
+  "title": "Şifreyi Sıfırla",
+  "subtitle": "Artık şifrenizi sıfırlayabilirsiniz.",
+  "password": "Şifre",
+  "confirmPassword": "Şifreyi Onayla",
+  "resetBtn": "Sıfırla",
+  "successTitle": "Şifre Sıfırlandı",
+  "successDesc": "Şifreniz başarıyla sıfırlandı",
+  "continue": "Devam Et"
 }
+
+
+
+
+
+
 
 
 

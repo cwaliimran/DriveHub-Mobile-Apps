@@ -4,6 +4,11 @@ export const Images = {
     onboarding1: require('./images/onboarding-1.png'),
   onboarding2: require('./images/onboarding-2.png'),
   onboarding3: require('./images/onboarding-3.png'),
+    accountCreated: require('./images/account-created.png'),
+      lyft: require('./images/lyft.png'),
+  uber: require('./images/uber.png'),
+  doorDash: require('./images/door-dash.png'),
+   forgotModal: require('./images/forgot-modal.png'),
 };
 
 export const Icons = {

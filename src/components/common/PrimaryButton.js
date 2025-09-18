@@ -15,7 +15,7 @@ const PrimaryButton = ({ title, onPress, disabled }) => (
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
-    borderRadius: 12,
+    borderRadius: 10,
     height: 50,
 
     // 👇 Same as LanguageOption box

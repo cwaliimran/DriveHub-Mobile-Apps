@@ -51,7 +51,51 @@
   "createBtn": "Crear cuenta",
   "already": "¿Ya tienes una cuenta?",
   "signin": "Iniciar sesión"
+},
+"otp": {
+  "title": "Verificar OTP",
+  "subtitle": "Hemos enviado un código de un solo uso a",
+  "enterCode": "Introducir código",
+  "verify": "Verificar",
+  "didntReceive": "¿No recibiste el código?",
+  "sendAgain": "Reenviar en {{seconds}} segundos",
+  "resend": "Reenviar código"
+},
+
+"confirmation": {
+  "accountCreatedTitle": "Cuenta creada",
+  "accountCreatedDesc": "Tu cuenta se ha creado correctamente",
+  "continue": "Continuar"
+},
+"platform": {
+  "heading": "¿Qué servicio usas?",
+  "select": "Seleccionar"
+},
+"forgotPassword": {
+  "title": "Olvidé mi contraseña",
+  "subtitle": "Enviaremos un código de un solo uso a tu dirección de correo electrónico registrada.",
+  "email": "Dirección de correo electrónico",
+  "continue": "Continuar"
+},
+"passwordUpdated": {
+  "title": "Contraseña actualizada",
+  "description": "Tu contraseña se ha actualizado correctamente",
+  "button": "Iniciar sesión"
+},
+"resetPassword": {
+  "title": "Restablecer contraseña",
+  "subtitle": "Ahora puedes restablecer tu contraseña.",
+  "password": "Contraseña",
+  "confirmPassword": "Confirmar contraseña",
+  "resetBtn": "Restablecer",
+  "successTitle": "Contraseña restablecida",
+  "successDesc": "Tu contraseña se ha restablecido correctamente",
+  "continue": "Continuar"
 }
+
+
+
+
 
 
 }

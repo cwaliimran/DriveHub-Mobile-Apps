@@ -155,7 +155,7 @@ const SignUpScreen = ({ navigation }) => {
 
         {/* Create Account Button */}
         <View style={styles.primaryButtonWrapper}>
-        <PrimaryButton title={t('signup.createBtn')} onPress={() => {}} />
+        <PrimaryButton title={t('signup.createBtn')} onPress={() => navigation.navigate('VerifyOTP')} />
 </View>
 
         {/* Footer */}
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 25,
     fontFamily: typography.fontBold,
-    marginBottom: 20,
+    marginBottom: 25,
     color: colors.textLight,
   },
   avatarContainer: {
@@ -225,8 +225,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 4,
   },
-  termsText: { fontSize: 13, fontFamily: typography.fontRegular, color: '#444' },
-  link: { color: colors.primary, fontFamily: typography.fontMedium },
+  termsText: { fontSize: 14, fontFamily: typography.fontRegular, color: '#797979' },
+  link: { color: colors.primary, fontFamily: typography.fontBold },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -235,12 +235,11 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 13,
     fontFamily: typography.fontRegular,
-    color: '#666',
+    color: '#797979',
   },
 
 primaryButtonWrapper: {
   width: '110%',       // match input box width
-//   marginTop: 20,
   alignSelf: 'center', // center horizontally inside container
 },
 

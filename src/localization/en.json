@@ -51,5 +51,48 @@
     "createBtn": "Create Account",
     "already": "Already Have An Account?",
     "signin": "Sign In"
-  }
+  },
+  "otp": {
+    "title": "Verify OTP",
+    "subtitle": "We have sent an One-Time Passcode to",
+    "enterCode": "Enter Code",
+    "verify": "Verify",
+    "didntReceive": "Did not receive code?",
+    "sendAgain": "Send again in {{seconds}} seconds",
+    "resend": "Resend Code"
+  },
+    "confirmation": {
+    "accountCreatedTitle": "Account Created",
+    "accountCreatedDesc": "Your account has been created successfully",
+    "continue": "Continue"
+  },
+  "platform": {
+    "heading": "Which service do you use?",
+    "select": "Select"
+  },
+   "forgotPassword": {
+    "title": "Forgot Password",
+    "subtitle": "We will send an One-Time Passcode to your registered email address.",
+    "email": "Email Address",
+    "continue": "Continue"
+  },
+
+  "passwordUpdated": {
+    "title": "Password Updated",
+    "description": "Your password has been updated successfully",
+    "button": "Login"
+  },
+  
+  "resetPassword": {
+    "title": "Reset Password",
+    "subtitle": "You can now reset your password.",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "resetBtn": "Reset",
+    "successTitle": "Password Reset",
+    "successDesc": "Your password has been reset successfully",
+    "continue": "Continue"
+}
+
+
 }
