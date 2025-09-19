@@ -7,21 +7,15 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import colors from '../../theme/colors';
 import typography from '../../theme/typography';
 import { Icons } from '../../assets/assets'; 
 import { useTranslation } from 'react-i18next';
+import useTheme from '../../hooks/useTheme';
 
-const VerifyAlternativeModal = ({ 
-  visible, 
-  onClose, 
-  destination, 
-  navigation 
-  
-}) => {
+const VerifyAlternativeModal = ({ visible, onClose, destination, navigation }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
-  // check if email or phone
   const isEmail = destination.includes('@');
 
   const options = isEmail
@@ -37,26 +31,18 @@ const VerifyAlternativeModal = ({
 
   const handleSelect = (key) => {
     if (key === 'email' || key === 'phone') {
-      // Go back to LinkUberScreen
       navigation.navigate('LinkUber');
-    } 
-    else if (key === 'password') {
+    } else if (key === 'password') {
       console.log('Handle password verification flow here');
     }
     onClose();
   };
 
   return (
-    <Modal
-      transparent
-      animationType="slide"
-      visible={visible}
-      onRequestClose={onClose}
-      statusBarTranslucent
-    >
+    <Modal transparent animationType="slide" visible={visible} onRequestClose={onClose} statusBarTranslucent>
       <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={onClose}>
-        <TouchableOpacity style={styles.container} activeOpacity={1}>
-          <Text style={styles.title}>{t('verifyUber.alt.title')}</Text>
+        <TouchableOpacity style={[styles.container, { backgroundColor: theme.background }]} activeOpacity={1}>
+          <Text style={[styles.title, { color: theme.text }]}>{t('verifyUber.alt.title')}</Text>
 
           {options.map((opt) => (
             <TouchableOpacity
@@ -75,23 +61,9 @@ const VerifyAlternativeModal = ({
 };
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-  },
-  container: {
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 20,
-  },
-  title: {
-    fontSize: 16,
-    fontFamily: typography.fontBold,
-    color: colors.textLight,
-    marginBottom: 15,
-  },
+  overlay: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.5)' },
+  container: { borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20 },
+  title: { fontSize: 16, fontFamily: typography.fontBold, marginBottom: 15 },
   option: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -100,17 +72,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingHorizontal: 15,
   },
-  icon: {
-    width: 20,
-    height: 20,
-    tintColor: '#fff',
-    marginRight: 10,
-  },
-  optionText: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: '#fff',
-  },
+  icon: { width: 20, height: 20, tintColor: '#fff', marginRight: 10 },
+  optionText: { fontSize: 14, fontFamily: typography.fontMedium, color: '#fff' },
 });
 
 export default VerifyAlternativeModal;

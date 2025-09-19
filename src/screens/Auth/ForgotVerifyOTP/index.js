@@ -3,15 +3,15 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import AppHeader from '../../../components/common/AppHeader';
 import typography from '../../../theme/typography';
-import colors from '../../../theme/colors';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import OTPInput from '../../../components/common/OTPInput';
 import ResendButton from '../../../components/common/ResendButton';
-import ConfirmationModal from '../../../components/common/ConfirmationModal';
+import useTheme from '../../../hooks/useTheme';
 
 const ForgotVerifyOTPScreen = ({ navigation }) => {
-    const [showModal, setShowModal] = useState(false);
   const { t } = useTranslation();
+  const theme = useTheme();
+
   const [code, setCode] = useState('');
   const [seconds, setSeconds] = useState(45);
 
@@ -23,36 +23,35 @@ const ForgotVerifyOTPScreen = ({ navigation }) => {
   }, [seconds]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <AppHeader title="Verify OTP" onBack={() => navigation.goBack()} />
 
       <View style={styles.content}>
-
-
         {/* Subtitle */}
-        <Text style={styles.subtitle}>
-          {t('otp.subtitle')} <Text style={styles.email}>johndoe@gmail.com</Text>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          {t('otp.subtitle')} <Text style={{ fontFamily: typography.fontBold, color: theme.primary }}>johndoe@gmail.com</Text>
         </Text>
 
         {/* Enter Code */}
-        <Text style={styles.label}>{t('otp.enterCode')}</Text>
+        <Text style={[styles.label, { color: theme.text }]}>{t('otp.enterCode')}</Text>
         <OTPInput code={code} setCode={setCode} />
 
-<View style={styles.primaryButtonWrapper}>
-  <PrimaryButton
-    title={t('otp.verify')}
-    onPress={() => {
-      // you can also check OTP validity here before navigating
-      navigation.navigate('ResetPassword');
-    }}
-  />
-</View>
-
+        {/* Verify Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('otp.verify')}
+            onPress={() => navigation.navigate('ResetPassword')}
+          />
+        </View>
 
         {/* Did not receive */}
-        <Text style={styles.didnt}>{t('otp.didntReceive')}</Text>
+        <Text style={[styles.didnt, { color: theme.text }]}>
+          {t('otp.didntReceive')}
+        </Text>
         {seconds > 0 ? (
-          <Text style={styles.timer}>{t('otp.sendAgain', { seconds })}</Text>
+          <Text style={[styles.timer, { color: theme.textSecondary }]}>
+            {t('otp.sendAgain', { seconds })}
+          </Text>
         ) : (
           <ResendButton
             title={t('otp.resend')}
@@ -68,54 +67,38 @@ const ForgotVerifyOTPScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
+  container: { flex: 1 },
   content: { padding: 20 },
-  title: {
-    fontSize: 25,
-    fontFamily: typography.fontBold,
-    marginBottom: 10,
-    color: colors.textLight,
-  },
   primaryButtonWrapper: {
-  width: '110%',       // match input box width
-  alignSelf: 'center', // center horizontally inside container
-},
+    width: '110%',
+    alignSelf: 'center',
+  },
   subtitle: {
     fontSize: 14,
     fontFamily: typography.fontRegular,
-    color: '#666',
     marginBottom: 20,
-  },
-  email: {
-    fontFamily: typography.fontBold,
-    fontSize: 14,
-    color: colors.primary,
   },
   label: {
     fontSize: 14,
     fontFamily: typography.fontMedium,
-    color: colors.textLight,
     marginBottom: 10,
   },
-didnt: {
-  fontSize: 15,
-  fontFamily: typography.fontBold,
-  color: colors.textLight,
-  marginTop: 15,
-  alignSelf: 'center',
-  width: '100%',        // make it span the row
-  textAlign: 'center',  // center the text
-},
-timer: {
-  fontSize: 13,
-  fontFamily: typography.fontRegular,
-  color: '#666',
-  marginTop: 10,
-  alignSelf: 'center',
-  width: '100%',
-  textAlign: 'center',
-},
-
+  didnt: {
+    fontSize: 15,
+    fontFamily: typography.fontBold,
+    marginTop: 15,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
+  timer: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    marginTop: 10,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
 });
 
 export default ForgotVerifyOTPScreen;

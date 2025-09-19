@@ -1,23 +1,54 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  useColorScheme,
+} from 'react-native';
 import typography from '../../theme/typography';
 import colors from '../../theme/colors';
 import { Icons } from '../../assets/assets';
 
 const LanguageOption = ({ flag, label, selected, onPress }) => {
+  const scheme = useColorScheme();
+  const isDark = scheme === 'dark';
+
   return (
     <TouchableOpacity
-      style={[styles.container, selected && styles.selectedContainer]}
+      style={[
+        styles.container,
+        {
+          borderColor: isDark ? colors.borderDark : colors.borderLight,
+          backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight,
+        },
+        selected && {
+          backgroundColor: colors.primary,
+          borderColor: colors.primary,
+        },
+      ]}
       onPress={onPress}
       activeOpacity={0.8}
     >
       <View style={styles.row}>
         <Image source={flag} style={styles.flag} resizeMode="contain" />
-        <Text style={[styles.label, selected && styles.selectedLabel]}>{label}</Text>
+        <Text
+          style={[
+            styles.label,
+            { color: isDark ? colors.textDark : colors.textLight },
+            selected && styles.selectedLabel,
+          ]}
+        >
+          {label}
+        </Text>
       </View>
       <Image
         source={selected ? Icons.uncheck : Icons.check}
-        style={styles.checkIcon}
+        style={[
+          styles.checkIcon,
+          { tintColor: selected ? '#fff' : isDark ? colors.textDark : colors.secondary },
+        ]}
         resizeMode="contain"
       />
     </TouchableOpacity>
@@ -30,18 +61,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.16)',
     borderRadius: 12,
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: 16,
     alignSelf: 'stretch',
     marginHorizontal: 20,
     marginBottom: 12,
-    // backgroundColor: '#fff',
-  },
-  selectedContainer: {
-    backgroundColor: '#007BFF',
-    borderColor: colors.primary,
   },
   row: {
     flexDirection: 'row',
@@ -51,12 +76,10 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     marginRight: 12,
-    marginLeft: 0,
   },
   label: {
     fontSize: 14,
     fontFamily: typography.fontRegular,
-    color: colors.textLight,
   },
   selectedLabel: {
     color: '#fff',

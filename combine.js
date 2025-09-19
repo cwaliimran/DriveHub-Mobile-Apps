@@ -21,5 +21,5 @@ allFiles.forEach(f => {
   output += fs.readFileSync(f, "utf8");
 });
 
-fs.writeFileSync("all_code.js", output);
+fs.writeFileSync("all_code.txt", output);
 console.log("✅ Combined into all_code.js");

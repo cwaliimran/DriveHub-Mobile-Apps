@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, useColorScheme } from 'react-native';
 import { Images } from '../../assets/assets';
 import colors from '../../theme/colors';
-import typography from '../../theme/typography';
 
 const SplashScreen = ({ navigation }) => {
+  const scheme = useColorScheme(); // Detect light or dark mode
+
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace('LanguageSelection'); // later change to Login/Home
@@ -13,8 +14,17 @@ const SplashScreen = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
-      <Image source={Images.logo} style={styles.logo} resizeMode="contain" />
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: scheme === 'dark' ? colors.backgroundDark : colors.backgroundLight },
+      ]}
+    >
+      <Image
+        source={scheme === 'dark' ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
     </View>
   );
 };
@@ -22,19 +32,12 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.backgroundLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
   logo: {
-    width: 180,
-    height: 180,
-    marginBottom: 25,
-  },
-  text: {
-    fontSize: 28,
-    fontFamily: typography.fontBold,
-    color: colors.textLight,
+    width: 200,
+    height: 80,
   },
 });
 

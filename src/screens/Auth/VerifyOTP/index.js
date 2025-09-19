@@ -8,12 +8,14 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import OTPInput from '../../../components/common/OTPInput';
 import ResendButton from '../../../components/common/ResendButton';
 import ConfirmationModal from '../../../components/common/ConfirmationModal';
+import useTheme from '../../../hooks/useTheme';
 
 const VerifyOTPScreen = ({ navigation }) => {
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { t } = useTranslation();
   const [code, setCode] = useState('');
   const [seconds, setSeconds] = useState(45);
+  const theme = useTheme();
 
   useEffect(() => {
     if (seconds > 0) {
@@ -23,12 +25,12 @@ const VerifyOTPScreen = ({ navigation }) => {
   }, [seconds]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <AppHeader title="Drive Hub" onBack={() => navigation.goBack()} />
 
       <View style={styles.content}>
         {/* Title */}
-        <Text style={styles.title}>{t('otp.title')}</Text>
+        <Text style={[styles.title, { color: theme.text }]}>{t('otp.title')}</Text>
 
         {/* Subtitle */}
         <Text style={styles.subtitle}>
@@ -36,26 +38,27 @@ const VerifyOTPScreen = ({ navigation }) => {
         </Text>
 
         {/* Enter Code */}
-        <Text style={styles.label}>{t('otp.enterCode')}</Text>
+        <Text style={[styles.label, { color: theme.text }]}>{t('otp.enterCode')}</Text>
         <OTPInput code={code} setCode={setCode} />
 
         {/* Verify Button */}
-                <View style={styles.primaryButtonWrapper}>
-        <PrimaryButton
-          title={t('otp.verify')}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('otp.verify')}
             onPress={() => setShowModal(true)}
-        />
+          />
         </View>
+
         <ConfirmationModal
-  visible={showModal}
-  onClose={() => {
-    setShowModal(false);
-    navigation.replace('PlatformSelection'); // or SignIn
-  }}
-/>
+          visible={showModal}
+          onClose={() => {
+            setShowModal(false);
+            navigation.replace('PlatformSelection');
+          }}
+        />
 
         {/* Did not receive */}
-        <Text style={styles.didnt}>{t('otp.didntReceive')}</Text>
+        <Text style={[styles.didnt, { color: theme.text }]}>{t('otp.didntReceive')}</Text>
         {seconds > 0 ? (
           <Text style={styles.timer}>{t('otp.sendAgain', { seconds })}</Text>
         ) : (
@@ -79,12 +82,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: typography.fontBold,
     marginBottom: 10,
-    color: colors.textLight,
   },
   primaryButtonWrapper: {
-  width: '110%',       // match input box width
-  alignSelf: 'center', // center horizontally inside container
-},
+    width: '110%',
+    alignSelf: 'center',
+  },
   subtitle: {
     fontSize: 14,
     fontFamily: typography.fontRegular,
@@ -102,25 +104,23 @@ const styles = StyleSheet.create({
     color: colors.textLight,
     marginBottom: 10,
   },
-didnt: {
-  fontSize: 15,
-  fontFamily: typography.fontBold,
-  color: colors.textLight,
-  marginTop: 15,
-  alignSelf: 'center',
-  width: '100%',        // make it span the row
-  textAlign: 'center',  // center the text
-},
-timer: {
-  fontSize: 13,
-  fontFamily: typography.fontRegular,
-  color: '#666',
-  marginTop: 10,
-  alignSelf: 'center',
-  width: '100%',
-  textAlign: 'center',
-},
-
+  didnt: {
+    fontSize: 15,
+    fontFamily: typography.fontBold,
+    marginTop: 15,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
+  timer: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    color: '#666',
+    marginTop: 10,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
 });
 
 export default VerifyOTPScreen;

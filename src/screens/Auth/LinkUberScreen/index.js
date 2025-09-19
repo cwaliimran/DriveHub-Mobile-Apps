@@ -13,72 +13,84 @@ import colors from '../../../theme/colors';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import { useTranslation } from 'react-i18next';
 import AppHeader from '../../../components/common/AppHeader'; // ✅ reuse your header
+import useTheme from '../../../hooks/useTheme';
+
 
 const LinkUberScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const [usePhone, setUsePhone] = useState(false);
+  const theme = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Header */}
       <AppHeader title={t('linkUber.title')} />
 
-      {/* Uber Image */}
-      <Image source={Images.uberOnboarding} style={styles.logo} resizeMode="contain" />
+      {/* Content Container - properly aligned with header padding */}
+      <View style={styles.contentContainer}>
+        {/* Uber Image */}
+        <Image source={Images.uberOnboarding} style={styles.logo} resizeMode="contain" />
 
-      {/* Subtitle */}
-      <Text style={styles.subtitle}>{t('linkUber.subtitle')}</Text>
+        {/* Subtitle */}
+        <Text style={styles.subtitle}>{t('linkUber.subtitle')}</Text>
 
-      {/* Input */}
-      <Text style={styles.inputLabel}>{t('linkUber.inputLabel')}</Text>
-      <View style={styles.inputContainer}>
-        <Image source={usePhone ? Icons.phone : Icons.mail} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder={t('linkUber.placeholder')}
-          placeholderTextColor="#999"
-          keyboardType={usePhone ? 'phone-pad' : 'email-address'}
-        />
-      </View>
-{/* Continue Button */}
-<View style={styles.primaryButtonWrapper}>
-  <PrimaryButton
-    title={t('linkUber.continue')}
-    onPress={() =>
-      navigation.navigate('VerifyUberOTP', {
-        destination: usePhone ? '(973) 281-6376' : 'you****z@gmail.com',
-      })
-    }
-  />
-</View>
-      {/* Divider */}
-      <View style={styles.dividerContainer}>
-        <View style={styles.divider} />
-        <Text style={styles.dividerText}>{t('linkUber.or')}</Text>
-        <View style={styles.divider} />
-      </View>
+        {/* Input */}
+        <Text style={[styles.inputLabel, { color: theme.text }]}>{t('linkUber.inputLabel')}</Text>
 
-      {/* Social Buttons */}
-      <View style={styles.socialContainer}>
-        <TouchableOpacity style={styles.socialButton}>
-          <Image source={Icons.google} style={styles.socialIcon} />
-          <Text style={styles.socialText}>{t('linkUber.google')}</Text>
+        <View style={styles.inputContainer}>
+          <Image source={usePhone ? Icons.phone : Icons.mail} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder={t('linkUber.placeholder')}
+            placeholderTextColor="#999"
+            keyboardType={usePhone ? 'phone-pad' : 'email-address'}
+          />
+        </View>
+
+        {/* Continue Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('linkUber.continue')}
+            onPress={() =>
+              navigation.navigate('VerifyUberOTP', {
+                destination: usePhone ? '(973) 281-6376' : 'you****z@gmail.com',
+              })
+            }
+          />
+        </View>
+
+        {/* Divider */}
+        <View style={styles.dividerContainer}>
+          <View style={styles.divider} />
+          <Text style={styles.dividerText}>{t('linkUber.or')}</Text>
+          <View style={styles.divider} />
+        </View>
+
+        {/* Social Buttons */}
+        <View style={styles.socialContainer}>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image source={Icons.google} style={styles.socialIcon} />
+            <Text style={styles.socialText}>{t('linkUber.google')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image source={Icons.apple} style={styles.socialIcon} />
+            <Text style={styles.socialText}>{t('linkUber.apple')}</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Footer Switch */}
+        <TouchableOpacity
+          style={styles.footer}
+          onPress={() => setUsePhone(!usePhone)}
+        >
+          <Text style={{ fontSize: 13, fontFamily: typography.fontBold, color: theme.textSecondary }}>
+            {usePhone ? t('linkUber.switchToEmailPrefix') : t('linkUber.switchToPhonePrefix')}{' '}
+            <Text style={{ color: theme.primary }}>
+              {usePhone ? t('linkUber.switchToEmailSuffix') : t('linkUber.switchToPhoneSuffix')}
+            </Text>
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.socialButton}>
-          <Image source={Icons.apple} style={styles.socialIcon} />
-          <Text style={styles.socialText}>{t('linkUber.apple')}</Text>
-        </TouchableOpacity>
       </View>
-
-      {/* Footer Switch */}
-      <TouchableOpacity
-        style={styles.footer}
-        onPress={() => setUsePhone(!usePhone)}
-      >
-        <Text style={styles.footerText}>
-          {usePhone ? t('linkUber.switchToEmail') : t('linkUber.switchToPhone')}
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -86,8 +98,10 @@ const LinkUberScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 15,
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: 20, // Consistent horizontal padding to align with header
   },
   logo: {
     width: 120,
@@ -101,10 +115,6 @@ const styles = StyleSheet.create({
     color: '#666',
     // textAlign: 'center',
     marginBottom: 10,
-  },
-    primaryButtonWrapper: {
-    width: '100%',
-    alignSelf: 'center',
   },
   inputLabel: {
     fontSize: 14,
@@ -134,7 +144,7 @@ const styles = StyleSheet.create({
     color: colors.secondary,
   },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '110%', // Fixed from 110% to prevent overflow
     alignSelf: 'center',
   },
   dividerContainer: {

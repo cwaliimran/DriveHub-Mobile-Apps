@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Images } from '../../../assets/assets';
 import typography from '../../../theme/typography';
-import colors from '../../../theme/colors';
 import PlatformCard from '../../../components/common/PlatformCard';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
 
 const PlatformSelectionScreen = ({ navigation }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
   const [selected, setSelected] = useState([]);
 
   const platforms = [
@@ -26,12 +27,18 @@ const PlatformSelectionScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Logo */}
-      <Image source={Images.logo} style={styles.logo} resizeMode="contain" />
+      <Image
+        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
 
       {/* Heading */}
-      <Text style={styles.heading}>{t('platform.heading')}</Text>
+      <Text style={[styles.heading, { color: theme.text }]}>
+        {t('platform.heading')}
+      </Text>
 
       {/* Platform Cards */}
       <View style={{ marginTop: 20 }}>
@@ -42,43 +49,44 @@ const PlatformSelectionScreen = ({ navigation }) => {
             image={p.image}
             selected={selected.includes(p.key)}
             onPress={() => toggleSelection(p.key)}
+            textColor={theme.text} // 👈 pass down
+            borderColor={theme.border}
+            backgroundColor={theme.card}
           />
         ))}
       </View>
 
       {/* Button */}
       <View style={styles.bottom}>
-<PrimaryButton
-  title={t('platform.select')}
-  disabled={selected.length === 0}
-  onPress={() => {
-    console.log('Selected services:', selected);
+        <PrimaryButton
+          title={t('platform.select')}
+          disabled={selected.length === 0}
+          onPress={() => {
+            console.log('Selected services:', selected);
 
-    if (selected.includes('uber')) {
-      navigation.replace('LinkUber');  // 👈 take to Uber linking
-    } else {
-      navigation.replace('LinkUber');      // 👈 fallback to Home
-    }
-  }}
-/>
-
+            if (selected.includes('uber')) {
+              navigation.replace('LinkUber');
+            } else {
+              navigation.replace('LinkUber'); // fallback
+            }
+          }}
+        />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f9f9f9', padding: 20 },
+  container: { flex: 1, padding: 20 },
   logo: { width: 160, height: 60, alignSelf: 'center', marginBottom: 20 },
   heading: {
     fontSize: 18,
     fontFamily: typography.fontSemiBold,
-    color: colors.textLight,
     textAlign: 'left',
   },
   bottom: {
-      width: '110%',       // match input box width
-  alignSelf: 'center', // center horizontally inside container
+    width: '110%',
+    alignSelf: 'center',
     marginTop: 'auto',
     marginBottom: 20,
   },

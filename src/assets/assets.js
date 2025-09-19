@@ -1,15 +1,16 @@
 export const Images = {
-  logo: require('./images/logo.png'),
+    logoLight: require('./images/logo-light.png'), // for light theme
+  logoDark: require('./images/logo-dark.png'),   // for dark theme
   backgroundEffect: require('./images/background-effect.png'),
-    onboarding1: require('./images/onboarding-1.png'),
+  onboarding1: require('./images/onboarding-1.png'),
   onboarding2: require('./images/onboarding-2.png'),
   onboarding3: require('./images/onboarding-3.png'),
-    accountCreated: require('./images/account-created.png'),
-      lyft: require('./images/lyft.png'),
+  accountCreated: require('./images/account-created.png'),
+  lyft: require('./images/lyft.png'),
   uber: require('./images/uber.png'),
   doorDash: require('./images/door-dash.png'),
-   forgotModal: require('./images/forgot-modal.png'),
-     uberOnboarding: require('./images/uber-onboarding.png'),
+  forgotModal: require('./images/forgot-modal.png'),
+  uberOnboarding: require('./images/uber-onboarding.png'),
   setupPicture: require('./images/setup-picture.png'),
   accessibility: require('./images/accessibility.png'),
 };
@@ -34,7 +35,7 @@ export const Icons = {
   calendar: require('./icons/calendar.png'),
   lock: require('./icons/lock.png'),
   camera: require('./icons/camera.png'),
-    bottomMail: require('./icons/bottom-mail.png'),
+  bottomMail: require('./icons/bottom-mail.png'),
   bottomPassword: require('./icons/bottom-password.png'),
   bottomPhone: require('./icons/bottom-phone.png'),
 };

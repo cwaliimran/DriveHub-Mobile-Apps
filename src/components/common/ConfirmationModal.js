@@ -7,24 +7,25 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native';
-import { Images } from '../../assets/assets'; // account-created.png
+import { Images } from '../../assets/assets';
 import typography from '../../theme/typography';
-import colors from '../../theme/colors';
+import useTheme from '../../hooks/useTheme';
 import { useTranslation } from 'react-i18next';
 
 const ConfirmationModal = ({ visible, onClose }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
     <Modal
-  transparent
-  animationType="fade"
-  visible={visible}
-  onRequestClose={onClose}
-  statusBarTranslucent={true}  
->
+      transparent
+      animationType="fade"
+      visible={visible}
+      onRequestClose={onClose}
+      statusBarTranslucent={true}
+    >
       <View style={styles.overlay}>
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: theme.background }]}>
           {/* Icon */}
           <Image
             source={Images.accountCreated}
@@ -33,15 +34,20 @@ const ConfirmationModal = ({ visible, onClose }) => {
           />
 
           {/* Title */}
-          <Text style={styles.title}>{t('confirmation.accountCreatedTitle')}</Text>
+          <Text style={[styles.title, { color: theme.text }]}>
+            {t('confirmation.accountCreatedTitle')}
+          </Text>
 
           {/* Description */}
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: theme.textSecondary }]}>
             {t('confirmation.accountCreatedDesc')}
           </Text>
 
           {/* Button */}
-          <TouchableOpacity style={styles.button} onPress={onClose}>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.primary }]}
+            onPress={onClose}
+          >
             <Text style={styles.buttonText}>{t('confirmation.continue')}</Text>
           </TouchableOpacity>
         </View>
@@ -59,7 +65,6 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '80%',
-    backgroundColor: '#fff',
     borderRadius: 16,
     padding: 20,
     alignItems: 'center',
@@ -72,19 +77,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: typography.fontSemiBold,
-    color: colors.textLight,
     marginBottom: 10,
     textAlign: 'center',
   },
   description: {
     fontSize: 15,
     fontFamily: typography.fontRegular,
-    color: '#666',
     textAlign: 'center',
     marginBottom: 20,
   },
   button: {
-    backgroundColor: colors.primary,
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 10,

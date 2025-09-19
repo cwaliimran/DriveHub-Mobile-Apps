@@ -1,18 +1,27 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, Image, FlatList, Dimensions, StatusBar } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  Dimensions,
+  StatusBar,
+} from 'react-native';
 import { Images } from '../../../assets/assets';
 import typography from '../../../theme/typography';
 import colors from '../../../theme/colors';
 import OnboardingFooter from '../../../components/common/OnboardingFooter';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../../localization/i18n';
+import useTheme from '../../../hooks/useTheme';
+import LinearGradient from 'react-native-linear-gradient';
 
 const { width, height } = Dimensions.get('window');
-console.log('Current language:', i18n.language);
 
 const OnboardingScreen = ({ navigation }) => {
   const { t } = useTranslation();
-  console.log('Current language:', i18n.language);
+  const theme = useTheme();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef();
@@ -52,11 +61,74 @@ const OnboardingScreen = ({ navigation }) => {
     }
   };
 
+  // Gradient colors based on theme
+const gradientColors =
+  theme.mode === 'dark'
+    ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.6)', '#000000']
+    : ['rgba(0,0,0,0)', 'rgba(255,255,255,0.6)', '#FFFFFF'];
+
+const gradientLocations = [0.3, 0.75, 1];
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.background,
+    },
+    slide: {
+      width,
+      height,
+      backgroundColor: theme.background,
+    },
+    imageContainer: {
+      height: height * 0.65,
+      width: '100%',
+      overflow: 'hidden',
+      marginTop: -StatusBar.currentHeight || 0,
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+    },
+    contentContainer: {
+      flex: 1,
+      backgroundColor: theme.overlay,
+      justifyContent: 'center',
+      paddingBottom: 160,
+    },
+    textContainer: {
+      paddingHorizontal: 30,
+      alignItems: 'center',
+    },
+    title: {
+      fontSize: 28,
+      fontFamily: typography.fontBold,
+      color: theme.text,
+      marginBottom: 16,
+      textAlign: 'center',
+      lineHeight: 38,
+    },
+    titleBlue: {
+      color: theme.primary,
+    },
+    description: {
+      fontSize: 13,
+      fontFamily: typography.fontRegular,
+      color: theme.textSecondary,
+      lineHeight: 24,
+      textAlign: 'center',
+      paddingHorizontal: 10,
+    },
+  });
+
   return (
     <View style={styles.container}>
-      {/* Make status bar transparent */}
-      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
-      
+      {/* Status bar adapts to theme */}
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle={theme.background === '#121212' ? 'light-content' : 'dark-content'}
+      />
+
       <FlatList
         ref={flatListRef}
         data={slides}
@@ -70,12 +142,16 @@ const OnboardingScreen = ({ navigation }) => {
         }}
         renderItem={({ item }) => (
           <View style={styles.slide}>
-            {/* Image Container - now covers full screen including status bar */}
             <View style={styles.imageContainer}>
               <Image source={item.image} style={styles.image} resizeMode="cover" />
+              {/* Gradient overlay */}
+              <LinearGradient
+                colors={gradientColors}
+                locations={gradientLocations}
+                style={StyleSheet.absoluteFillObject}
+              />
             </View>
-            
-            {/* Content Container */}
+
             <View style={styles.contentContainer}>
               <View style={styles.textContainer}>
                 <Text style={styles.title}>
@@ -90,60 +166,13 @@ const OnboardingScreen = ({ navigation }) => {
         )}
       />
 
-      <OnboardingFooter total={slides.length} current={currentIndex} onNext={handleNext} />
+      <OnboardingFooter
+        total={slides.length}
+        current={currentIndex}
+        onNext={handleNext}
+      />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  slide: {
-    width,
-    height,
-    backgroundColor: '#fff',
-  },
-  imageContainer: {
-    height: height * 0.65, // Takes about 60% of screen height
-    width: '100%',
-    overflow: 'hidden',
-    marginTop: -StatusBar.currentHeight || 0, // Extend up to cover status bar
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  contentContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    paddingBottom: 160, // Account for footer
-  },
-  textContainer: {
-    paddingHorizontal: 30,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 28,
-    fontFamily: typography.fontBold,
-    color: colors.backgroundDark,
-    marginBottom: 16,
-    textAlign: 'center',
-    lineHeight: 38,
-  },
-  titleBlue: {
-    color: colors.primary || '#007AFF',
-  },
-  description: {
-    fontSize: 13,
-    fontFamily: typography.fontRegular,
-    color: '#666',
-    lineHeight: 24,
-    textAlign: 'center',
-    paddingHorizontal: 10,
-  },
-});
 
 export default OnboardingScreen;

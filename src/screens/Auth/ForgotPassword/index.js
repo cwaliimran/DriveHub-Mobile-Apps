@@ -8,43 +8,47 @@ import {
 } from 'react-native';
 import { Icons } from '../../../assets/assets';
 import typography from '../../../theme/typography';
-import colors from '../../../theme/colors';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import AppHeader from '../../../components/common/AppHeader';
 import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
 
 const ForgotPasswordScreen = ({ navigation }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* App Header */}
-      <AppHeader title={t('forgotPassword.title')}onBack={() => navigation.goBack()} />
+      <AppHeader title={t('forgotPassword.title')} onBack={() => navigation.goBack()} />
 
       <View style={styles.content}>
-
-        <Text style={styles.subtitle}>{t('forgotPassword.subtitle')}</Text>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          {t('forgotPassword.subtitle')}
+        </Text>
 
         {/* Email Label */}
-        <Text style={styles.label}>{t('forgotPassword.email')}</Text>
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('forgotPassword.email')}
+        </Text>
 
         {/* Email Input */}
-        <View style={styles.inputContainer}>
-          <Image source={Icons.mail} style={styles.icon} />
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.mail} style={[styles.icon, { tintColor: theme.textSecondary }]} />
           <TextInput
-            style={styles.input}
+            style={[styles.input, { color: theme.text }]}
             placeholder="johndoe@gmail.com"
-            placeholderTextColor="#999"
+            placeholderTextColor={theme.textSecondary}
             keyboardType="email-address"
           />
         </View>
 
         {/* Continue Button */}
-                <View style={styles.primaryButtonWrapper}>
-        <PrimaryButton
-          title={t('forgotPassword.continue')}
-          onPress={() => navigation.navigate('ForgotVerifyOTP')}
-        />
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('forgotPassword.continue')}
+            onPress={() => navigation.navigate('ForgotVerifyOTP')}
+          />
         </View>
       </View>
     </View>
@@ -52,51 +56,25 @@ const ForgotPasswordScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
+  container: { flex: 1 },
   content: { padding: 20 },
-  title: {
-    fontSize: 20,
-    fontFamily: typography.fontBold,
-    marginBottom: 10,
-    color: colors.textLight,
-  },
-  subtitle: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: '#666',
-    marginBottom: 20,
-  },
-  label: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: colors.textLight,
-    marginBottom: 8,
-  },
+  title: { fontSize: 20, fontFamily: typography.fontBold, marginBottom: 10 },
+  subtitle: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 20 },
+  label: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 8 },
   inputContainer: {
-      paddingVertical: 5,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     paddingHorizontal: 12,
+    paddingVertical: 5,
   },
-  icon: {
-    width: 20,
-    height: 20,
-    tintColor: '#888',
-    marginRight: 10,
-  },
+  icon: { width: 20, height: 20, marginRight: 10 },
   primaryButtonWrapper: {
-  width: '110%',       // match input box width
-  alignSelf: 'center', // center horizontally inside container
-},
-  input: {
-    flex: 1,
-    fontSize: 13,
-    fontFamily: typography.fontRegular,
-    color: colors.textLight,
+    width: '110%',
+    alignSelf: 'center',
   },
+  input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
 });
 
 export default ForgotPasswordScreen;

@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import AppHeader from '../../../components/common/AppHeader';
 import UberOTPInput from '../../../components/common/UberOTPInput';
 import PrimaryButton from '../../../components/common/PrimaryButton';
-import ResendButton from '../../../components/common/ResendButton'; // Import ResendButton
-import colors from '../../../theme/colors';
+import ResendButton from '../../../components/common/ResendButton';
 import typography from '../../../theme/typography';
 import VerifyAlternativeModal from '../../../components/common/VerifyAlternativeModal';
+import useTheme from '../../../hooks/useTheme';
 
 const VerifyUberOTPScreen = ({ navigation, route }) => {
   const { t } = useTranslation();
@@ -15,10 +15,10 @@ const VerifyUberOTPScreen = ({ navigation, route }) => {
   const [timer, setTimer] = useState(45);
   const [resendAvailable, setResendAvailable] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  // Masked value
+  const theme = useTheme();
+
   const destination = route.params?.destination || 'you****z@gmail.com';
 
-  // Countdown logic
   useEffect(() => {
     if (timer > 0) {
       const countdown = setTimeout(() => setTimer(timer - 1), 1000);
@@ -29,143 +29,89 @@ const VerifyUberOTPScreen = ({ navigation, route }) => {
   }, [timer]);
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <AppHeader title={t('linkUber.title')} />
 
-      {/* Subtitle */}
-      <Text style={styles.subtitle}>{t('verifyUber.subtitle')}</Text>
-      <Text style={styles.highlight}>{destination}</Text>
+      <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+        {t('verifyUber.subtitle')}
+      </Text>
+      <Text style={[styles.highlight, { color: theme.primary }]}>{destination}</Text>
 
-      {/* OTP Input */}
       <View style={styles.otpSection}>
-        <Text style={styles.label}>{t('verifyUber.enterCode')}</Text>
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('verifyUber.enterCode')}
+        </Text>
         <UberOTPInput code={code} setCode={setCode} length={4} />
       </View>
 
-{/* Verify Button */}
-<View style={styles.primaryButtonWrapper}>
-  <PrimaryButton
-    title={t('verifyUber.verify')}
-    onPress={() => {
-      console.log('Verify pressed', code);
-      // ✅ Navigate to Password screen
-      navigation.navigate('LinkUberPassword');
-    }}
-  />
-</View>
+      <View style={styles.primaryButtonWrapper}>
+        <PrimaryButton
+          title={t('verifyUber.verify')}
+          onPress={() => navigation.navigate('LinkUberPassword')}
+        />
+      </View>
 
-
-      {/* Did not receive */}
-      <Text style={styles.didnt}>{t('verifyUber.didNotReceive')}</Text>
+      <Text style={[styles.didnt, { color: theme.text }]}>
+        {t('verifyUber.didNotReceive')}
+      </Text>
       {resendAvailable ? (
         <ResendButton
           title={t('verifyUber.resend')}
           onPress={() => {
             setTimer(45);
             setResendAvailable(false);
-            console.log('Resend OTP triggered');
           }}
-          style={styles.resendButton} // Apply consistent style
+          style={styles.resendButton}
         />
       ) : (
-        <Text style={styles.timer}>
+        <Text style={[styles.timer, { color: theme.textSecondary }]}>
           {t('verifyUber.sendAgain', { seconds: timer })}
         </Text>
       )}
 
-      {/* Try Another Way */}
       <TouchableOpacity style={styles.footerAlt} onPress={() => setModalVisible(true)}>
-        <Text style={styles.footerText}>{t('verifyUber.tryAnother')}</Text>
+        <Text style={[styles.footerText, { color: theme.primary }]}>
+          {t('verifyUber.tryAnother')}
+        </Text>
       </TouchableOpacity>
 
-      {/* Modal */}
       <VerifyAlternativeModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
         destination={destination}
-        navigation={navigation}  // pass nav
+        navigation={navigation}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
-  },
-  subtitle: {
-    fontSize: 14,
-    fontFamily: typography.fontRegular,
-    color: colors.secondary,
-    marginTop: 10,
-    marginLeft: 10,
-  },
-  highlight: {
-    fontSize: 14,
-    fontFamily: typography.fontBold,
-    color: colors.primary,
-    marginBottom: 20,
-    marginLeft: 10,
-  },
-  otpSection: {
-    alignItems: 'stretch',
-    marginBottom: 10,
-    marginTop: 10,
-    width: '100%',
-  },
-  label: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: colors.textLight,
-    marginBottom: 10,
-    marginLeft: 10,
-  },
-  resendWrapper: { marginTop: 20, alignItems: 'center' },
-  didnt: {
-    fontSize: 15,
-    fontFamily: typography.fontBold,
-    color: colors.textLight,
-    marginTop: 15,
-    alignSelf: 'center',
-  },
-  timer: {
-    fontSize: 13,
-    fontFamily: typography.fontRegular,
-    color: '#666',
-    marginTop: 5,
-    textAlign: 'center',
-  },
-  primaryButtonWrapper: {
-    width: '105%',
-    alignSelf: 'center',
-  },
+  container: { flex: 1, paddingHorizontal: 10 },
+  subtitle: { fontSize: 14, fontFamily: typography.fontRegular, marginTop: 10, marginLeft: 10 },
+  highlight: { fontSize: 14, fontFamily: typography.fontBold, marginBottom: 20, marginLeft: 10 },
+  otpSection: { marginBottom: 10, marginTop: 10, width: '100%' },
+  label: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 10, marginLeft: 10 },
+  didnt: { fontSize: 15, fontFamily: typography.fontBold, marginTop: 15, alignSelf: 'center' },
+  timer: { fontSize: 13, fontFamily: typography.fontRegular, marginTop: 5, textAlign: 'center' },
+  primaryButtonWrapper: { width: '105%', alignSelf: 'center' },
   footerAlt: {
     marginTop: 'auto',
     marginBottom: 20,
+    
     borderWidth: 1,
-    borderColor: colors.primary,
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
-    paddingHorizontal: 20, // Equal padding on both sides
   },
-  footerText: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: colors.primary,
-  },
+  footerText: { fontSize: 14, fontFamily: typography.fontMedium },
   resendButton: {
-    paddingHorizontal: 20,  // Match the padding with the "Try Another Way" button
-    paddingVertical: 14,    // Match the padding with the "Try Another Way" button
+    paddingHorizontal: 20,
+    paddingVertical: 14,
     borderWidth: 1,
-    borderColor: colors.primary,
     borderRadius: 12,
     alignItems: 'center',
-    width: '100%',          // Ensure it's full width
-    marginBottom: 20,       // Space from the next element
+    width: '100%',
+    marginBottom: 20,
   },
 });
 

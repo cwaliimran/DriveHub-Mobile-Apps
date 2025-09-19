@@ -12,65 +12,59 @@ import AppHeader from '../../../components/common/AppHeader';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import VerifyAlternativeModal from '../../../components/common/VerifyAlternativeModal';
 import typography from '../../../theme/typography';
-import colors from '../../../theme/colors';
 import { Icons } from '../../../assets/assets';
+import useTheme from '../../../hooks/useTheme';
 
 const LinkUberPasswordScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const theme = useTheme();
 
-  // Mock user name
   const userName = 'John';
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <AppHeader title={t('linkUber.title')} />
 
-      {/* Welcome text */}
-      <Text style={styles.welcome}>
-        {t('linkUberPassword.welcome')} <Text style={styles.bold}>{userName}</Text>
+      <Text style={[styles.welcome, { color: theme.textSecondary }]}>
+        {t('linkUberPassword.welcome')} <Text style={[styles.bold, { color: theme.text }]}>{userName}</Text>
       </Text>
 
-      {/* Password Label */}
-      <Text style={styles.inputLabel}>{t('linkUberPassword.password')}</Text>
+      <Text style={[styles.inputLabel, { color: theme.text }]}>{t('linkUberPassword.password')}</Text>
 
-      {/* Password Input */}
-      <View style={styles.inputContainer}>
-        <Image source={Icons.lock} style={styles.icon} />
+      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+        <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
         <TextInput
-          style={styles.input}
+          style={[styles.input, { color: theme.text }]}
           placeholder={t('linkUberPassword.password')}
-          placeholderTextColor="#999"
+          placeholderTextColor={theme.textSecondary}
           secureTextEntry={!showPassword}
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
           <Image
             source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
-            style={styles.eyeIcon}
+            style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
           />
         </TouchableOpacity>
       </View>
 
-      {/* Continue Button */}
       <View style={styles.primaryButtonWrapper}>
         <PrimaryButton
-  title={t('linkUberPassword.continue')}
-  onPress={() => navigation.replace('SetupAccessibility')}
+          title={t('linkUberPassword.continue')}
+          onPress={() => navigation.replace('SetupAccessibility')}
         />
       </View>
 
       {/* Try Another Way */}
-      <TouchableOpacity style={styles.footerAlt} onPress={() => setModalVisible(true)}>
-        <Text style={styles.footerText}>{t('verifyUber.tryAnother')}</Text>
+      <TouchableOpacity style={[styles.footerAlt, { borderColor: theme.primary }]} onPress={() => setModalVisible(true)}>
+        <Text style={[styles.footerText, { color: theme.primary }]}>{t('verifyUber.tryAnother')}</Text>
       </TouchableOpacity>
 
-      {/* Modal with all 3 options */}
       <VerifyAlternativeModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
-        destination="you****@gmail.com" // pass email so modal shows all 3
+        destination="you****@gmail.com"
         navigation={navigation}
       />
     </View>
@@ -78,73 +72,33 @@ const LinkUberPasswordScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-container: {
-  flex: 1,
-  backgroundColor: '#fff',
-  paddingHorizontal: 15, // 👈 match AppHeader padding
-},
-  welcome: {
-    fontSize: 14,
-    fontFamily: typography.fontRegular,
-    color: colors.secondary,
-    marginVertical: 15,
-  },
-  bold: {
-    fontFamily: typography.fontBold,
-    color: colors.textLight,
-  },
-  inputLabel: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: colors.textLight,
-    marginBottom: 8,
-  },
+  container: { flex: 1, paddingHorizontal: 15 },
+  welcome: { fontSize: 14, fontFamily: typography.fontRegular, marginVertical: 15 },
+  bold: { fontFamily: typography.fontBold },
+  inputLabel: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 8 },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 4,
     marginBottom: 20,
   },
-  icon: {
-    width: 22,
-    height: 22,
-    tintColor: '#888',
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    fontSize: 13,
-    fontFamily: typography.fontRegular,
-    color: colors.secondary,
-  },
-  eyeIcon: {
-    width: 22,
-    height: 22,
-    tintColor: '#888',
-  },
-  primaryButtonWrapper: {
-    width: '105%',
-    alignSelf: 'center',
-  },
+  icon: { width: 22, height: 22, marginRight: 8 },
+  input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
+  eyeIcon: { width: 22, height: 22 },
+  primaryButtonWrapper: { width: '110%', alignSelf: 'center' },
   footerAlt: {
     marginTop: 'auto',
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: colors.primary,
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
     paddingHorizontal: 20,
   },
-  footerText: {
-    fontSize: 14,
-    fontFamily: typography.fontMedium,
-    color: colors.primary,
-  },
+  footerText: { fontSize: 14, fontFamily: typography.fontMedium },
 });
 
 export default LinkUberPasswordScreen;

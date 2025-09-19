@@ -2,16 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Icons } from '../../assets/assets';
 import typography from '../../theme/typography';
-import colors from '../../theme/colors';
+import useTheme from '../../hooks/useTheme';
 
 const AppHeader = ({ title, onBack }) => {
+  const theme = useTheme();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { borderColor: theme.border }]}>
       <TouchableOpacity onPress={onBack} style={styles.backButton}>
-        <Image source={Icons.back} style={styles.backIcon} />
+        <Image source={Icons.back} style={[styles.backIcon, { tintColor: theme.text }]} />
       </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
-      <View style={{ width: 40 }} /> {/* spacer */}
+      <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
+      <View style={{ width: 40 }} />
     </View>
   );
 };
@@ -20,10 +22,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 15,
-    // paddingVertical: 12,
-    // borderBottomWidth: 1,
-    borderColor: '#eee',
+    marginTop: 25,
+    paddingHorizontal: 17,
     justifyContent: 'space-between',
   },
   backButton: {
@@ -33,12 +33,10 @@ const styles = StyleSheet.create({
   backIcon: {
     width: 40,
     height: 40,
-    tintColor: colors.textLight,
   },
   title: {
     fontSize: 17,
     fontFamily: typography.fontSemiBold,
-    color: colors.textLight,
   },
 });
 

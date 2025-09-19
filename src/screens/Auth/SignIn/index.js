@@ -9,89 +9,101 @@ import {
 } from 'react-native';
 import { Images, Icons } from '../../../assets/assets';
 import typography from '../../../theme/typography';
-import colors from '../../../theme/colors';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
 
 const SignInScreen = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Logo */}
-      <Image source={Images.logo} style={styles.logo} resizeMode="contain" />
+      <Image
+        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
 
       {/* Heading */}
-      <Text style={styles.title}>{t('signin.title')}</Text>
-      
-      <Text style={styles.subtitle}>{t('signin.subtitle')}</Text>
-<Text style={styles.inputLabel}>{t('signin.email')}</Text>
+      <Text style={[styles.title, { color: theme.text }]}>{t('signin.title')}</Text>
+      <Text style={[styles.subtitle, { color: theme.subheading }]}>
+        {t('signin.subtitle')}
+      </Text>
+
+      <Text style={[styles.inputLabel, { color: theme.text }]}>{t('signin.email')}</Text>
       {/* Email */}
-      <View style={styles.inputContainer}>
-        <Image source={Icons.mail} style={styles.icon} />
+      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+        <Image source={Icons.mail} style={[styles.icon, { tintColor: theme.textSecondary }]} />
         <TextInput
-          style={styles.input}
-          placeholder={t('signin.email')}
-          placeholderTextColor="#999"
+          style={[styles.input, { color: theme.text }]}
+          placeholder="johndoe@gmail.com"
+          placeholderTextColor={theme.textSecondary}
           keyboardType="email-address"
         />
       </View>
-<Text style={styles.inputLabel}>{t('signin.password')}</Text>
+
+      <Text style={[styles.inputLabel, { color: theme.text }]}>{t('signin.password')}</Text>
       {/* Password */}
-      <View style={styles.inputContainer}>
-        <Image source={Icons.lock} style={styles.icon} />
+      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+        <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
         <TextInput
-          style={styles.input}
-          placeholder={t('signin.password')}
-          placeholderTextColor="#999"
+          style={[styles.input, { color: theme.text }]}
+          placeholder="******"
+          placeholderTextColor={theme.textSecondary}
           secureTextEntry={!showPassword}
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
           <Image
             source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
-            style={styles.eyeIcon}
+            style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
           />
         </TouchableOpacity>
       </View>
 
       {/* Forgot Password */}
       <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-        <Text style={styles.forgot}>{t('signin.forgot')}</Text>
+        <Text style={[styles.forgot, { color: theme.primary }]}>{t('signin.forgot')}</Text>
       </TouchableOpacity>
-{/* Sign In Button */}
-<View style={styles.primaryButtonWrapper}>
-  <PrimaryButton
-    title={t('signin.signinBtn')}
-    onPress={() => navigation.replace('Home')}
-  />
-</View>
 
+      {/* Sign In Button */}
+      <View style={styles.primaryButtonWrapper}>
+        <PrimaryButton
+          title={t('signin.signinBtn')}
+          onPress={() => navigation.replace('Home')}
+        />
+      </View>
 
       {/* Divider */}
       <View style={styles.dividerContainer}>
-        <View style={styles.divider} />
-        <Text style={styles.dividerText}>{t('signin.or')}</Text>
-        <View style={styles.divider} />
+        <View style={[styles.divider, { backgroundColor: theme.border }]} />
+        <Text style={[styles.dividerText, { color: theme.textSecondary }]}>
+          {t('signin.or')}
+        </Text>
+        <View style={[styles.divider, { backgroundColor: theme.border }]} />
       </View>
 
       {/* Social Buttons */}
       <View style={styles.socialContainer}>
-        <TouchableOpacity style={styles.socialButton}>
+        <TouchableOpacity style={[styles.socialButton, { borderColor: theme.border }]}>
           <Image source={Icons.google} style={styles.socialIcon} />
-          <Text style={styles.socialText}>{t('signin.google')}</Text>
+          <Text style={[styles.socialText, { color: theme.text }]}>{t('signin.google')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.socialButton}>
+        <TouchableOpacity style={[styles.socialButton, { borderColor: theme.border }]}>
           <Image source={Icons.apple} style={styles.socialIcon} />
-          <Text style={styles.socialText}>{t('signin.apple')}</Text>
+          <Text style={[styles.socialText, { color: theme.text }]}>{t('signin.apple')}</Text>
         </TouchableOpacity>
       </View>
 
       {/* Footer */}
       <View style={styles.footer}>
-        <Text style={styles.footerText}>{t('signin.noAccount')} </Text>
+        <Text style={[styles.footerText, { color: theme.textSecondary }]}>
+          {t('signin.noAccount')}{' '}
+        </Text>
         <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-          <Text style={styles.footerLink}>{t('signin.create')}</Text>
+          <Text style={[styles.footerLink, { color: theme.primary }]}>{t('signin.create')}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -101,24 +113,8 @@ const SignInScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     paddingHorizontal: 20,
   },
-  inputLabel: {
-  fontSize: 14,
-  fontFamily: typography.fontMedium,
-  color: colors.textLight,
-  marginBottom: 8,
-//   marginTop: 2,
-},
-
-primaryButtonWrapper: {
-  width: '110%',       // match input box width
-//   marginTop: 20,
-  alignSelf: 'center', // center horizontally inside container
-},
-
-
   logo: {
     width: 179,
     height: 64,
@@ -129,48 +125,48 @@ primaryButtonWrapper: {
   title: {
     fontSize: 25,
     fontFamily: typography.fontBold,
-    color: colors.textLight,
   },
   subtitle: {
     fontSize: 14,
     fontFamily: typography.fontRegular,
-    color: '#666',
     marginBottom: 20,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 8,
+  },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 3, // ⬅️ Extra padding makes the box taller
+    paddingVertical: 3,
     marginBottom: 8,
   },
-
   icon: {
     width: 24,
     height: 24,
-    tintColor: '#888',
     marginRight: 10,
   },
   input: {
     flex: 1,
     fontSize: 13,
     fontFamily: typography.fontRegular,
-    color: colors.secondary,
   },
   eyeIcon: {
     width: 24,
     height: 24,
-    tintColor: '#888',
   },
   forgot: {
     fontSize: 12,
     fontFamily: typography.fontMedium,
-    color: colors.primary,
     textAlign: 'right',
-    // marginBottom: 5,
   },
   dividerContainer: {
     flexDirection: 'row',
@@ -180,35 +176,29 @@ primaryButtonWrapper: {
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: '#ddd',
   },
   dividerText: {
     marginHorizontal: 10,
     fontSize: 13,
     fontFamily: typography.fontMedium,
-    color: '#666',
   },
-// Replace your existing socialButton style with this:
-socialButton: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'center', // Center the content
-  borderWidth: 1,
-  borderColor: '#ddd',
-  borderRadius: 10,
-  paddingVertical: 10,
-  paddingHorizontal: 20,
-  width: 103,  // Fixed width
-  height: 44,  // Fixed height
-  marginHorizontal: 5,
-},
-
-// You might also want to update the socialContainer to center the buttons:
-socialContainer: {
-  flexDirection: 'row',
-  justifyContent: 'center', // Center the buttons instead of space-between
-  marginBottom: 20,
-},
+  socialButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    width: 103,
+    height: 44,
+    marginHorizontal: 5,
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
   socialIcon: {
     width: 20,
     height: 20,
@@ -217,7 +207,6 @@ socialContainer: {
   socialText: {
     fontSize: 12,
     fontFamily: typography.fontMedium,
-    color: colors.secondary,
   },
   footer: {
     flexDirection: 'row',
@@ -228,12 +217,10 @@ socialContainer: {
   footerText: {
     fontSize: 13,
     fontFamily: typography.fontRegular,
-    color: '#666',
   },
   footerLink: {
     fontSize: 13,
     fontFamily: typography.fontBold,
-    color: colors.primary,
   },
 });
 

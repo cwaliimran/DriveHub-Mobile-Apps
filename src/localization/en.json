@@ -92,19 +92,21 @@
     "successTitle": "Password Reset",
     "successDesc": "Your password has been reset successfully",
     "continue": "Continue"
-},
- "linkUber": {
-    "title": "Link Uber",
-    "subtitle": "Kick off your journey with Uber Driver",
-    "inputLabel": "Mobile Number or Email Address",
-    "placeholder": "Enter phone number or email",
-    "continue": "Continue",
-    "or": "Or Continue With",
-    "google": "Google",
-    "apple": "Apple",
-    "switchToPhone": "Continue With Phone Number",
-    "switchToEmail": "Continue With Email Address"
-  },
+},"linkUber": {
+  "title": "Link Uber",
+  "subtitle": "Kick off your journey with Uber Driver",
+  "inputLabel": "Mobile Number or Email Address",
+  "placeholder": "Enter phone number or email",
+  "continue": "Continue",
+  "or": "Or Continue With",
+  "google": "Google",
+  "apple": "Apple",
+  "switchToPhonePrefix": "Continue With",
+  "switchToPhoneSuffix": "Phone Number",
+  "switchToEmailPrefix": "Continue With",
+  "switchToEmailSuffix": "Email Address"
+}
+,
   "verifyUber": {
     "subtitle": "Enter the OTP sent via SMS at",
     "enterCode": "Enter Code",

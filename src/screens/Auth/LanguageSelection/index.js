@@ -8,8 +8,11 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../../../localization/i18n';
 import { useTranslation } from 'react-i18next';
+import { useColorScheme } from 'react-native';
 
 const LanguageSelectionScreen = ({ navigation }) => {
+  const scheme = useColorScheme();
+
     const { t } = useTranslation();
     
   const [selected, setSelected] = useState(null);
@@ -21,12 +24,18 @@ const LanguageSelectionScreen = ({ navigation }) => {
 
 return (
   <ImageBackground
-    source={Images.backgroundEffect}
-    style={styles.background}
-    imageStyle={{ marginTop: 70 }}
-  >
+  source={Images.backgroundEffect}
+  style={styles.background(scheme)}
+  imageStyle={{ marginTop: 70 ,marginBottom:150}}
+>
+
     <View style={styles.container}>
-      <Image source={Images.logo} style={styles.logo} resizeMode="contain" />
+     <Image
+  source={scheme === 'dark' ? Images.logoDark : Images.logoLight}
+  style={styles.logo}
+  resizeMode="contain"
+/>
+
 
       <Text style={styles.title}>
         <Text style={styles.titleGray}>App </Text>
@@ -66,10 +75,11 @@ return (
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+ background: (scheme) => ({
+  flex: 1,
+  backgroundColor: scheme === 'dark' ? '#000' : '#fff',
+}),
+
   bottomButton: {
   position: 'absolute',
   bottom: 40, // adjust spacing from bottom

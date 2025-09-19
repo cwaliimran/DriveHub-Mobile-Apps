@@ -101,9 +101,12 @@
   "or": "O continúa con",
   "google": "Google",
   "apple": "Apple",
-  "switchToPhone": "Continuar con número de teléfono",
-  "switchToEmail": "Continuar con dirección de correo"
-},
+  "switchToPhonePrefix": "Continuar con",
+  "switchToPhoneSuffix": "número de teléfono",
+  "switchToEmailPrefix": "Continuar con",
+  "switchToEmailSuffix": "dirección de correo"
+}
+,
 "verifyUber": {
   "subtitle": "Introduce el código enviado por SMS a",
   "enterCode": "Introducir código",

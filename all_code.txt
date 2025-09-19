@@ -1,0 +1,3039 @@
+
+// ==== src/assets/assets.js ====
+export const Images = {
+    logoLight: require('./images/logo-light.png'), // for light theme
+  logoDark: require('./images/logo-dark.png'),   // for dark theme
+  backgroundEffect: require('./images/background-effect.png'),
+  onboarding1: require('./images/onboarding-1.png'),
+  onboarding2: require('./images/onboarding-2.png'),
+  onboarding3: require('./images/onboarding-3.png'),
+  accountCreated: require('./images/account-created.png'),
+  lyft: require('./images/lyft.png'),
+  uber: require('./images/uber.png'),
+  doorDash: require('./images/door-dash.png'),
+  forgotModal: require('./images/forgot-modal.png'),
+  uberOnboarding: require('./images/uber-onboarding.png'),
+  setupPicture: require('./images/setup-picture.png'),
+  accessibility: require('./images/accessibility.png'),
+};
+
+export const Icons = {
+  check: require('./icons/check.png'),
+  uncheck: require('./icons/uncheck.png'),
+  flagUK: require('./icons/flags/uk.png'),
+  flagSpain: require('./icons/flags/spain.png'),
+  flagTurkey: require('./icons/flags/turkey.png'),
+  arrow: require('./icons/arrow.png'),
+  mail: require('./icons/mail.png'),
+  lock: require('./icons/lock.png'),
+  eyeOpen: require('./icons/eye-open.png'),
+  eyeClose: require('./icons/eye-close.png'),
+  google: require('./icons/google.png'),
+  apple: require('./icons/apple.png'),
+  back: require('./icons/header-back.png'),
+  person: require('./icons/person.png'),
+  phone: require('./icons/phone.png'),
+  vehicle: require('./icons/vehicle.png'),
+  calendar: require('./icons/calendar.png'),
+  lock: require('./icons/lock.png'),
+  camera: require('./icons/camera.png'),
+  bottomMail: require('./icons/bottom-mail.png'),
+  bottomPassword: require('./icons/bottom-password.png'),
+  bottomPhone: require('./icons/bottom-phone.png'),
+};
+export const Fonts = {
+  regular: 'Lexend-Regular',
+  medium: 'Lexend-Medium',
+  semibold: 'Lexend-SemiBold',
+  bold: 'Lexend-Bold',
+};
+
+// ==== src/components/common/AppHeader.js ====
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Icons } from '../../assets/assets';
+import typography from '../../theme/typography';
+import useTheme from '../../hooks/useTheme';
+
+const AppHeader = ({ title, onBack }) => {
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { borderColor: theme.border }]}>
+      <TouchableOpacity onPress={onBack} style={styles.backButton}>
+        <Image source={Icons.back} style={[styles.backIcon, { tintColor: theme.text }]} />
+      </TouchableOpacity>
+      <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
+      <View style={{ width: 40 }} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+    paddingHorizontal: 17,
+    justifyContent: 'space-between',
+  },
+  backButton: {
+    width: 40,
+    alignItems: 'flex-start',
+  },
+  backIcon: {
+    width: 40,
+    height: 40,
+  },
+  title: {
+    fontSize: 17,
+    fontFamily: typography.fontSemiBold,
+  },
+});
+
+export default AppHeader;
+
+// ==== src/components/common/ConfirmationModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Modal,
+  TouchableOpacity,
+} from 'react-native';
+import { Images } from '../../assets/assets';
+import typography from '../../theme/typography';
+import useTheme from '../../hooks/useTheme';
+import { useTranslation } from 'react-i18next';
+
+const ConfirmationModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <Modal
+      transparent
+      animationType="fade"
+      visible={visible}
+      onRequestClose={onClose}
+      statusBarTranslucent={true}
+    >
+      <View style={styles.overlay}>
+        <View style={[styles.container, { backgroundColor: theme.background }]}>
+          {/* Icon */}
+          <Image
+            source={Images.accountCreated}
+            style={styles.image}
+            resizeMode="contain"
+          />
+
+          {/* Title */}
+          <Text style={[styles.title, { color: theme.text }]}>
+            {t('confirmation.accountCreatedTitle')}
+          </Text>
+
+          {/* Description */}
+          <Text style={[styles.description, { color: theme.textSecondary }]}>
+            {t('confirmation.accountCreatedDesc')}
+          </Text>
+
+          {/* Button */}
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.primary }]}
+            onPress={onClose}
+          >
+            <Text style={styles.buttonText}>{t('confirmation.continue')}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    width: '80%',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  image: {
+    width: 147,
+    height: 120,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+});
+
+export default ConfirmationModal;
+
+// ==== src/components/common/LanguageOption.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  useColorScheme,
+} from 'react-native';
+import typography from '../../theme/typography';
+import colors from '../../theme/colors';
+import { Icons } from '../../assets/assets';
+
+const LanguageOption = ({ flag, label, selected, onPress }) => {
+  const scheme = useColorScheme();
+  const isDark = scheme === 'dark';
+
+  return (
+    <TouchableOpacity
+      style={[
+        styles.container,
+        {
+          borderColor: isDark ? colors.borderDark : colors.borderLight,
+          backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight,
+        },
+        selected && {
+          backgroundColor: colors.primary,
+          borderColor: colors.primary,
+        },
+      ]}
+      onPress={onPress}
+      activeOpacity={0.8}
+    >
+      <View style={styles.row}>
+        <Image source={flag} style={styles.flag} resizeMode="contain" />
+        <Text
+          style={[
+            styles.label,
+            { color: isDark ? colors.textDark : colors.textLight },
+            selected && styles.selectedLabel,
+          ]}
+        >
+          {label}
+        </Text>
+      </View>
+      <Image
+        source={selected ? Icons.uncheck : Icons.check}
+        style={[
+          styles.checkIcon,
+          { tintColor: selected ? '#fff' : isDark ? colors.textDark : colors.secondary },
+        ]}
+        resizeMode="contain"
+      />
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignSelf: 'stretch',
+    marginHorizontal: 20,
+    marginBottom: 12,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  flag: {
+    width: 24,
+    height: 24,
+    marginRight: 12,
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+  },
+  selectedLabel: {
+    color: '#fff',
+  },
+  checkIcon: {
+    width: 24,
+    height: 24,
+  },
+});
+
+export default LanguageOption;
+
+// ==== src/components/common/OTPInput.js ====
+import React, { useRef, useState } from 'react';
+import { View, TextInput, StyleSheet, Dimensions } from 'react-native';
+import colors from '../../theme/colors';
+import typography from '../../theme/typography';
+
+const { width } = Dimensions.get('window');
+
+const OTPInput = ({ code, setCode, length = 6, hideDelay = 2 }) => {
+  const inputs = useRef([]);
+  const [hiddenIndexes, setHiddenIndexes] = useState([]);
+
+  const handleChange = (text, index) => {
+    // ✅ sanitize: only numeric
+    const digit = text.replace(/[^0-9]/g, '');
+
+    const newCode = code.split('');
+    newCode[index] = digit;
+    setCode(newCode.join(''));
+
+    if (digit && index < length - 1) {
+      inputs.current[index + 1].focus();
+    }
+
+    if (digit) {
+      setTimeout(() => {
+        setHiddenIndexes((prev) => [...prev, index]);
+      }, hideDelay * 1000);
+    } else {
+      setHiddenIndexes((prev) => prev.filter((i) => i !== index));
+    }
+  };
+
+  const handleKeyPress = (e, index) => {
+    if (e.nativeEvent.key === 'Backspace' && !code[index] && index > 0) {
+      inputs.current[index - 1].focus();
+
+      const newCode = code.split('');
+      newCode[index - 1] = '';
+      setCode(newCode.join(''));
+      setHiddenIndexes((prev) => prev.filter((i) => i !== index - 1));
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      {Array(length)
+        .fill(0)
+        .map((_, i) => (
+          <TextInput
+            key={i}
+            ref={(el) => (inputs.current[i] = el)}
+            style={styles.input}
+            keyboardType="number-pad"
+            maxLength={1}
+            secureTextEntry={hiddenIndexes.includes(i)}
+            value={code[i] || ''}
+            onChangeText={(text) => handleChange(text, i)}
+            onKeyPress={(e) => handleKeyPress(e, i)}
+          />
+        ))}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 10,
+  },
+  input: {
+    width: width / 8,
+    height: width / 8,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    textAlign: 'center',
+    fontSize: 18,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+  },
+});
+
+export default OTPInput;
+
+// ==== src/components/common/OnboardingFooter.js ====
+import React from 'react';
+import { View, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import colors from '../../theme/colors';
+import { Icons } from '../../assets/assets';
+
+const OnboardingFooter = ({ total, current, onNext }) => {
+  return (
+    <View style={styles.container}>
+      {/* Progress dots */}
+      <View style={styles.dotsRow}>
+        {Array.from({ length: total }).map((_, idx) => (
+          <View
+            key={idx}
+            style={[styles.dot, idx === current ? styles.dotActive : styles.dotInactive]}
+          />
+        ))}
+      </View>
+
+      {/* Next button */}
+      <TouchableOpacity style={styles.nextButton} onPress={onNext}>
+        <Image source={Icons.arrow} style={styles.arrow} resizeMode="contain" />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 20,
+    marginBottom: 40,
+  },
+  dotsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+dot: {
+  width: 6,
+  height: 16,
+  borderRadius: 3,
+  marginHorizontal: 4,
+},
+dotActive: {
+  backgroundColor: colors.primary,
+  height: 28,   // taller for active
+},
+dotInactive: {
+  backgroundColor: '#ddd',
+},
+nextButton: {
+  width: 48,
+  height: 48,
+  backgroundColor: colors.primary,
+  justifyContent: 'center',
+  alignItems: 'center',
+  transform: [{ rotate: '45deg' }], // rotate square → diamond
+  borderRadius: 12, // keeps edges a bit rounded
+},
+arrow: {
+  width: 28,
+  height: 28,
+  tintColor: '#fff',
+  transform: [{ rotate: '-45deg' }], // rotate back the arrow so it looks normal
+},
+});
+
+export default OnboardingFooter;
+
+// ==== src/components/common/PasswordUpdatedModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Modal,
+  TouchableOpacity,
+} from 'react-native';
+import { Images } from '../../assets/assets';
+import typography from '../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../hooks/useTheme';
+
+const PasswordUpdatedModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <Modal
+      transparent
+      animationType="fade"
+      visible={visible}
+      onRequestClose={onClose}
+      statusBarTranslucent={true}
+    >
+      <View style={styles.overlay}>
+        <View style={[styles.container, { backgroundColor: theme.background }]}>
+          {/* Icon */}
+          <Image
+            source={Images.forgotModal}
+            style={styles.image}
+            resizeMode="contain"
+          />
+
+          {/* Title */}
+          <Text style={[styles.title, { color: theme.text }]}>
+            {t('passwordUpdated.title')}
+          </Text>
+
+          {/* Description */}
+          <Text style={[styles.description, { color: theme.textSecondary }]}>
+            {t('passwordUpdated.description')}
+          </Text>
+
+          {/* Button */}
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.primary }]}
+            onPress={onClose}
+          >
+            <Text style={styles.buttonText}>{t('passwordUpdated.button')}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    width: '80%',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  image: {
+    width: 147,
+    height: 120,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+});
+
+export default PasswordUpdatedModal;
+
+// ==== src/components/common/PlatformCard.js ====
+import React from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import typography from '../../theme/typography';
+import { Icons } from '../../assets/assets';
+import useTheme from '../../hooks/useTheme';
+
+const PlatformCard = ({ title, image, selected, onPress }) => {
+  const theme = useTheme();
+
+  return (
+    <TouchableOpacity
+      style={[
+        styles.card,
+        { backgroundColor: theme.card, borderColor: theme.border },
+        selected && {
+          borderColor: theme.primary,
+          shadowColor: theme.primary,
+          shadowOpacity: 0.25,
+          shadowOffset: { width: 0, height: 2 },
+          shadowRadius: 6,
+          elevation: 3,
+        },
+      ]}
+      onPress={onPress}
+      activeOpacity={0.8}
+    >
+      <View style={[styles.leftIndicator, { backgroundColor: theme.primary }]} />
+      <View style={styles.content}>
+        <View style={styles.left}>
+          <View
+            style={[
+              styles.logoContainer,
+              { backgroundColor: theme.background },
+            ]}
+          >
+            <Image source={image} style={styles.icon} />
+          </View>
+          <Text style={[styles.text, { color: theme.text }]}>{title}</Text>
+        </View>
+        <Image
+          source={selected ? Icons.uncheck : Icons.check}
+          style={[
+            styles.checkIcon,
+            { tintColor: selected ? theme.primary : theme.textSecondary },
+          ]}
+        />
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  card: {
+    flexDirection: 'row',
+    borderRadius: 12,
+    borderWidth: 1,
+    marginBottom: 10,
+    overflow: 'hidden',
+  },
+  leftIndicator: {
+    width: 6,
+    borderTopLeftRadius: 12,
+    borderBottomLeftRadius: 12,
+  },
+  content: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+  },
+  left: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logoContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  icon: {
+    width: 36,
+    height: 36,
+    borderRadius: 6,
+  },
+  text: {
+    fontSize: 16,
+    fontFamily: typography.fontMedium,
+  },
+  checkIcon: {
+    width: 22,
+    height: 22,
+  },
+});
+
+export default PlatformCard;
+
+// ==== src/components/common/PrimaryButton.js ====
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import colors from '../../theme/colors';
+import typography from '../../theme/typography';
+
+const PrimaryButton = ({ title, onPress, disabled }) => (
+  <TouchableOpacity
+    style={[styles.button, disabled && styles.disabled]}
+    onPress={onPress}
+    disabled={disabled}
+  >
+    <Text style={styles.text}>{title}</Text>
+  </TouchableOpacity>
+);
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+    height: 50,
+
+    // 👇 Same as LanguageOption box
+    alignSelf: 'stretch',
+    marginHorizontal: 20,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  disabled: {
+    backgroundColor: colors.secondary,
+  },
+  text: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+});
+
+
+export default PrimaryButton;
+
+// ==== src/components/common/ResendButton.js ====
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import colors from '../../theme/colors';
+import typography from '../../theme/typography';
+
+const ResendButton = ({ title, onPress }) => {
+  return (
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+  text: {
+    fontSize: 13,
+    fontFamily: typography.fontMedium,
+    color: colors.primary,
+  },
+});
+
+export default ResendButton;
+
+// ==== src/components/common/UberOTPInput.js ====
+import React, { useRef, useState } from 'react';
+import { View, TextInput, StyleSheet, Dimensions } from 'react-native';
+import colors from '../../theme/colors';
+import typography from '../../theme/typography';
+
+const { width } = Dimensions.get('window');
+
+const UberOTPInput = ({ code, setCode, length = 4, hideDelay = 2 }) => {
+  const inputs = useRef([]);
+  const [hiddenIndexes, setHiddenIndexes] = useState([]);
+
+  const handleChange = (text, index) => {
+    const digit = text.replace(/[^0-9]/g, ''); // numeric only
+    const newCode = code.split('');
+    newCode[index] = digit;
+    setCode(newCode.join(''));
+
+    if (digit && index < length - 1) {
+      inputs.current[index + 1].focus();
+    }
+
+    if (digit) {
+      setTimeout(() => {
+        setHiddenIndexes((prev) => [...prev, index]);
+      }, hideDelay * 1000);
+    } else {
+      setHiddenIndexes((prev) => prev.filter((i) => i !== index));
+    }
+  };
+
+  const handleKeyPress = (e, index) => {
+    if (e.nativeEvent.key === 'Backspace' && !code[index] && index > 0) {
+      inputs.current[index - 1].focus();
+      const newCode = code.split('');
+      newCode[index - 1] = '';
+      setCode(newCode.join(''));
+      setHiddenIndexes((prev) => prev.filter((i) => i !== index - 1));
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      {Array(length)
+        .fill(0)
+        .map((_, i) => (
+          <TextInput
+            key={i}
+            ref={(el) => (inputs.current[i] = el)}
+            style={styles.input}
+            keyboardType="number-pad"
+            maxLength={1}
+            secureTextEntry={hiddenIndexes.includes(i)}
+            value={code[i] || ''}
+            onChangeText={(text) => handleChange(text, i)}
+            onKeyPress={(e) => handleKeyPress(e, i)}
+          />
+        ))}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'center',   // center group
+    marginVertical: 15,
+  },
+  input: {
+    width: 50,                  // fixed box size
+    height: 50,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 12,
+    textAlign: 'center',
+    fontSize: 20,
+    fontFamily: typography.fontMedium,
+    color: colors.secondary,
+    marginHorizontal: 10,        // space between boxes
+  },
+});
+
+export default UberOTPInput;
+
+// ==== src/components/common/VerifyAlternativeModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import typography from '../../theme/typography';
+import { Icons } from '../../assets/assets'; 
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../hooks/useTheme';
+
+const VerifyAlternativeModal = ({ visible, onClose, destination, navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const isEmail = destination.includes('@');
+
+  const options = isEmail
+    ? [
+        { key: 'email', label: t('verifyUber.alt.email'), icon: Icons.bottomMail, color: '#007BFF' },
+        { key: 'password', label: t('verifyUber.alt.password'), icon: Icons.bottomPassword, color: '#0097A7' },
+        { key: 'phone', label: t('verifyUber.alt.changePhone'), icon: Icons.bottomPhone, color: '#B8860B' },
+      ]
+    : [
+        { key: 'password', label: t('verifyUber.alt.password'), icon: Icons.bottomPassword, color: '#0097A7' },
+        { key: 'phone', label: t('verifyUber.alt.changePhone'), icon: Icons.bottomPhone, color: '#B8860B' },
+      ];
+
+  const handleSelect = (key) => {
+    if (key === 'email' || key === 'phone') {
+      navigation.navigate('LinkUber');
+    } else if (key === 'password') {
+      console.log('Handle password verification flow here');
+    }
+    onClose();
+  };
+
+  return (
+    <Modal transparent animationType="slide" visible={visible} onRequestClose={onClose} statusBarTranslucent>
+      <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={onClose}>
+        <TouchableOpacity style={[styles.container, { backgroundColor: theme.background }]} activeOpacity={1}>
+          <Text style={[styles.title, { color: theme.text }]}>{t('verifyUber.alt.title')}</Text>
+
+          {options.map((opt) => (
+            <TouchableOpacity
+              key={opt.key}
+              style={[styles.option, { backgroundColor: opt.color }]}
+              onPress={() => handleSelect(opt.key)}
+            >
+              <Image source={opt.icon} style={styles.icon} resizeMode="contain" />
+              <Text style={styles.optionText}>{opt.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </TouchableOpacity>
+      </TouchableOpacity>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.5)' },
+  container: { borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20 },
+  title: { fontSize: 16, fontFamily: typography.fontBold, marginBottom: 15 },
+  option: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 14,
+    borderRadius: 12,
+    marginBottom: 12,
+    paddingHorizontal: 15,
+  },
+  icon: { width: 20, height: 20, tintColor: '#fff', marginRight: 10 },
+  optionText: { fontSize: 14, fontFamily: typography.fontMedium, color: '#fff' },
+});
+
+export default VerifyAlternativeModal;
+
+// ==== src/config/appConfig.js ====
+
+// ==== src/hooks/useTheme.js ====
+import { useColorScheme } from 'react-native';
+import lightTheme from '../theme/lightTheme';
+import darkTheme from '../theme/darkTheme';
+
+export default function useTheme() {
+  const scheme = useColorScheme(); // returns 'light' | 'dark'
+  return scheme === 'dark' ? darkTheme : lightTheme;
+}
+
+// ==== src/index.js ====
+
+// ==== src/localization/i18n.js ====
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import en from './en.json';
+import es from './es.json';
+import tr from './tr.json';
+
+const resources = {
+  en: { translation: en },
+  es: { translation: es },
+  tr: { translation: tr },
+};
+
+const DEFAULT_LANGUAGE = 'en';
+
+// Initialize synchronously with default
+i18n.use(initReactI18next).init({
+  compatibilityJSON: 'v3',
+  resources,
+  lng: DEFAULT_LANGUAGE,
+  fallbackLng: DEFAULT_LANGUAGE,
+  interpolation: { escapeValue: false },
+});
+
+// Later, load saved language
+AsyncStorage.getItem('appLanguage').then((lang) => {
+  if (lang) {
+    i18n.changeLanguage(lang);
+  }
+});
+
+export default i18n;
+
+// ==== src/localization/index.js ====
+
+// ==== src/navigation/AppNavigator.js ====
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SplashScreen from '../screens/Splash';
+import LanguageSelectionScreen from '../screens/Auth/LanguageSelection';
+import typography from '../theme/typography';
+import OnboardingScreen from '../screens/Auth/Onboarding';
+import SignInScreen from '../screens/Auth/SignIn';
+import SignUpScreen from '../screens/Auth/SignUp';
+import VerifyOTPScreen from '../screens/Auth/VerifyOTP';
+import ForgotVerifyOTPScreen from '../screens/Auth/ForgotVerifyOTP';
+import ResetPasswordScreen from '../screens/Auth/ResetPassword';
+import PlatformSelectionScreen from '../screens/Auth/PlatformSelection';
+import ForgotPasswordScreen from '../screens/Auth/ForgotPassword';
+import LinkUberScreen from '../screens/Auth/LinkUberScreen';
+import VerifyUberOTPScreen from '../screens/Uber/VerifyUberOTP';
+import LinkUberPasswordScreen from '../screens/Uber/Auth/LinkUberPasswordScreen';
+import SetupAccessibilityScreen from '../screens/Auth/Common/SetupAccessibilityScreen';
+
+const Stack = createNativeStackNavigator();
+
+const AppNavigator = () => (
+  <Stack.Navigator
+    initialRouteName="Splash"
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <Stack.Screen name="Splash" component={SplashScreen} />
+    <Stack.Screen name="LanguageSelection" component={LanguageSelectionScreen} />
+    <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+    <Stack.Screen name="SignIn" component={SignInScreen} />
+    <Stack.Screen name="SignUp" component={SignUpScreen} />
+    <Stack.Screen name="VerifyOTP" component={VerifyOTPScreen} />
+    <Stack.Screen name="PlatformSelection" component={PlatformSelectionScreen} />
+    <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+    <Stack.Screen name="ForgotVerifyOTP" component={ForgotVerifyOTPScreen} />
+    <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+    <Stack.Screen name="LinkUber" component={LinkUberScreen} />
+    <Stack.Screen name="VerifyUberOTP" component={VerifyUberOTPScreen} />
+<Stack.Screen 
+  name="LinkUberPassword" 
+  component={LinkUberPasswordScreen} 
+  options={{ headerShown: false }} 
+/>
+<Stack.Screen
+  name="SetupAccessibility"
+  component={SetupAccessibilityScreen}
+  options={{ headerShown: false }}
+/>
+  </Stack.Navigator>
+);
+
+export default AppNavigator;
+
+// ==== src/navigation/NavigationService.js ====
+
+// ==== src/redux/slices/userSlice.js ====
+
+// ==== src/redux/store.js ====
+
+// ==== src/screens/Auth/Common/SetupAccessibilityScreen.js ====
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Images } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import { useTranslation, Trans } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
+
+const SetupAccessibilityScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const [showNotice, setShowNotice] = useState(false);
+  const theme = useTheme();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNotice(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!showNotice) {
+    return (
+      <View style={[styles.container, { backgroundColor: theme.background }]}>
+        <Image source={Images.setupPicture} style={styles.image} resizeMode="contain" />
+        <Text style={[styles.loadingText, { color: theme.textSecondary }]}>
+          <Trans i18nKey="setup.loading" components={{ bold: <Text style={styles.boldBlue}></Text> }} />
+        </Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Icon */}
+      <Image source={Images.accessibility} style={styles.icon} resizeMode="contain" />
+
+      {/* Title */}
+      <Text style={[styles.title, { color: theme.text }]}>{t('setup.accessibilityTitle')}</Text>
+
+      {/* Description */}
+      <Text style={[styles.description, { color: theme.textSecondary }]}>
+        <Trans i18nKey="setup.accessibilityDesc" components={{ bold: <Text style={styles.boldBlue} /> }} />
+      </Text>
+
+      {/* Bullet Points */}
+      <View style={styles.points}>
+        <Text style={[styles.point, { color: theme.textSecondary }]}>
+          • <Trans i18nKey="setup.points.data" components={{ bold: <Text style={styles.bold} /> }} />
+        </Text>
+        <Text style={[styles.point, { color: theme.textSecondary }]}>
+          • <Trans i18nKey="setup.points.privacy" components={{ bold: <Text style={styles.bold} /> }} />
+        </Text>
+        <Text style={[styles.point, { color: theme.textSecondary }]}>
+          • <Trans i18nKey="setup.points.control" components={{ bold: <Text style={styles.bold} /> }} />
+        </Text>
+      </View>
+
+      {/* Final Note */}
+      <Text style={[styles.note, { color: theme.textSecondary }]}>
+        <Trans i18nKey="setup.finalNote" components={{ bold: <Text style={styles.boldBlue} /> }} />
+      </Text>
+
+      {/* Footer Buttons */}
+      <View style={styles.footer}>
+        <TouchableOpacity onPress={() => navigation.replace('Home')}>
+          <Text style={[styles.skip, { color: theme.textSecondary }]}>{t('setup.skip')}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.allowBtn, { backgroundColor: theme.primary }]}>
+          <Text style={styles.allowText}>{t('setup.allow')}</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 },
+  image: { width: 250, height: 250, marginBottom: 20 },
+  loadingText: { fontSize: 14, fontFamily: typography.fontRegular, textAlign: 'center' },
+  boldBlue: { fontFamily: typography.fontBold, color: '#007BFF' }, // stays brand blue
+  bold: { fontFamily: typography.fontBold },
+  icon: { width: 100, height: 100, marginBottom: 20 },
+  title: { fontSize: 25, fontFamily: typography.fontBold, marginBottom: 15 },
+  description: { fontSize: 14, fontFamily: typography.fontRegular, marginBottom: 15, textAlign: 'left' },
+  points: { alignSelf: 'stretch', marginBottom: 15 },
+  point: { fontSize: 14, fontFamily: typography.fontRegular, marginBottom: 8 },
+  note: { fontSize: 14, fontFamily: typography.fontRegular, marginBottom: 30 },
+  footer: { flexDirection: 'row', justifyContent: 'space-between', width: '100%' },
+  skip: { fontSize: 14, fontFamily: typography.fontRegular },
+  allowBtn: { paddingVertical: 12, paddingHorizontal: 20, borderRadius: 10 },
+  allowText: { fontSize: 14, fontFamily: typography.fontMedium, color: '#fff' },
+});
+
+export default SetupAccessibilityScreen;
+
+// ==== src/screens/Auth/ForgotPassword/index.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+} from 'react-native';
+import { Icons } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import AppHeader from '../../../components/common/AppHeader';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
+
+const ForgotPasswordScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* App Header */}
+      <AppHeader title={t('forgotPassword.title')} onBack={() => navigation.goBack()} />
+
+      <View style={styles.content}>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          {t('forgotPassword.subtitle')}
+        </Text>
+
+        {/* Email Label */}
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('forgotPassword.email')}
+        </Text>
+
+        {/* Email Input */}
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.mail} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="johndoe@gmail.com"
+            placeholderTextColor={theme.textSecondary}
+            keyboardType="email-address"
+          />
+        </View>
+
+        {/* Continue Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('forgotPassword.continue')}
+            onPress={() => navigation.navigate('ForgotVerifyOTP')}
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { padding: 20 },
+  title: { fontSize: 20, fontFamily: typography.fontBold, marginBottom: 10 },
+  subtitle: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 20 },
+  label: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 8 },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+  },
+  icon: { width: 20, height: 20, marginRight: 10 },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
+  },
+  input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
+});
+
+export default ForgotPasswordScreen;
+
+// ==== src/screens/Auth/ForgotVerifyOTP/index.js ====
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../components/common/AppHeader';
+import typography from '../../../theme/typography';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import OTPInput from '../../../components/common/OTPInput';
+import ResendButton from '../../../components/common/ResendButton';
+import useTheme from '../../../hooks/useTheme';
+
+const ForgotVerifyOTPScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const [code, setCode] = useState('');
+  const [seconds, setSeconds] = useState(45);
+
+  useEffect(() => {
+    if (seconds > 0) {
+      const timer = setTimeout(() => setSeconds(seconds - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [seconds]);
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title="Verify OTP" onBack={() => navigation.goBack()} />
+
+      <View style={styles.content}>
+        {/* Subtitle */}
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          {t('otp.subtitle')} <Text style={{ fontFamily: typography.fontBold, color: theme.primary }}>johndoe@gmail.com</Text>
+        </Text>
+
+        {/* Enter Code */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('otp.enterCode')}</Text>
+        <OTPInput code={code} setCode={setCode} />
+
+        {/* Verify Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('otp.verify')}
+            onPress={() => navigation.navigate('ResetPassword')}
+          />
+        </View>
+
+        {/* Did not receive */}
+        <Text style={[styles.didnt, { color: theme.text }]}>
+          {t('otp.didntReceive')}
+        </Text>
+        {seconds > 0 ? (
+          <Text style={[styles.timer, { color: theme.textSecondary }]}>
+            {t('otp.sendAgain', { seconds })}
+          </Text>
+        ) : (
+          <ResendButton
+            title={t('otp.resend')}
+            onPress={() => {
+              setSeconds(45);
+              console.log('Resend OTP triggered');
+            }}
+          />
+        )}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { padding: 20 },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
+  },
+  subtitle: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 10,
+  },
+  didnt: {
+    fontSize: 15,
+    fontFamily: typography.fontBold,
+    marginTop: 15,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
+  timer: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    marginTop: 10,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
+});
+
+export default ForgotVerifyOTPScreen;
+
+// ==== src/screens/Auth/LanguageSelection/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
+import { Images, Icons } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import colors from '../../../theme/colors';
+import LanguageOption from '../../../components/common/LanguageOption';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18n from '../../../localization/i18n';
+import { useTranslation } from 'react-i18next';
+import { useColorScheme } from 'react-native';
+
+const LanguageSelectionScreen = ({ navigation }) => {
+  const scheme = useColorScheme();
+
+    const { t } = useTranslation();
+    
+  const [selected, setSelected] = useState(null);
+  const languages = [
+    { key: 'en', label: 'English', flag: Icons.flagUK },
+    { key: 'es', label: 'Spanish', flag: Icons.flagSpain },
+    { key: 'tr', label: 'Turkish', flag: Icons.flagTurkey },
+  ];
+
+return (
+  <ImageBackground
+  source={Images.backgroundEffect}
+  style={styles.background(scheme)}
+  imageStyle={{ marginTop: 70 }}
+>
+
+    <View style={styles.container}>
+     <Image
+  source={scheme === 'dark' ? Images.logoDark : Images.logoLight}
+  style={styles.logo}
+  resizeMode="contain"
+/>
+
+
+      <Text style={styles.title}>
+        <Text style={styles.titleGray}>App </Text>
+        <Text style={styles.titleBlue}>Language</Text>
+      </Text>
+
+      {languages.map(lang => (
+        <LanguageOption
+          key={lang.key}
+          flag={lang.flag}
+          label={lang.label}
+          selected={selected === lang.key}
+          onPress={() => setSelected(lang.key)}
+        />
+      ))}
+    </View>
+
+    {/* ✅ Bottom fixed button */}
+    <View style={styles.bottomButton}>
+      <PrimaryButton
+        title="Select"
+ onPress={async () => {
+  try {
+    await AsyncStorage.setItem('appLanguage', selected);
+    await i18n.changeLanguage(selected);
+  } catch (e) {
+    console.log('Error saving language:', e);
+  }
+  navigation.replace('Onboarding');
+}}
+        disabled={!selected}
+      />
+    </View>
+  </ImageBackground>
+);
+
+};
+
+const styles = StyleSheet.create({
+ background: (scheme) => ({
+  flex: 1,
+  backgroundColor: scheme === 'dark' ? '#000' : '#fff',
+}),
+
+  bottomButton: {
+  position: 'absolute',
+  bottom: 40, // adjust spacing from bottom
+  left: 0,
+  right: 0,
+  alignItems: 'center',
+},
+
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: 50,
+  },
+  logo: {
+    width: 168,
+    height: 60,
+    marginBottom: 30,
+  },
+  title: {
+    flexDirection: 'row',
+    marginBottom: 30,
+    fontSize: 22,
+    fontFamily: typography.fontSemiBold,
+  },
+  titleGray: {
+    color: colors.secondary,
+  },
+  titleBlue: {
+    color: colors.primary,
+  },
+});
+
+export default LanguageSelectionScreen;
+// ==== src/screens/Auth/LinkUberScreen/index.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
+import { Images, Icons } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import colors from '../../../theme/colors';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../components/common/AppHeader'; // ✅ reuse your header
+import useTheme from '../../../hooks/useTheme';
+
+
+const LinkUberScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const [usePhone, setUsePhone] = useState(false);
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header */}
+      <AppHeader title={t('linkUber.title')} />
+
+      {/* Content Container - properly aligned with header padding */}
+      <View style={styles.contentContainer}>
+        {/* Uber Image */}
+        <Image source={Images.uberOnboarding} style={styles.logo} resizeMode="contain" />
+
+        {/* Subtitle */}
+        <Text style={styles.subtitle}>{t('linkUber.subtitle')}</Text>
+
+        {/* Input */}
+        <Text style={[styles.inputLabel, { color: theme.text }]}>{t('linkUber.inputLabel')}</Text>
+
+        <View style={styles.inputContainer}>
+          <Image source={usePhone ? Icons.phone : Icons.mail} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder={t('linkUber.placeholder')}
+            placeholderTextColor="#999"
+            keyboardType={usePhone ? 'phone-pad' : 'email-address'}
+          />
+        </View>
+
+        {/* Continue Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('linkUber.continue')}
+            onPress={() =>
+              navigation.navigate('VerifyUberOTP', {
+                destination: usePhone ? '(973) 281-6376' : 'you****z@gmail.com',
+              })
+            }
+          />
+        </View>
+
+        {/* Divider */}
+        <View style={styles.dividerContainer}>
+          <View style={styles.divider} />
+          <Text style={styles.dividerText}>{t('linkUber.or')}</Text>
+          <View style={styles.divider} />
+        </View>
+
+        {/* Social Buttons */}
+        <View style={styles.socialContainer}>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image source={Icons.google} style={styles.socialIcon} />
+            <Text style={styles.socialText}>{t('linkUber.google')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image source={Icons.apple} style={styles.socialIcon} />
+            <Text style={styles.socialText}>{t('linkUber.apple')}</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Footer Switch */}
+        <TouchableOpacity
+          style={styles.footer}
+          onPress={() => setUsePhone(!usePhone)}
+        >
+          <Text style={{ fontSize: 13, fontFamily: typography.fontBold, color: theme.textSecondary }}>
+            {usePhone ? t('linkUber.switchToEmailPrefix') : t('linkUber.switchToPhonePrefix')}{' '}
+            <Text style={{ color: theme.primary }}>
+              {usePhone ? t('linkUber.switchToEmailSuffix') : t('linkUber.switchToPhoneSuffix')}
+            </Text>
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: 20, // Consistent horizontal padding to align with header
+  },
+  logo: {
+    width: 120,
+    height: 120,
+    alignSelf: 'center',
+    marginVertical: 15,
+  },
+  subtitle: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    color: '#666',
+    // textAlign: 'center',
+    marginBottom: 10,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    color: colors.textLight,
+    marginBottom: 8,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+  },
+  icon: {
+    width: 22,
+    height: 22,
+    tintColor: '#888',
+    marginRight: 8,
+  },
+  input: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+  },
+  primaryButtonWrapper: {
+    width: '110%', // Fixed from 110% to prevent overflow
+    alignSelf: 'center',
+  },
+  dividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 15,
+  },
+  divider: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#ddd',
+  },
+  dividerText: {
+    marginHorizontal: 10,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    color: '#797979',
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  socialButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    width: 103,
+    height: 44,
+    marginHorizontal: 5,
+  },
+  socialIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
+  },
+  socialText: {
+    fontSize: 12,
+    fontFamily: typography.fontMedium,
+    color: colors.secondary,
+  },
+  footer: {
+    marginTop: 'auto',
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  footerText: {
+    fontSize: 13,
+    fontFamily: typography.fontBold,
+    color: colors.primary,
+  },
+});
+
+export default LinkUberScreen;
+
+// ==== src/screens/Auth/Onboarding/index.js ====
+import React, { useState, useRef } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  Dimensions,
+  StatusBar,
+} from 'react-native';
+import { Images } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import colors from '../../../theme/colors';
+import OnboardingFooter from '../../../components/common/OnboardingFooter';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../../localization/i18n';
+import useTheme from '../../../hooks/useTheme';
+import LinearGradient from 'react-native-linear-gradient';
+
+const { width, height } = Dimensions.get('window');
+
+const OnboardingScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const flatListRef = useRef();
+
+  const slides = [
+    {
+      key: '1',
+      image: Images.onboarding1,
+      titleBlack: t('onboarding.slide1.titleBlack'),
+      titleBlue: t('onboarding.slide1.titleBlue'),
+      titleAfter: t('onboarding.slide1.titleAfter'),
+      description: t('onboarding.slide1.desc'),
+    },
+    {
+      key: '2',
+      image: Images.onboarding2,
+      titleBlack: t('onboarding.slide2.titleBlack'),
+      titleBlue: t('onboarding.slide2.titleBlue'),
+      titleAfter: t('onboarding.slide2.titleAfter'),
+      description: t('onboarding.slide2.desc'),
+    },
+    {
+      key: '3',
+      image: Images.onboarding3,
+      titleBlack: t('onboarding.slide3.titleBlack'),
+      titleBlue: t('onboarding.slide3.titleBlue'),
+      titleAfter: t('onboarding.slide3.titleAfter'),
+      description: t('onboarding.slide3.desc'),
+    },
+  ];
+
+  const handleNext = () => {
+    if (currentIndex < slides.length - 1) {
+      flatListRef.current.scrollToIndex({ index: currentIndex + 1 });
+    } else {
+      navigation.replace('SignIn');
+    }
+  };
+
+  // Gradient colors based on theme
+const gradientColors =
+  theme.mode === 'dark'
+    ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.6)', '#000000']
+    : ['rgba(0,0,0,0)', 'rgba(255,255,255,0.6)', '#FFFFFF'];
+
+const gradientLocations = [0.3, 0.75, 1];
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.background,
+    },
+    slide: {
+      width,
+      height,
+      backgroundColor: theme.background,
+    },
+    imageContainer: {
+      height: height * 0.65,
+      width: '100%',
+      overflow: 'hidden',
+      marginTop: -StatusBar.currentHeight || 0,
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+    },
+    contentContainer: {
+      flex: 1,
+      backgroundColor: theme.overlay,
+      justifyContent: 'center',
+      paddingBottom: 160,
+    },
+    textContainer: {
+      paddingHorizontal: 30,
+      alignItems: 'center',
+    },
+    title: {
+      fontSize: 28,
+      fontFamily: typography.fontBold,
+      color: theme.text,
+      marginBottom: 16,
+      textAlign: 'center',
+      lineHeight: 38,
+    },
+    titleBlue: {
+      color: theme.primary,
+    },
+    description: {
+      fontSize: 13,
+      fontFamily: typography.fontRegular,
+      color: theme.textSecondary,
+      lineHeight: 24,
+      textAlign: 'center',
+      paddingHorizontal: 10,
+    },
+  });
+
+  return (
+    <View style={styles.container}>
+      {/* Status bar adapts to theme */}
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle={theme.background === '#121212' ? 'light-content' : 'dark-content'}
+      />
+
+      <FlatList
+        ref={flatListRef}
+        data={slides}
+        keyExtractor={(item) => item.key}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        onMomentumScrollEnd={(e) => {
+          const index = Math.round(e.nativeEvent.contentOffset.x / width);
+          setCurrentIndex(index);
+        }}
+        renderItem={({ item }) => (
+          <View style={styles.slide}>
+            <View style={styles.imageContainer}>
+              <Image source={item.image} style={styles.image} resizeMode="cover" />
+              {/* Gradient overlay */}
+              <LinearGradient
+                colors={gradientColors}
+                locations={gradientLocations}
+                style={StyleSheet.absoluteFillObject}
+              />
+            </View>
+
+            <View style={styles.contentContainer}>
+              <View style={styles.textContainer}>
+                <Text style={styles.title}>
+                  {item.titleBlack}
+                  <Text style={styles.titleBlue}>{item.titleBlue}</Text>
+                  {item.titleAfter}
+                </Text>
+                <Text style={styles.description}>{item.description}</Text>
+              </View>
+            </View>
+          </View>
+        )}
+      />
+
+      <OnboardingFooter
+        total={slides.length}
+        current={currentIndex}
+        onNext={handleNext}
+      />
+    </View>
+  );
+};
+
+export default OnboardingScreen;
+
+// ==== src/screens/Auth/PlatformSelection/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { Images } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import PlatformCard from '../../../components/common/PlatformCard';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
+
+const PlatformSelectionScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [selected, setSelected] = useState([]);
+
+  const platforms = [
+    { key: 'lyft', title: 'Lyft', image: Images.lyft },
+    { key: 'uber', title: 'Uber', image: Images.uber },
+    { key: 'doordash', title: 'DoorDash', image: Images.doorDash },
+  ];
+
+  const toggleSelection = (key) => {
+    if (selected.includes(key)) {
+      setSelected(selected.filter((item) => item !== key));
+    } else {
+      setSelected([...selected, key]);
+    }
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Logo */}
+      <Image
+        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+
+      {/* Heading */}
+      <Text style={[styles.heading, { color: theme.text }]}>
+        {t('platform.heading')}
+      </Text>
+
+      {/* Platform Cards */}
+      <View style={{ marginTop: 20 }}>
+        {platforms.map((p) => (
+          <PlatformCard
+            key={p.key}
+            title={p.title}
+            image={p.image}
+            selected={selected.includes(p.key)}
+            onPress={() => toggleSelection(p.key)}
+            textColor={theme.text} // 👈 pass down
+            borderColor={theme.border}
+            backgroundColor={theme.card}
+          />
+        ))}
+      </View>
+
+      {/* Button */}
+      <View style={styles.bottom}>
+        <PrimaryButton
+          title={t('platform.select')}
+          disabled={selected.length === 0}
+          onPress={() => {
+            console.log('Selected services:', selected);
+
+            if (selected.includes('uber')) {
+              navigation.replace('LinkUber');
+            } else {
+              navigation.replace('LinkUber'); // fallback
+            }
+          }}
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20 },
+  logo: { width: 160, height: 60, alignSelf: 'center', marginBottom: 20 },
+  heading: {
+    fontSize: 18,
+    fontFamily: typography.fontSemiBold,
+    textAlign: 'left',
+  },
+  bottom: {
+    width: '110%',
+    alignSelf: 'center',
+    marginTop: 'auto',
+    marginBottom: 20,
+  },
+});
+
+export default PlatformSelectionScreen;
+
+// ==== src/screens/Auth/ResetPassword/index.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import { Icons } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import AppHeader from '../../../components/common/AppHeader';
+import { useTranslation } from 'react-i18next';
+import PasswordUpdatedModal from '../../../components/common/PasswordUpdatedModal';
+import useTheme from '../../../hooks/useTheme';
+
+const ResetPasswordScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* App Header */}
+      <AppHeader title={t('resetPassword.title')} onBack={() => navigation.goBack()} />
+
+      <View style={styles.content}>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          {t('resetPassword.subtitle')}
+        </Text>
+
+        {/* Password */}
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('resetPassword.password')}
+        </Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="******"
+            placeholderTextColor={theme.textSecondary}
+            secureTextEntry={!showPassword}
+          />
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            <Image
+              source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
+              style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* Confirm Password */}
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('resetPassword.confirmPassword')}
+        </Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="******"
+            placeholderTextColor={theme.textSecondary}
+            secureTextEntry={!showConfirmPassword}
+          />
+          <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
+            <Image
+              source={showConfirmPassword ? Icons.eyeOpen : Icons.eyeClose}
+              style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* Reset Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('resetPassword.resetBtn')}
+            onPress={() => setModalVisible(true)}
+          />
+        </View>
+      </View>
+
+      {/* Confirmation Modal */}
+      <PasswordUpdatedModal
+        visible={modalVisible}
+        onClose={() => {
+          setModalVisible(false);
+          navigation.replace('SignIn');
+        }}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { padding: 20 },
+  subtitle: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 10,
+  },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 8,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 3,
+    paddingHorizontal: 12,
+    marginBottom: 8,
+  },
+  icon: { width: 20, height: 20, marginRight: 10 },
+  input: { flex: 1, fontSize: 14, fontFamily: typography.fontMedium },
+  eyeIcon: { width: 20, height: 20 },
+});
+
+export default ResetPasswordScreen;
+
+// ==== src/screens/Auth/SignIn/index.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
+import { Images, Icons } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
+
+const SignInScreen = ({ navigation }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Logo */}
+      <Image
+        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+
+      {/* Heading */}
+      <Text style={[styles.title, { color: theme.text }]}>{t('signin.title')}</Text>
+      <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+        {t('signin.subtitle')}
+      </Text>
+
+      <Text style={[styles.inputLabel, { color: theme.text }]}>{t('signin.email')}</Text>
+      {/* Email */}
+      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+        <Image source={Icons.mail} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+        <TextInput
+          style={[styles.input, { color: theme.text }]}
+          placeholder={t('signin.email')}
+          placeholderTextColor={theme.textSecondary}
+          keyboardType="email-address"
+        />
+      </View>
+
+      <Text style={[styles.inputLabel, { color: theme.text }]}>{t('signin.password')}</Text>
+      {/* Password */}
+      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+        <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+        <TextInput
+          style={[styles.input, { color: theme.text }]}
+          placeholder={t('signin.password')}
+          placeholderTextColor={theme.textSecondary}
+          secureTextEntry={!showPassword}
+        />
+        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+          <Image
+            source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
+            style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+          />
+        </TouchableOpacity>
+      </View>
+
+      {/* Forgot Password */}
+      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+        <Text style={[styles.forgot, { color: theme.primary }]}>{t('signin.forgot')}</Text>
+      </TouchableOpacity>
+
+      {/* Sign In Button */}
+      <View style={styles.primaryButtonWrapper}>
+        <PrimaryButton
+          title={t('signin.signinBtn')}
+          onPress={() => navigation.replace('Home')}
+        />
+      </View>
+
+      {/* Divider */}
+      <View style={styles.dividerContainer}>
+        <View style={[styles.divider, { backgroundColor: theme.border }]} />
+        <Text style={[styles.dividerText, { color: theme.textSecondary }]}>
+          {t('signin.or')}
+        </Text>
+        <View style={[styles.divider, { backgroundColor: theme.border }]} />
+      </View>
+
+      {/* Social Buttons */}
+      <View style={styles.socialContainer}>
+        <TouchableOpacity style={[styles.socialButton, { borderColor: theme.border }]}>
+          <Image source={Icons.google} style={styles.socialIcon} />
+          <Text style={[styles.socialText, { color: theme.text }]}>{t('signin.google')}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.socialButton, { borderColor: theme.border }]}>
+          <Image source={Icons.apple} style={styles.socialIcon} />
+          <Text style={[styles.socialText, { color: theme.text }]}>{t('signin.apple')}</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Footer */}
+      <View style={styles.footer}>
+        <Text style={[styles.footerText, { color: theme.textSecondary }]}>
+          {t('signin.noAccount')}{' '}
+        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+          <Text style={[styles.footerLink, { color: theme.primary }]}>{t('signin.create')}</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+  logo: {
+    width: 179,
+    height: 64,
+    alignSelf: 'center',
+    marginTop: 40,
+    marginBottom: 30,
+  },
+  title: {
+    fontSize: 25,
+    fontFamily: typography.fontBold,
+  },
+  subtitle: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    marginBottom: 20,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 8,
+  },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 3,
+    marginBottom: 8,
+  },
+  icon: {
+    width: 24,
+    height: 24,
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  eyeIcon: {
+    width: 24,
+    height: 24,
+  },
+  forgot: {
+    fontSize: 12,
+    fontFamily: typography.fontMedium,
+    textAlign: 'right',
+  },
+  dividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 15,
+  },
+  divider: {
+    flex: 1,
+    height: 1,
+  },
+  dividerText: {
+    marginHorizontal: 10,
+    fontSize: 13,
+    fontFamily: typography.fontMedium,
+  },
+  socialButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    width: 103,
+    height: 44,
+    marginHorizontal: 5,
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  socialIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
+  },
+  socialText: {
+    fontSize: 12,
+    fontFamily: typography.fontMedium,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 'auto',
+    marginBottom: 20,
+  },
+  footerText: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  footerLink: {
+    fontSize: 13,
+    fontFamily: typography.fontBold,
+  },
+});
+
+export default SignInScreen;
+
+// ==== src/screens/Auth/SignUp/index.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
+import { Icons } from '../../../assets/assets';
+import typography from '../../../theme/typography';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import AppHeader from '../../../components/common/AppHeader';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../hooks/useTheme';
+
+const SignUpScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [avatar, setAvatar] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const pickImage = () => {
+    launchImageLibrary({ mediaType: 'photo' }, (response) => {
+      if (response.assets && response.assets.length > 0) {
+        setAvatar(response.assets[0].uri);
+      }
+    });
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title="Drive Hub" onBack={() => navigation.goBack()} />
+
+      <ScrollView contentContainerStyle={styles.scroll}>
+        {/* Title */}
+        <Text style={[styles.heading, { color: theme.text }]}>{t('signup.title')}</Text>
+
+        <TouchableOpacity onPress={pickImage} style={styles.avatarContainer}>
+          {avatar ? (
+            <Image source={{ uri: avatar }} style={styles.avatar} />
+          ) : (
+            <Image source={Icons.camera} style={styles.cameraIcon} />
+          )}
+        </TouchableOpacity>
+
+        {/* Full Name */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('signup.fullname')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.person} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="John Doe"
+            placeholderTextColor={theme.textSecondary}
+          />
+        </View>
+
+        {/* Phone */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('signup.phone')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.phone} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="+92 3344662345"
+            placeholderTextColor={theme.textSecondary}
+            keyboardType="phone-pad"
+          />
+        </View>
+
+        {/* Email */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('signup.email')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.mail} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="john@gmail.com"
+            placeholderTextColor={theme.textSecondary}
+            keyboardType="email-address"
+          />
+        </View>
+
+        {/* Vehicle */}
+        <View style={styles.row}>
+          <View style={{ flex: 1, marginRight: 5 }}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('signup.vehicleName')}</Text>
+            <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+              <Image source={Icons.vehicle} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+              <TextInput
+                style={[styles.input, { color: theme.text }]}
+                placeholder="Camry"
+                placeholderTextColor={theme.textSecondary}
+              />
+            </View>
+          </View>
+          <View style={{ flex: 1, marginLeft: 5 }}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('signup.vehicleModel')}</Text>
+            <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+              <Image source={Icons.calendar} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+              <TextInput
+                style={[styles.input, { color: theme.text }]}
+                placeholder="2022"
+                placeholderTextColor={theme.textSecondary}
+              />
+            </View>
+          </View>
+        </View>
+
+        {/* Password */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('signup.password')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder={t('signup.password')}
+            placeholderTextColor={theme.textSecondary}
+            secureTextEntry={!showPassword}
+          />
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            <Image
+              source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
+              style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* Confirm Password */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('signup.confirmPassword')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder={t('signup.confirmPassword')}
+            placeholderTextColor={theme.textSecondary}
+            secureTextEntry={!showConfirmPassword}
+          />
+          <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
+            <Image
+              source={showConfirmPassword ? Icons.eyeOpen : Icons.eyeClose}
+              style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* Terms */}
+        <View style={styles.termsRow}>
+          <TouchableOpacity style={[styles.checkbox, { borderColor: theme.textSecondary }]} />
+          <Text style={[styles.termsText, { color: theme.textSecondary }]}>
+            {t('signup.terms1')} <Text style={[styles.link, { color: theme.primary }]}>{t('signup.terms2')}</Text>
+          </Text>
+        </View>
+
+        {/* Create Account Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton title={t('signup.createBtn')} onPress={() => navigation.navigate('VerifyOTP')} />
+        </View>
+
+        {/* Footer */}
+        <View style={styles.footer}>
+          <Text style={[styles.footerText, { color: theme.textSecondary }]}>{t('signup.already')}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+            <Text style={[styles.footerLink, { color: theme.primary }]}>{t('signup.signin')}</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  scroll: { padding: 20, paddingBottom: 40 },
+  heading: {
+    fontSize: 25,
+    fontFamily: typography.fontBold,
+    marginBottom: 25,
+  },
+  avatarContainer: {
+    width: 90,
+    height: 90,
+    borderRadius: 60,
+    alignSelf: 'center',
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  avatar: { width: '100%', height: '100%', borderRadius: 60 },
+  cameraIcon: { width: 121, height: 121 },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 5,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+        paddingVertical: 3,
+    paddingHorizontal: 12,
+    marginBottom: 15,
+  },
+  icon: { width: 20, height: 20, marginRight: 10 },
+  input: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  eyeIcon: { width: 20, height: 20 },
+  termsRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 20 },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    marginRight: 10,
+    borderRadius: 4,
+  },
+  termsText: { fontSize: 14, fontFamily: typography.fontRegular },
+  link: { fontFamily: typography.fontBold },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  footerText: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
+  },
+  footerLink: {
+    fontSize: 13,
+    fontFamily: typography.fontBold,
+    marginLeft: 5,
+  },
+  row: { flexDirection: 'row', justifyContent: 'space-between' },
+});
+
+export default SignUpScreen;
+
+// ==== src/screens/Auth/VerifyOTP/index.js ====
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../components/common/AppHeader';
+import typography from '../../../theme/typography';
+import colors from '../../../theme/colors';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import OTPInput from '../../../components/common/OTPInput';
+import ResendButton from '../../../components/common/ResendButton';
+import ConfirmationModal from '../../../components/common/ConfirmationModal';
+import useTheme from '../../../hooks/useTheme';
+
+const VerifyOTPScreen = ({ navigation }) => {
+  const [showModal, setShowModal] = useState(false);
+  const { t } = useTranslation();
+  const [code, setCode] = useState('');
+  const [seconds, setSeconds] = useState(45);
+  const theme = useTheme();
+
+  useEffect(() => {
+    if (seconds > 0) {
+      const timer = setTimeout(() => setSeconds(seconds - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [seconds]);
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title="Drive Hub" onBack={() => navigation.goBack()} />
+
+      <View style={styles.content}>
+        {/* Title */}
+        <Text style={[styles.title, { color: theme.text }]}>{t('otp.title')}</Text>
+
+        {/* Subtitle */}
+        <Text style={styles.subtitle}>
+          {t('otp.subtitle')} <Text style={styles.email}>johndoe@gmail.com</Text>
+        </Text>
+
+        {/* Enter Code */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('otp.enterCode')}</Text>
+        <OTPInput code={code} setCode={setCode} />
+
+        {/* Verify Button */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('otp.verify')}
+            onPress={() => setShowModal(true)}
+          />
+        </View>
+
+        <ConfirmationModal
+          visible={showModal}
+          onClose={() => {
+            setShowModal(false);
+            navigation.replace('PlatformSelection');
+          }}
+        />
+
+        {/* Did not receive */}
+        <Text style={[styles.didnt, { color: theme.text }]}>{t('otp.didntReceive')}</Text>
+        {seconds > 0 ? (
+          <Text style={styles.timer}>{t('otp.sendAgain', { seconds })}</Text>
+        ) : (
+          <ResendButton
+            title={t('otp.resend')}
+            onPress={() => {
+              setSeconds(45);
+              console.log('Resend OTP triggered');
+            }}
+          />
+        )}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#fff' },
+  content: { padding: 20 },
+  title: {
+    fontSize: 25,
+    fontFamily: typography.fontBold,
+    marginBottom: 10,
+  },
+  primaryButtonWrapper: {
+    width: '110%',
+    alignSelf: 'center',
+  },
+  subtitle: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    color: '#666',
+    marginBottom: 20,
+  },
+  email: {
+    fontFamily: typography.fontBold,
+    fontSize: 14,
+    color: colors.primary,
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    color: colors.textLight,
+    marginBottom: 10,
+  },
+  didnt: {
+    fontSize: 15,
+    fontFamily: typography.fontBold,
+    marginTop: 15,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
+  timer: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    color: '#666',
+    marginTop: 10,
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+  },
+});
+
+export default VerifyOTPScreen;
+
+// ==== src/screens/Home/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import colors from '../../theme/colors';
+import typography from '../../theme/typography';
+
+const HomeScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Welcome to Drive Hub 🚗</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.backgroundLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 20,
+    fontFamily: typography.fontMedium,
+    color: colors.textLight,
+  },
+});
+
+export default HomeScreen;
+
+// ==== src/screens/Profile/index.js ====
+
+// ==== src/screens/Settings/index.js ====
+
+// ==== src/screens/Splash/index.js ====
+import React, { useEffect } from 'react';
+import { View, Image, StyleSheet, useColorScheme } from 'react-native';
+import { Images } from '../../assets/assets';
+import colors from '../../theme/colors';
+
+const SplashScreen = ({ navigation }) => {
+  const scheme = useColorScheme(); // Detect light or dark mode
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace('LanguageSelection'); // later change to Login/Home
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
+  return (
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: scheme === 'dark' ? colors.backgroundDark : colors.backgroundLight },
+      ]}
+    >
+      <Image
+        source={scheme === 'dark' ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logo: {
+    width: 200,
+    height: 80,
+  },
+});
+
+export default SplashScreen;
+
+// ==== src/screens/Uber/Auth/LinkUberPasswordScreen.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../components/common/AppHeader';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import VerifyAlternativeModal from '../../../components/common/VerifyAlternativeModal';
+import typography from '../../../theme/typography';
+import { Icons } from '../../../assets/assets';
+import useTheme from '../../../hooks/useTheme';
+
+const LinkUberPasswordScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const theme = useTheme();
+
+  const userName = 'John';
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title={t('linkUber.title')} />
+
+      <Text style={[styles.welcome, { color: theme.textSecondary }]}>
+        {t('linkUberPassword.welcome')} <Text style={[styles.bold, { color: theme.text }]}>{userName}</Text>
+      </Text>
+
+      <Text style={[styles.inputLabel, { color: theme.text }]}>{t('linkUberPassword.password')}</Text>
+
+      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+        <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+        <TextInput
+          style={[styles.input, { color: theme.text }]}
+          placeholder={t('linkUberPassword.password')}
+          placeholderTextColor={theme.textSecondary}
+          secureTextEntry={!showPassword}
+        />
+        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+          <Image
+            source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
+            style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.primaryButtonWrapper}>
+        <PrimaryButton
+          title={t('linkUberPassword.continue')}
+          onPress={() => navigation.replace('SetupAccessibility')}
+        />
+      </View>
+
+      {/* Try Another Way */}
+      <TouchableOpacity style={[styles.footerAlt, { borderColor: theme.primary }]} onPress={() => setModalVisible(true)}>
+        <Text style={[styles.footerText, { color: theme.primary }]}>{t('verifyUber.tryAnother')}</Text>
+      </TouchableOpacity>
+
+      <VerifyAlternativeModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        destination="you****@gmail.com"
+        navigation={navigation}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, paddingHorizontal: 15 },
+  welcome: { fontSize: 14, fontFamily: typography.fontRegular, marginVertical: 15 },
+  bold: { fontFamily: typography.fontBold },
+  inputLabel: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 8 },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    marginBottom: 20,
+  },
+  icon: { width: 22, height: 22, marginRight: 8 },
+  input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
+  eyeIcon: { width: 22, height: 22 },
+  primaryButtonWrapper: { width: '110%', alignSelf: 'center' },
+  footerAlt: {
+    marginTop: 'auto',
+    marginBottom: 20,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 14,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  footerText: { fontSize: 14, fontFamily: typography.fontMedium },
+});
+
+export default LinkUberPasswordScreen;
+
+// ==== src/screens/Uber/VerifyUberOTP/index.js ====
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../components/common/AppHeader';
+import UberOTPInput from '../../../components/common/UberOTPInput';
+import PrimaryButton from '../../../components/common/PrimaryButton';
+import ResendButton from '../../../components/common/ResendButton';
+import typography from '../../../theme/typography';
+import VerifyAlternativeModal from '../../../components/common/VerifyAlternativeModal';
+import useTheme from '../../../hooks/useTheme';
+
+const VerifyUberOTPScreen = ({ navigation, route }) => {
+  const { t } = useTranslation();
+  const [code, setCode] = useState('');
+  const [timer, setTimer] = useState(45);
+  const [resendAvailable, setResendAvailable] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const theme = useTheme();
+
+  const destination = route.params?.destination || 'you****z@gmail.com';
+
+  useEffect(() => {
+    if (timer > 0) {
+      const countdown = setTimeout(() => setTimer(timer - 1), 1000);
+      return () => clearTimeout(countdown);
+    } else {
+      setResendAvailable(true);
+    }
+  }, [timer]);
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title={t('linkUber.title')} />
+
+      <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+        {t('verifyUber.subtitle')}
+      </Text>
+      <Text style={[styles.highlight, { color: theme.primary }]}>{destination}</Text>
+
+      <View style={styles.otpSection}>
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('verifyUber.enterCode')}
+        </Text>
+        <UberOTPInput code={code} setCode={setCode} length={4} />
+      </View>
+
+      <View style={styles.primaryButtonWrapper}>
+        <PrimaryButton
+          title={t('verifyUber.verify')}
+          onPress={() => navigation.navigate('LinkUberPassword')}
+        />
+      </View>
+
+      <Text style={[styles.didnt, { color: theme.text }]}>
+        {t('verifyUber.didNotReceive')}
+      </Text>
+      {resendAvailable ? (
+        <ResendButton
+          title={t('verifyUber.resend')}
+          onPress={() => {
+            setTimer(45);
+            setResendAvailable(false);
+          }}
+          style={styles.resendButton}
+        />
+      ) : (
+        <Text style={[styles.timer, { color: theme.textSecondary }]}>
+          {t('verifyUber.sendAgain', { seconds: timer })}
+        </Text>
+      )}
+
+      <TouchableOpacity style={styles.footerAlt} onPress={() => setModalVisible(true)}>
+        <Text style={[styles.footerText, { color: theme.primary }]}>
+          {t('verifyUber.tryAnother')}
+        </Text>
+      </TouchableOpacity>
+
+      <VerifyAlternativeModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        destination={destination}
+        navigation={navigation}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, paddingHorizontal: 10 },
+  subtitle: { fontSize: 14, fontFamily: typography.fontRegular, marginTop: 10, marginLeft: 10 },
+  highlight: { fontSize: 14, fontFamily: typography.fontBold, marginBottom: 20, marginLeft: 10 },
+  otpSection: { marginBottom: 10, marginTop: 10, width: '100%' },
+  label: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 10, marginLeft: 10 },
+  didnt: { fontSize: 15, fontFamily: typography.fontBold, marginTop: 15, alignSelf: 'center' },
+  timer: { fontSize: 13, fontFamily: typography.fontRegular, marginTop: 5, textAlign: 'center' },
+  primaryButtonWrapper: { width: '105%', alignSelf: 'center' },
+  footerAlt: {
+    marginTop: 'auto',
+    marginBottom: 20,
+    
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  footerText: { fontSize: 14, fontFamily: typography.fontMedium },
+  resendButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 14,
+    borderWidth: 1,
+    borderRadius: 12,
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 20,
+  },
+});
+
+export default VerifyUberOTPScreen;
+
+// ==== src/theme/colors.js ====
+// src/theme/colors.js
+
+const colors = {
+  // Brand colors
+  primary: '#007BFF',
+  secondary: '#666666',
+
+  // Light theme
+  backgroundLight: '#FFFFFF',
+  textLight: '#222222',
+  borderLight: 'rgba(0,0,0,0.16)',
+
+  // Dark theme
+  backgroundDark: '#121212',
+  textDark: '#F5F5F5',
+  borderDark: 'rgba(255,255,255,0.2)',
+
+  // Utility / state colors
+  success: '#28A745',
+  danger: '#DC3545',
+  warning: '#FFC107',
+  info: '#17A2B8',
+};
+
+export default colors;
+
+// ==== src/theme/dark.js ====
+import colors from './colors';
+import typography from './typography';
+
+export default {
+  dark: true,
+  colors: {
+    background: colors.backgroundDark,
+    text: colors.textDark,
+    primary: colors.primary,
+    secondary: colors.secondary,
+  },
+  fonts: {
+    regular: { fontFamily: typography.fontRegular, fontWeight: 'normal' },
+    medium: { fontFamily: typography.fontMedium, fontWeight: '500' },
+    semibold: { fontFamily: typography.fontSemiBold, fontWeight: '600' },
+    bold: { fontFamily: typography.fontBold, fontWeight: 'bold' },
+  },
+};
+
+// ==== src/theme/darkTheme.js ====
+export default {
+  background: '#121212',
+  text: '#F5F5F5',
+  textSecondary: '#AAAAAA',
+  overlay: 'rgba(0,0,0,0.6)',
+  border: '#333333',
+  primary: '#4DA3FF',
+  card: '#111111',
+};
+
+// ==== src/theme/light.js ====
+import colors from './colors';
+import typography from './typography';
+
+export default {
+  dark: false,
+  colors: {
+    background: colors.backgroundLight,
+    text: colors.textLight,
+    primary: colors.primary,
+    secondary: colors.secondary,
+  },
+  fonts: {
+    regular: { fontFamily: typography.fontRegular, fontWeight: 'normal' },
+    medium: { fontFamily: typography.fontMedium, fontWeight: '500' },
+    semibold: { fontFamily: typography.fontSemiBold, fontWeight: '600' },
+    bold: { fontFamily: typography.fontBold, fontWeight: 'bold' },
+  },
+};
+
+// ==== src/theme/lightTheme.js ====
+export default {
+  background: '#FFFFFF',
+  text: '#222222',
+  textSecondary: '#666666',
+  overlay: 'rgba(255,255,255,0.7)',
+  border: '#DDDDDD',
+  primary: '#007BFF',
+  card: '#F7F7F7',
+};
+
+// ==== src/theme/typography.js ====
+import { Fonts } from '../assets/assets';
+
+console.log('Fonts object:', Fonts);
+
+const typography = {
+  fontRegular: Fonts?.regular ?? 'System',
+  fontMedium: Fonts?.medium ?? 'System',
+  fontSemiBold: Fonts?.semibold ?? 'System',
+  fontBold: Fonts?.bold ?? 'System',
+};
+
+export default typography;
+
+// ==== src/utils/api.js ====
+
+// ==== src/utils/constants.js ====
+
+// ==== src/utils/helpers.js ====

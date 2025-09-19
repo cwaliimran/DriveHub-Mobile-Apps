@@ -101,9 +101,12 @@
   "or": "Veya Şununla Devam Et",
   "google": "Google",
   "apple": "Apple",
-  "switchToPhone": "Telefon Numarasıyla Devam Et",
-  "switchToEmail": "E-posta Adresiyle Devam Et"
-},
+  "switchToPhonePrefix": "Devam Et",
+  "switchToPhoneSuffix": "Telefon Numarasıyla",
+  "switchToEmailPrefix": "Devam Et",
+  "switchToEmailSuffix": "E-posta Adresiyle"
+}
+,
 "verifyUber": {
   "subtitle": "SMS ile gönderilen OTP'yi girin:",
   "enterCode": "Kodu Girin",
