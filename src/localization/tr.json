@@ -142,6 +142,60 @@
 
 
 }
+,
+"linkLyft": {
+  "title": "Lyft'i Bağla",
+  "subtitle": "Lyft ile yolculuğunuza başlayın",
+  "inputLabel": "Lyft'e kayıtlı telefon numarasını girin",
+  "placeholder": "Telefon Numarası",
+  "continue": "Devam Et"
+},
+
+"verifyLyft": {
+  "subtitle": "SMS ile gönderilen OTP'yi girin:",
+  "enterCode": "Kodu Girin",
+  "verify": "Doğrula",
+  "didNotReceive": "Kodu almadınız mı?",
+  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+  "resend": "Kodu Tekrar Gönder"
+}
+,
+"linkLyftLicense": {
+  "subtitle": "Lütfen sürücü belgenizdeki numarayı girin.",
+  "inputLabel": "Sürücü Belgesi Numarası",
+  "placeholder": "Sürücü belgesi numaranızı girin",
+  "continue": "Devam Et"
+}
+,
+"linkDoorDash": {
+  "title": "DoorDash'i Bağla",
+  "subtitle": "DoorDash ile yolculuğunuza başlayın",
+  "emailLabel": "E-posta Adresi",
+  "passwordLabel": "Şifre",
+  "phoneLabel": "DoorDash'e kayıtlı telefon numarasını girin",
+  "emailPlaceholder": "johndoe@gmail.com",
+  "phonePlaceholder": "Telefon Numarası",
+  "passwordPlaceholder": "Şifre",
+  "continue": "Devam Et",
+  "forgot": "Şifrenizi mi unuttunuz?",
+  "switchToPhone": "Bunun yerine telefon numarasıyla giriş yapın",
+  "switchToEmail": "Bunun yerine e-posta ve şifre ile giriş yapın"
+}
+,
+"verifyDoorDash": {
+  "title": "DoorDash Bağlantısı",
+  "subtitleSMS": "SMS ile gönderilen OTP'yi girin:",
+  "subtitleEmail": "Gönderilen OTP'yi girin:",
+  "otpExpire": "(OTP 30 dakika içinde geçerlidir)",
+  "enterCode": "Kodu Girin",
+  "verify": "Doğrula",
+  "didNotReceive": "Kodu almadınız mı?",
+  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+  "resend": "Kodu Tekrar Gönder",
+  "switchToEmail": "E-posta ve şifre ile giriş yapın",
+  "switchToPhone": "Bunun yerine telefonla giriş yapın"
+}
+
 
 
 

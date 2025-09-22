@@ -140,7 +140,60 @@
   "finalNote": "Para habilitarlo, toca <bold>Abrir configuración</bold> y activa el servicio de acceso de DriveHub.",
   "skip": "Omitir",
   "allow": "Permitir acceso"
+},
+"linkLyft": {
+  "title": "Vincular Lyft",
+  "subtitle": "Empieza tu viaje con Lyft",
+  "inputLabel": "Introduce el número de teléfono registrado en Lyft",
+  "placeholder": "Número de teléfono",
+  "continue": "Continuar"
+},
+
+"verifyLyft": {
+  "subtitle": "Introduce el código enviado por SMS a",
+  "enterCode": "Introducir código",
+  "verify": "Verificar",
+  "didNotReceive": "¿No recibiste el código?",
+  "sendAgain": "Reenviar en {{seconds}} segundos",
+  "resend": "Reenviar código"
+},
+"linkLyftLicense": {
+  "subtitle": "Por favor, introduce el número de tu licencia de conducir.",
+  "inputLabel": "Número de licencia de conducir",
+  "placeholder": "Introduce tu número de licencia de conducir",
+  "continue": "Continuar"
+},
+"linkDoorDash": {
+  "title": "Vincular DoorDash",
+  "subtitle": "Empieza tu viaje con DoorDash",
+  "emailLabel": "Dirección de correo electrónico",
+  "passwordLabel": "Contraseña",
+  "phoneLabel": "Introduce el número de teléfono registrado en DoorDash",
+  "emailPlaceholder": "johndoe@gmail.com",
+  "phonePlaceholder": "Número de teléfono",
+  "passwordPlaceholder": "Contraseña",
+  "continue": "Continuar",
+  "forgot": "¿Olvidaste tu contraseña?",
+  "switchToPhone": "Iniciar sesión con número de teléfono",
+  "switchToEmail": "Iniciar sesión con correo y contraseña"
 }
+
+,
+"verifyDoorDash": {
+  "title": "Vincular DoorDash",
+  "subtitleSMS": "Introduce el código enviado por SMS a",
+  "subtitleEmail": "Introduce el código enviado a",
+  "otpExpire": "(El código expira en 30 minutos)",
+  "enterCode": "Introducir código",
+  "verify": "Verificar",
+  "didNotReceive": "¿No recibiste el código?",
+  "sendAgain": "Reenviar en {{seconds}} segundos",
+  "resend": "Reenviar código",
+  "switchToEmail": "Iniciar sesión con correo y contraseña",
+  "switchToPhone": "Iniciar sesión con teléfono"
+}
+
+
 
 
 

@@ -26,6 +26,21 @@ const PlatformSelectionScreen = ({ navigation }) => {
     }
   };
 
+  const handleContinue = () => {
+    console.log('Selected services:', selected);
+
+    if (selected.includes('lyft')) {
+      navigation.replace('LinkLyft'); // ✅ Go to Lyft linking
+    } else if (selected.includes('uber')) {
+      navigation.replace('LinkUber'); // ✅ Go to Uber linking
+    } else if (selected.includes('doordash')) {
+      // Add screen when you build it
+      navigation.replace('DoorDashAuth');
+    } else {
+      navigation.replace('LinkUber'); // fallback
+    }
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Logo */}
@@ -49,7 +64,7 @@ const PlatformSelectionScreen = ({ navigation }) => {
             image={p.image}
             selected={selected.includes(p.key)}
             onPress={() => toggleSelection(p.key)}
-            textColor={theme.text} // 👈 pass down
+            textColor={theme.text}
             borderColor={theme.border}
             backgroundColor={theme.card}
           />
@@ -61,15 +76,7 @@ const PlatformSelectionScreen = ({ navigation }) => {
         <PrimaryButton
           title={t('platform.select')}
           disabled={selected.length === 0}
-          onPress={() => {
-            console.log('Selected services:', selected);
-
-            if (selected.includes('uber')) {
-              navigation.replace('LinkUber');
-            } else {
-              navigation.replace('LinkUber'); // fallback
-            }
-          }}
+          onPress={handleContinue}
         />
       </View>
     </View>

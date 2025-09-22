@@ -13,6 +13,9 @@ export const Images = {
   uberOnboarding: require('./images/uber-onboarding.png'),
   setupPicture: require('./images/setup-picture.png'),
   accessibility: require('./images/accessibility.png'),
+  lyftOnboarding: require('./images/lyft-onboarding.png'),
+    doorDashOnboarding: require('./images/door-dash-onboarding.png'),
+
 };
 
 export const Icons = {
@@ -38,6 +41,7 @@ export const Icons = {
   bottomMail: require('./icons/bottom-mail.png'),
   bottomPassword: require('./icons/bottom-password.png'),
   bottomPhone: require('./icons/bottom-phone.png'),
+  license: require('./icons/license.png'),
 };
 export const Fonts = {
   regular: 'Lexend-Regular',

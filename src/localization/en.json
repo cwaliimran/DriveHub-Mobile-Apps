@@ -139,7 +139,58 @@
   "finalNote": "To enable, tap <bold>Open Settings</bold> and activate the Drive Hub Access Service.",
   "skip": "Skip",
   "allow": "Allow Access"
+},
+"linkLyft": {
+  "title": "Link Lyft",
+  "subtitle": "Kick off your journey with Lyft",
+  "inputLabel": "Enter the phone number registered to Lyft",
+  "placeholder": "Phone Number",
+  "continue": "Continue"
+},
+
+"verifyLyft": {
+  "subtitle": "Enter the OTP sent via SMS at",
+  "enterCode": "Enter Code",
+  "verify": "Verify",
+  "didNotReceive": "Did not receive code?",
+  "sendAgain": "Send again in {{seconds}} seconds",
+  "resend": "Resend Code"
+},
+"linkLyftLicense": {
+  "subtitle": "Please enter the number from your driver's license.",
+  "inputLabel": "Driving License Number",
+  "placeholder": "Enter your driving license number",
+  "continue": "Continue"
+},
+"linkDoorDash": {
+  "title": "Link DoorDash",
+  "subtitle": "Kick off your journey with DoorDash",
+  "emailLabel": "Email Address",
+  "passwordLabel": "Password",
+  "phoneLabel": "Enter the phone number registered to DoorDash",
+  "emailPlaceholder": "johndoe@gmail.com",
+  "phonePlaceholder": "Phone Number",
+  "passwordPlaceholder": "Password",
+  "continue": "Continue",
+  "forgot": "Forgot Password?",
+  "switchToPhone": "Login With Phone Number Instead",
+  "switchToEmail": "Login With Email & Password Instead"
 }
+,
+"verifyDoorDash": {
+  "title": "DoorDash Link",
+  "subtitleSMS": "Enter the OTP sent via SMS at",
+  "subtitleEmail": "Enter the OTP sent at",
+  "otpExpire": "(OTP Expires in 30 Min)",
+  "enterCode": "Enter Code",
+  "verify": "Verify",
+  "didNotReceive": "Did not receive code?",
+  "sendAgain": "Send again in {{seconds}} seconds",
+  "resend": "Resend Code",
+  "switchToEmail": "Login Via Email & Password",
+  "switchToPhone": "Login Via Phone Instead"
+}
+
 
 
 }

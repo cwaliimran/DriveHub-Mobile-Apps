@@ -15,6 +15,11 @@ import LinkUberScreen from '../screens/Auth/LinkUberScreen';
 import VerifyUberOTPScreen from '../screens/Uber/VerifyUberOTP';
 import LinkUberPasswordScreen from '../screens/Uber/Auth/LinkUberPasswordScreen';
 import SetupAccessibilityScreen from '../screens/Auth/Common/SetupAccessibilityScreen';
+import LinkLyftScreen from '../screens/LinkLyft/Auth';
+import VerifyLyftOTPScreen from '../screens/LinkLyft/VerifyOTP';
+import LinkLyftLicenseScreen from '../screens/LinkLyft/License';
+import DoorDashAuthScreen from '../screens/DoorDash/Auth';
+import VerifyDoorDashOTPScreen from '../screens/DoorDash/VerifyOTP';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +42,11 @@ const AppNavigator = () => (
     <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
     <Stack.Screen name="LinkUber" component={LinkUberScreen} />
     <Stack.Screen name="VerifyUberOTP" component={VerifyUberOTPScreen} />
+    <Stack.Screen name="LinkLyft" component={LinkLyftScreen} />
+    <Stack.Screen name="VerifyLyftOTP" component={VerifyLyftOTPScreen} />
+  <Stack.Screen name="LinkLyftLicense" component={LinkLyftLicenseScreen} />
+
+
 <Stack.Screen 
   name="LinkUberPassword" 
   component={LinkUberPasswordScreen} 
@@ -45,6 +55,16 @@ const AppNavigator = () => (
 <Stack.Screen
   name="SetupAccessibility"
   component={SetupAccessibilityScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="DoorDashAuth"
+  component={DoorDashAuthScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="VerifyDoorDashOTP"
+  component={VerifyDoorDashOTPScreen}
   options={{ headerShown: false }}
 />
   </Stack.Navigator>
