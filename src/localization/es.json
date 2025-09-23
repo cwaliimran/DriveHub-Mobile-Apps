@@ -191,12 +191,106 @@
   "resend": "Reenviar código",
   "switchToEmail": "Iniciar sesión con correo y contraseña",
   "switchToPhone": "Iniciar sesión con teléfono"
+},
+
+  "home": {
+    "title": "Esta es la pantalla de inicio"
+  },
+  "automation": {
+    "title": "Esta es la pantalla de automatización"
+  },
+  "history": {
+    "title": "Esta es la pantalla de historial"
+  },
+  "earning": {
+    "title": "Esta es la pantalla de ganancias"
+  }
+,
+"profileCard": {
+  "edit": "Editar",
+  "trips": "Viajes totales",
+  "earnings": "Ganancias",
+  "thisMonth": "Este mes",
+  "member": "Miembro Premium"
 }
+,
 
-
-
-
-
+"more": {
+  "title": "Más",
+  "sections": {
+    "subscription": "Suscripción",
+    "settings": "Configuración y personalización",
+    "terms": "Términos",
+    "support": "Ayuda y soporte",
+    "account": "Gestión de cuenta"
+  },
+  "options": {
+    "premium": {
+      "title": "Plan Premium",
+      "desc": "Activo hasta dic 2024"
+    },
+    "payment": {
+      "title": "Métodos de pago",
+      "desc": "Activo hasta dic 2024"
+    },
+    "filters": {
+      "title": "Gestionar filtros",
+      "desc": "Puedes gestionar tus filtros"
+    },
+    "notifications": {
+      "title": "Notificaciones",
+      "desc": "Viajes, ganancias, alertas"
+    },
+    "theme": {
+      "title": "Tema",
+      "desc": "Personaliza tu tema"
+    },
+    "language": {
+      "title": "Idioma",
+      "desc": "Cambiar el idioma de la aplicación"
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "desc": "Ver la política de privacidad de la app"
+    },
+    "about": {
+      "title": "Sobre nosotros",
+      "desc": "Ver información sobre la app"
+    },
+    "terms": {
+      "title": "Términos y condiciones",
+      "desc": "Ver términos y condiciones de la app"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "desc": "Ver las preguntas frecuentes de la app"
+    },
+    "support": {
+      "title": "Contactar soporte",
+      "desc": "Cuéntanos si tienes algún comentario"
+    },
+    "report": {
+      "title": "Reportar un problema",
+      "desc": "Avísanos si encuentras un error"
+    },
+    "updates": {
+      "title": "Actualizaciones y anuncios de la app",
+      "desc": "Ver qué hay de nuevo"
+    },
+    "cache": {
+      "title": "Borrar caché",
+      "desc": "Acelera tu proceso"
+    },
+    "delete": {
+      "title": "Eliminar cuenta",
+      "desc": "Eliminar cuenta"
+    },
+    "logout": {
+      "title": "Cerrar sesión",
+      "desc": "Cerrar sesión de tu cuenta"
+    }
+  }
+}
 
 
 

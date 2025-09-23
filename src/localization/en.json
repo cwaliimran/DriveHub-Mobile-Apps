@@ -189,7 +189,104 @@
   "resend": "Resend Code",
   "switchToEmail": "Login Via Email & Password",
   "switchToPhone": "Login Via Phone Instead"
+},
+  "home": {
+    "title": "This is Home Screen"
+  },
+  "automation": {
+    "title": "This is Automation Screen"
+  },
+  "history": {
+    "title": "This is History Screen"
+  },
+  "earning": {
+    "title": "This is Earning Screen"
+  },
+  "profileCard": {
+  "edit": "Edit",
+  "trips": "Total Trips",
+  "earnings": "Earnings",
+  "thisMonth": "This Month",
+  "member": "Premium Member"
 }
+,"more": {
+  "title": "More",
+  "sections": {
+    "subscription": "Subscription",
+    "settings": "Settings & Customization",
+    "terms": "Terms",
+    "support": "Help & Support",
+    "account": "Account Management"
+  },
+  "options": {
+    "premium": {
+      "title": "Premium Plan",
+      "desc": "Active until Dec 2024"
+    },
+    "payment": {
+      "title": "Payment Methods",
+      "desc": "Active until Dec 2024"
+    },
+    "filters": {
+      "title": "Manage Filters",
+      "desc": "You can manage your filters"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "desc": "Trips, earnings, alerts"
+    },
+    "theme": {
+      "title": "Theme",
+      "desc": "Customize your theme"
+    },
+    "language": {
+      "title": "Language",
+      "desc": "Change the app language"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "desc": "View app’s privacy policy"
+    },
+    "about": {
+      "title": "About Us",
+      "desc": "View app’s about us"
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "desc": "View app’s terms & conditions"
+    },
+    "faq": {
+      "title": "FAQ’s",
+      "desc": "View app’s frequently asked questions"
+    },
+    "support": {
+      "title": "Contact Support",
+      "desc": "Let us know if you have any feedback"
+    },
+    "report": {
+      "title": "Report an issue",
+      "desc": "Let us know if you found a bug"
+    },
+    "updates": {
+      "title": "App Updates & Announcements",
+      "desc": "See what’s new"
+    },
+    "cache": {
+      "title": "Clear Cache",
+      "desc": "Speed up your process"
+    },
+    "delete": {
+      "title": "Delete Account",
+      "desc": "Remove account"
+    },
+    "logout": {
+      "title": "Logout",
+      "desc": "Logout from your account"
+    }
+  }
+}
+
+
 
 
 

@@ -194,18 +194,117 @@
   "resend": "Kodu Tekrar Gönder",
   "switchToEmail": "E-posta ve şifre ile giriş yapın",
   "switchToPhone": "Bunun yerine telefonla giriş yapın"
+},
+
+
+
+
+
+
+
+
+
+
+  "home": {
+    "title": "Burası Ana Ekran"
+  },
+  "automation": {
+    "title": "Burası Otomasyon Ekranı"
+  },
+  "history": {
+    "title": "Burası Geçmiş Ekranı"
+  },
+  "earning": {
+    "title": "Burası Kazanç Ekranı"
+  },
+  "profileCard": {
+  "edit": "Düzenle",
+  "trips": "Toplam Yolculuk",
+  "earnings": "Kazançlar",
+  "thisMonth": "Bu Ay",
+  "member": "Premium Üye"
 }
 
+,
 
 
 
 
-
-
-
-
-
-
-
+"more": {
+  "title": "Daha Fazla",
+  "sections": {
+    "subscription": "Abonelik",
+    "settings": "Ayarlar ve Özelleştirme",
+    "terms": "Şartlar",
+    "support": "Yardım ve Destek",
+    "account": "Hesap Yönetimi"
+  },
+  "options": {
+    "premium": {
+      "title": "Premium Plan",
+      "desc": "Aralık 2024’e kadar aktif"
+    },
+    "payment": {
+      "title": "Ödeme Yöntemleri",
+      "desc": "Aralık 2024’e kadar aktif"
+    },
+    "filters": {
+      "title": "Filtreleri Yönet",
+      "desc": "Filtrelerinizi yönetebilirsiniz"
+    },
+    "notifications": {
+      "title": "Bildirimler",
+      "desc": "Yolculuklar, kazançlar, uyarılar"
+    },
+    "theme": {
+      "title": "Tema",
+      "desc": "Temanızı özelleştirin"
+    },
+    "language": {
+      "title": "Dil",
+      "desc": "Uygulama dilini değiştirin"
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "desc": "Uygulamanın gizlilik politikasını görüntüleyin"
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "desc": "Uygulama hakkında bilgi görüntüleyin"
+    },
+    "terms": {
+      "title": "Şartlar ve Koşullar",
+      "desc": "Uygulamanın şartlarını görüntüleyin"
+    },
+    "faq": {
+      "title": "SSS",
+      "desc": "Uygulamanın sıkça sorulan sorularını görüntüleyin"
+    },
+    "support": {
+      "title": "Destek ile İletişime Geç",
+      "desc": "Geri bildiriminiz varsa bize bildirin"
+    },
+    "report": {
+      "title": "Sorun Bildir",
+      "desc": "Bir hata bulursanız bize bildirin"
+    },
+    "updates": {
+      "title": "Uygulama Güncellemeleri ve Duyurular",
+      "desc": "Yenilikleri görün"
+    },
+    "cache": {
+      "title": "Önbelleği Temizle",
+      "desc": "Sürecinizi hızlandırın"
+    },
+    "delete": {
+      "title": "Hesabı Sil",
+      "desc": "Hesabı kaldır"
+    },
+    "logout": {
+      "title": "Çıkış Yap",
+      "desc": "Hesabınızdan çıkış yapın"
+    }
+  }
+}
 
 }

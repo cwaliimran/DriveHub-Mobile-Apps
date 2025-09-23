@@ -20,6 +20,8 @@ import VerifyLyftOTPScreen from '../screens/LinkLyft/VerifyOTP';
 import LinkLyftLicenseScreen from '../screens/LinkLyft/License';
 import DoorDashAuthScreen from '../screens/DoorDash/Auth';
 import VerifyDoorDashOTPScreen from '../screens/DoorDash/VerifyOTP';
+import BottomTabNavigator from './BottomTabNavigator';
+import MoreScreen from '../screens/More';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +69,13 @@ const AppNavigator = () => (
   component={VerifyDoorDashOTPScreen}
   options={{ headerShown: false }}
 />
+<Stack.Screen
+  name="Home"
+  component={BottomTabNavigator}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen name="More" component={MoreScreen} />
+
   </Stack.Navigator>
 );
 
