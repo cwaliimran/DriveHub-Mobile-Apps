@@ -42,23 +42,14 @@ export const Icons = {
   bottomPassword: require('./icons/bottom-password.png'),
   bottomPhone: require('./icons/bottom-phone.png'),
   license: require('./icons/license.png'),
-  // Home
   bottomHome: require('./icons/bottom-home.png'),
   bottomHomeSelected: require('./icons/bottom-home-selected.png'),
-
-  // Automation
   bottomAutomation: require('./icons/bottom-automation.png'),
   bottomAutomationSelected: require('./icons/bottom-automation-selected.png'),
-
-  // History
   bottomHistory: require('./icons/bottom-history.png'),
   bottomHistorySelected: require('./icons/bottom-history-selected.png'),
-
-  // Earning
   bottomEarning: require('./icons/bottom-earning.png'),
   bottomEarningSelected: require('./icons/bottom-earning-selected.png'),
-
-  // Play/Pause
   bottomPlay: require('./icons/bottom-play.png'),
   bottomPause: require('./icons/bottom-pause.png'),
   darkHeaderProfile: require('./icons/dark-header-profile.png'),
@@ -83,6 +74,16 @@ export const Icons = {
   cache: require('./icons/cache.png'),
   delete: require('./icons/delete.png'),
   logout: require('./icons/logout.png'),
+  successModal: require('./icons/success-modal.png'),
+  faqExpand: require('./icons/faq-expand.png'),
+  faqStress: require('./icons/faq-stress.png'),
+  logoutModal: require('./icons/logout-modal.png'),
+  deleteModal: require('./icons/delete-modal.png'),
+  cacheModal: require('./icons/cache-modal.png'),
+  darkMode: require('./icons/dark-mode.png'),
+lightMode: require('./icons/light-mode.png'),
+
+
 };
 export const Fonts = {
   regular: 'Lexend-Regular',

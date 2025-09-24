@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   bottomBar: {
     position: 'absolute',
     left: 0,
+    backgroundColor:"white",
     right: 0,
     bottom: 0,
     elevation: 13,

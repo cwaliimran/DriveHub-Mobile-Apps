@@ -4,7 +4,7 @@
   "spanish": "Spanish",
   "turkish": "Turkish",
   "select": "Select",
-    "onboarding": {
+  "onboarding": {
     "slide1": {
       "titleBlack": "Sürüşünü ",
       "titleBlue": "Gig",
@@ -25,186 +25,177 @@
     }
   },
   "signin": {
-  "title": "Giriş Yap",
-  "subtitle": "Kişiselleştirilmiş bir deneyim için hesabınıza giriş yapın.",
-  "email": "E-posta Adresi",
-  "password": "Şifre",
-  "forgot": "Şifrenizi mi unuttunuz?",
-  "signinBtn": "Giriş Yap",
-  "or": "Veya Şununla Devam Et",
-  "google": "Google",
-  "apple": "Apple",
-  "noAccount": "Hesabınız yok mu?",
-  "create": "Yeni Hesap Oluştur"
-},
-"signup": {
-  "title": "Yeni Hesap Oluştur",
-  "fullname": "Tam Adı",
-  "phone": "Telefon Numarası",
-  "email": "E-posta Adresi",
-  "vehicleName": "Araç Adı",
-  "vehicleModel": "Araç Modeli",
-  "password": "Şifre",
-  "confirmPassword": "Şifreyi Onayla",
-  "terms1": "Kabul ediyorum",
-  "terms2": "şartlar ve koşullar",
-  "createBtn": "Hesap Oluştur",
-  "already": "Zaten bir hesabınız var mı?",
-  "signin": "Giriş Yap"
-},
-"otp": {
-  "title": "OTP Doğrula",
-  "subtitle": "Tek kullanımlık şifreyi gönderdik:",
-  "enterCode": "Kodu Girin",
-  "verify": "Doğrula",
-  "didntReceive": "Kodu almadınız mı?",
-  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
-  "resend": "Kodu Tekrar Gönder"
-},
-"confirmation": {
-  "accountCreatedTitle": "Hesap Oluşturuldu",
-  "accountCreatedDesc": "Hesabınız başarıyla oluşturuldu",
-  "continue": "Devam Et"
-},
-"platform": {
-  "heading": "Hangi hizmeti kullanıyorsunuz?",
-  "select": "Seç"
-},
-"forgotPassword": {
-  "title": "Şifremi Unuttum",
-  "subtitle": "Kayıtlı e-posta adresinize tek kullanımlık bir şifre göndereceğiz.",
-  "email": "E-posta Adresi",
-  "continue": "Devam Et"
-  
-},
-"passwordUpdated": {
-  "title": "Şifre Güncellendi",
-  "description": "Şifreniz başarıyla güncellendi",
-  "button": "Giriş Yap"
-},
-"resetPassword": {
-  "title": "Şifreyi Sıfırla",
-  "subtitle": "Artık şifrenizi sıfırlayabilirsiniz.",
-  "password": "Şifre",
-  "confirmPassword": "Şifreyi Onayla",
-  "resetBtn": "Sıfırla",
-  "successTitle": "Şifre Sıfırlandı",
-  "successDesc": "Şifreniz başarıyla sıfırlandı",
-  "continue": "Devam Et"
-},
-"linkUber": {
-  "title": "Uber'i Bağla",
-  "subtitle": "Uber Driver ile yolculuğunuza başlayın",
-  "inputLabel": "Telefon Numarası veya E-posta Adresi",
-  "placeholder": "Telefon numarası veya e-posta girin",
-  "continue": "Devam Et",
-  "or": "Veya Şununla Devam Et",
-  "google": "Google",
-  "apple": "Apple",
-  "switchToPhonePrefix": "Devam Et",
-  "switchToPhoneSuffix": "Telefon Numarasıyla",
-  "switchToEmailPrefix": "Devam Et",
-  "switchToEmailSuffix": "E-posta Adresiyle"
-}
-,
-"verifyUber": {
-  "subtitle": "SMS ile gönderilen OTP'yi girin:",
-  "enterCode": "Kodu Girin",
-  "verify": "Doğrula",
-  "didNotReceive": "Kodu almadınız mı?",
-  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
-  "resend": "Kodu Tekrar Gönder",
-  "tryAnother": "Başka Bir Yöntem Dene",
-  "alt": {
-    "title": "Başka bir doğrulama yöntemi seçin",
+    "title": "Giriş Yap",
+    "subtitle": "Kişiselleştirilmiş bir deneyim için hesabınıza giriş yapın.",
     "email": "E-posta Adresi",
     "password": "Şifre",
-    "changePhone": "Telefon Numarasını Değiştir"
+    "forgot": "Şifrenizi mi unuttunuz?",
+    "signinBtn": "Giriş Yap",
+    "or": "Veya Şununla Devam Et",
+    "google": "Google",
+    "apple": "Apple",
+    "noAccount": "Hesabınız yok mu?",
+    "create": "Yeni Hesap Oluştur"
   },
-  "linkUberPassword": {
-  "welcome": "Tekrar hoş geldiniz,",
-  "password": "Şifre",
-  "continue": "Devam Et"
-},
-"setup": {
-  "loading": "Sizin için <bold>her şeyi</bold> ayarlamamız için bize bir an verin.",
-  "accessibilityTitle": "Erişilebilirlik Bildirimi",
-  "accessibilityDesc": "DriveHub, Sürücü uygulamasında <bold>BAŞLA</bold>ya dokunarak çevrimiçi olma gibi işlemleri otomatikleştirmek için Erişilebilirlik API'sini kullanır.",
-  "points": {
-    "data": "<bold>Veri Erişimi:</bold> DriveHub uygulamanın arayüzüyle etkileşimde bulunabilir.",
-    "privacy": "<bold>Gizlilik:</bold> Veriler yalnızca otomasyon amaçlı kullanılır.",
-    "control": "<bold>Kontrol:</bold> Bu özelliği ayarlardan devre dışı bırakabilirsiniz."
+  "signup": {
+    "title": "Yeni Hesap Oluştur",
+    "fullname": "Tam Adı",
+    "phone": "Telefon Numarası",
+    "email": "E-posta Adresi",
+    "vehicleName": "Araç Adı",
+    "vehicleModel": "Araç Modeli",
+    "password": "Şifre",
+    "confirmPassword": "Şifreyi Onayla",
+    "terms1": "Kabul ediyorum",
+    "terms2": "şartlar ve koşullar",
+    "createBtn": "Hesap Oluştur",
+    "already": "Zaten bir hesabınız var mı?",
+    "signin": "Giriş Yap"
   },
-  "finalNote": "Etkinleştirmek için <bold>Ayarları Aç</bold>a dokunun ve DriveHub Erişim Servisini etkinleştirin.",
-  "skip": "Atla",
-  "allow": "Erişim İzni Ver"
+  "otp": {
+    "title": "OTP Doğrula",
+    "subtitle": "Tek kullanımlık şifreyi gönderdik:",
+    "enterCode": "Kodu Girin",
+    "verify": "Doğrula",
+    "didntReceive": "Kodu almadınız mı?",
+    "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+    "resend": "Kodu Tekrar Gönder"
+  },
+  "confirmation": {
+    "accountCreatedTitle": "Hesap Oluşturuldu",
+    "accountCreatedDesc": "Hesabınız başarıyla oluşturuldu",
+    "continue": "Devam Et"
+  },
+  "platform": {
+    "heading": "Hangi hizmeti kullanıyorsunuz?",
+    "select": "Seç"
+  },
+  "forgotPassword": {
+    "title": "Şifremi Unuttum",
+    "subtitle": "Kayıtlı e-posta adresinize tek kullanımlık bir şifre göndereceğiz.",
+    "email": "E-posta Adresi",
+    "continue": "Devam Et"
+  },
+  "passwordUpdated": {
+    "title": "Şifre Güncellendi",
+    "description": "Şifreniz başarıyla güncellendi",
+    "button": "Giriş Yap"
+  },
+  "resetPassword": {
+    "title": "Şifreyi Sıfırla",
+    "subtitle": "Artık şifrenizi sıfırlayabilirsiniz.",
+    "password": "Şifre",
+    "confirmPassword": "Şifreyi Onayla",
+    "resetBtn": "Sıfırla",
+    "successTitle": "Şifre Sıfırlandı",
+    "successDesc": "Şifreniz başarıyla sıfırlandı",
+    "continue": "Devam Et"
+  },
+
+"theme": {
+  "title": "Uygulama Teması",
+  "dark": "Karanlık Mod",
+  "light": "Aydınlık Mod",
+  "select": "Seç"
 }
 
 
-}
-,
-"linkLyft": {
-  "title": "Lyft'i Bağla",
-  "subtitle": "Lyft ile yolculuğunuza başlayın",
-  "inputLabel": "Lyft'e kayıtlı telefon numarasını girin",
-  "placeholder": "Telefon Numarası",
-  "continue": "Devam Et"
-},
-
-"verifyLyft": {
-  "subtitle": "SMS ile gönderilen OTP'yi girin:",
-  "enterCode": "Kodu Girin",
-  "verify": "Doğrula",
-  "didNotReceive": "Kodu almadınız mı?",
-  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
-  "resend": "Kodu Tekrar Gönder"
-}
-,
-"linkLyftLicense": {
-  "subtitle": "Lütfen sürücü belgenizdeki numarayı girin.",
-  "inputLabel": "Sürücü Belgesi Numarası",
-  "placeholder": "Sürücü belgesi numaranızı girin",
-  "continue": "Devam Et"
-}
-,
-"linkDoorDash": {
-  "title": "DoorDash'i Bağla",
-  "subtitle": "DoorDash ile yolculuğunuza başlayın",
-  "emailLabel": "E-posta Adresi",
-  "passwordLabel": "Şifre",
-  "phoneLabel": "DoorDash'e kayıtlı telefon numarasını girin",
-  "emailPlaceholder": "johndoe@gmail.com",
-  "phonePlaceholder": "Telefon Numarası",
-  "passwordPlaceholder": "Şifre",
-  "continue": "Devam Et",
-  "forgot": "Şifrenizi mi unuttunuz?",
-  "switchToPhone": "Bunun yerine telefon numarasıyla giriş yapın",
-  "switchToEmail": "Bunun yerine e-posta ve şifre ile giriş yapın"
-}
-,
-"verifyDoorDash": {
-  "title": "DoorDash Bağlantısı",
-  "subtitleSMS": "SMS ile gönderilen OTP'yi girin:",
-  "subtitleEmail": "Gönderilen OTP'yi girin:",
-  "otpExpire": "(OTP 30 dakika içinde geçerlidir)",
-  "enterCode": "Kodu Girin",
-  "verify": "Doğrula",
-  "didNotReceive": "Kodu almadınız mı?",
-  "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
-  "resend": "Kodu Tekrar Gönder",
-  "switchToEmail": "E-posta ve şifre ile giriş yapın",
-  "switchToPhone": "Bunun yerine telefonla giriş yapın"
-},
-
-
-
-
-
-
-
-
-
-
+  ,
+  "linkUber": {
+    "title": "Uber'i Bağla",
+    "subtitle": "Uber Driver ile yolculuğunuza başlayın",
+    "inputLabel": "Telefon Numarası veya E-posta Adresi",
+    "placeholder": "Telefon numarası veya e-posta girin",
+    "continue": "Devam Et",
+    "or": "Veya Şununla Devam Et",
+    "google": "Google",
+    "apple": "Apple",
+    "switchToPhonePrefix": "Devam Et",
+    "switchToPhoneSuffix": "Telefon Numarasıyla",
+    "switchToEmailPrefix": "Devam Et",
+    "switchToEmailSuffix": "E-posta Adresiyle"
+  },
+  "verifyUber": {
+    "subtitle": "SMS ile gönderilen OTP'yi girin:",
+    "enterCode": "Kodu Girin",
+    "verify": "Doğrula",
+    "didNotReceive": "Kodu almadınız mı?",
+    "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+    "resend": "Kodu Tekrar Gönder",
+    "tryAnother": "Başka Bir Yöntem Dene",
+    "alt": {
+      "title": "Başka bir doğrulama yöntemi seçin",
+      "email": "E-posta Adresi",
+      "password": "Şifre",
+      "changePhone": "Telefon Numarasını Değiştir"
+    },
+    "linkUberPassword": {
+      "welcome": "Tekrar hoş geldiniz,",
+      "password": "Şifre",
+      "continue": "Devam Et"
+    },
+    "setup": {
+      "loading": "Sizin için <bold>her şeyi</bold> ayarlamamız için bize bir an verin.",
+      "accessibilityTitle": "Erişilebilirlik Bildirimi",
+      "accessibilityDesc": "DriveHub, Sürücü uygulamasında <bold>BAŞLA</bold>ya dokunarak çevrimiçi olma gibi işlemleri otomatikleştirmek için Erişilebilirlik API'sini kullanır.",
+      "points": {
+        "data": "<bold>Veri Erişimi:</bold> DriveHub uygulamanın arayüzüyle etkileşimde bulunabilir.",
+        "privacy": "<bold>Gizlilik:</bold> Veriler yalnızca otomasyon amaçlı kullanılır.",
+        "control": "<bold>Kontrol:</bold> Bu özelliği ayarlardan devre dışı bırakabilirsiniz."
+      },
+      "finalNote": "Etkinleştirmek için <bold>Ayarları Aç</bold>a dokunun ve DriveHub Erişim Servisini etkinleştirin.",
+      "skip": "Atla",
+      "allow": "Erişim İzni Ver"
+    }
+  },
+  "linkLyft": {
+    "title": "Lyft'i Bağla",
+    "subtitle": "Lyft ile yolculuğunuza başlayın",
+    "inputLabel": "Lyft'e kayıtlı telefon numarasını girin",
+    "placeholder": "Telefon Numarası",
+    "continue": "Devam Et"
+  },
+  "verifyLyft": {
+    "subtitle": "SMS ile gönderilen OTP'yi girin:",
+    "enterCode": "Kodu Girin",
+    "verify": "Doğrula",
+    "didNotReceive": "Kodu almadınız mı?",
+    "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+    "resend": "Kodu Tekrar Gönder"
+  },
+  "linkLyftLicense": {
+    "subtitle": "Lütfen sürücü belgenizdeki numarayı girin.",
+    "inputLabel": "Sürücü Belgesi Numarası",
+    "placeholder": "Sürücü belgesi numaranızı girin",
+    "continue": "Devam Et"
+  },
+  "linkDoorDash": {
+    "title": "DoorDash'i Bağla",
+    "subtitle": "DoorDash ile yolculuğunuza başlayın",
+    "emailLabel": "E-posta Adresi",
+    "passwordLabel": "Şifre",
+    "phoneLabel": "DoorDash'e kayıtlı telefon numarasını girin",
+    "emailPlaceholder": "johndoe@gmail.com",
+    "phonePlaceholder": "Telefon Numarası",
+    "passwordPlaceholder": "Şifre",
+    "continue": "Devam Et",
+    "forgot": "Şifrenizi mi unuttunuz?",
+    "switchToPhone": "Bunun yerine telefon numarasıyla giriş yapın",
+    "switchToEmail": "Bunun yerine e-posta ve şifre ile giriş yapın"
+  },
+  "verifyDoorDash": {
+    "title": "DoorDash Bağlantısı",
+    "subtitleSMS": "SMS ile gönderilen OTP'yi girin:",
+    "subtitleEmail": "Gönderilen OTP'yi girin:",
+    "otpExpire": "(OTP 30 dakika içinde geçerlidir)",
+    "enterCode": "Kodu Girin",
+    "verify": "Doğrula",
+    "didNotReceive": "Kodu almadınız mı?",
+    "sendAgain": "{{seconds}} saniye içinde tekrar gönder",
+    "resend": "Kodu Tekrar Gönder",
+    "switchToEmail": "E-posta ve şifre ile giriş yapın",
+    "switchToPhone": "Bunun yerine telefonla giriş yapın"
+  },
   "home": {
     "title": "Burası Ana Ekran"
   },
@@ -218,93 +209,134 @@
     "title": "Burası Kazanç Ekranı"
   },
   "profileCard": {
-  "edit": "Düzenle",
-  "trips": "Toplam Yolculuk",
-  "earnings": "Kazançlar",
-  "thisMonth": "Bu Ay",
-  "member": "Premium Üye"
-}
-
-,
-
-
-
-
-"more": {
-  "title": "Daha Fazla",
-  "sections": {
-    "subscription": "Abonelik",
-    "settings": "Ayarlar ve Özelleştirme",
-    "terms": "Şartlar",
-    "support": "Yardım ve Destek",
-    "account": "Hesap Yönetimi"
+    "edit": "Düzenle",
+    "trips": "Toplam Yolculuk",
+    "earnings": "Kazançlar",
+    "thisMonth": "Bu Ay",
+    "member": "Premium Üye"
   },
-  "options": {
-    "premium": {
-      "title": "Premium Plan",
-      "desc": "Aralık 2024’e kadar aktif"
+  "more": {
+    "title": "Daha Fazla",
+    "sections": {
+      "subscription": "Abonelik",
+      "settings": "Ayarlar ve Özelleştirme",
+      "terms": "Şartlar",
+      "support": "Yardım ve Destek",
+      "account": "Hesap Yönetimi"
     },
-    "payment": {
-      "title": "Ödeme Yöntemleri",
-      "desc": "Aralık 2024’e kadar aktif"
+    "options": {
+      "premium": {
+        "title": "Premium Plan",
+        "desc": "Aralık 2024’e kadar aktif"
+      },
+      "payment": {
+        "title": "Ödeme Yöntemleri",
+        "desc": "Aralık 2024’e kadar aktif"
+      },
+      "filters": {
+        "title": "Filtreleri Yönet",
+        "desc": "Filtrelerinizi yönetebilirsiniz"
+      },
+      "notifications": {
+        "title": "Bildirimler",
+        "desc": "Yolculuklar, kazançlar, uyarılar"
+      },
+      "theme": {
+        "title": "Tema",
+        "desc": "Temanızı özelleştirin"
+      },
+      "language": {
+        "title": "Dil",
+        "desc": "Uygulama dilini değiştirin"
+      },
+      "privacy": {
+        "title": "Gizlilik Politikası",
+        "desc": "Uygulamanın gizlilik politikasını görüntüleyin"
+      },
+      "about": {
+        "title": "Hakkımızda",
+        "desc": "Uygulama hakkında bilgi görüntüleyin"
+      },
+      "terms": {
+        "title": "Şartlar ve Koşullar",
+        "desc": "Uygulamanın şartlarını görüntüleyin"
+      },
+      "faq": {
+        "title": "SSS",
+        "desc": "Uygulamanın sıkça sorulan sorularını görüntüleyin"
+      },
+      "support": {
+        "title": "Destek ile İletişime Geç",
+        "desc": "Geri bildiriminiz varsa bize bildirin"
+      },
+      "report": {
+        "title": "Sorun Bildir",
+        "desc": "Bir hata bulursanız bize bildirin"
+      },
+      "updates": {
+        "title": "Duyurular ve Güncellemeler",
+        "desc": "Yenilikleri görün"
+      },
+      "cache": {
+        "title": "Önbelleği Temizle",
+        "desc": "Sürecinizi hızlandırın"
+      },
+      "delete": {
+        "title": "Hesabı Sil",
+        "desc": "Hesabı kaldır"
+      }
+      ,
+      "logout": {
+        "title": "Çıkış Yap",
+        "desc": "Hesabınızdan çıkış yapın"
+      }
     },
-    "filters": {
-      "title": "Filtreleri Yönet",
-      "desc": "Filtrelerinizi yönetebilirsiniz"
-    },
-    "notifications": {
-      "title": "Bildirimler",
-      "desc": "Yolculuklar, kazançlar, uyarılar"
-    },
-    "theme": {
-      "title": "Tema",
-      "desc": "Temanızı özelleştirin"
-    },
-    "language": {
-      "title": "Dil",
-      "desc": "Uygulama dilini değiştirin"
-    },
-    "privacy": {
-      "title": "Gizlilik Politikası",
-      "desc": "Uygulamanın gizlilik politikasını görüntüleyin"
-    },
-    "about": {
-      "title": "Hakkımızda",
-      "desc": "Uygulama hakkında bilgi görüntüleyin"
-    },
-    "terms": {
-      "title": "Şartlar ve Koşullar",
-      "desc": "Uygulamanın şartlarını görüntüleyin"
-    },
-    "faq": {
-      "title": "SSS",
-      "desc": "Uygulamanın sıkça sorulan sorularını görüntüleyin"
-    },
-    "support": {
-      "title": "Destek ile İletişime Geç",
-      "desc": "Geri bildiriminiz varsa bize bildirin"
-    },
-    "report": {
-      "title": "Sorun Bildir",
-      "desc": "Bir hata bulursanız bize bildirin"
-    },
-    "updates": {
-      "title": "Uygulama Güncellemeleri ve Duyurular",
-      "desc": "Yenilikleri görün"
-    },
-    "cache": {
-      "title": "Önbelleği Temizle",
-      "desc": "Sürecinizi hızlandırın"
-    },
-    "delete": {
-      "title": "Hesabı Sil",
-      "desc": "Hesabı kaldır"
-    },
-    "logout": {
-      "title": "Çıkış Yap",
-      "desc": "Hesabınızdan çıkış yapın"
-    }
+"modals": {
+  "logout": {
+    "title": "Çıkış yapmak istiyor musunuz?",
+    "desc": "Her zaman tekrar giriş yapabilirsiniz.",
+    "button": "Çıkış Yap"
+  },
+  "delete": {
+    "title": "Hesabı Sil",
+    "desc": "Bu işlem kalıcıdır ve geri alınamaz.",
+    "button": "Sil"
+  },
+  "contactSupport": {
+  "title": "Destek ile İletişime Geç",
+  "name": "Ad",
+  "namePlaceholder": "John Doe",
+  "subject": "Konu",
+  "subjectPlaceholder": "Konu Girin",
+  "message": "Mesaj",
+  "messagePlaceholder": "Buraya yazın...",
+  "sendBtn": "Gönder",
+  "success": {
+    "title": "Başarılı",
+    "desc": "Mesajınız Drive Hub destek ekibine gönderildi. Kısa süre içinde yanıt alacaksınız.",
+    "button": "Devam Et"
   }
 }
 
+  ,
+  "cache": {
+    "title": "Önbelleği Temizle",
+    "desc": "Bu işlem, önbelleğe alınan verileri silerek depolama alanı açar.",
+    "button": "Temizle"
+  },
+  "reportIssue": {
+    "title": "Sorun Bildir",
+    "bugDetail": "Hata Detayı",
+    "placeholder": "Buraya yazın...",
+    "reportBtn": "Bildir",
+    "success": {
+      "title": "Başarılı",
+      "desc": "Raporunuz Drive Hub departmanına gönderildi. Kısa süre içinde bir güncelleme alacaksınız.",
+      "button": "Devam Et"
+    }
+  },
+  "cancel": "İptal"
+}
+
+  }
 }

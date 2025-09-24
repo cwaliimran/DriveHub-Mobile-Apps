@@ -92,7 +92,18 @@
     "successTitle": "Password Reset",
     "successDesc": "Your password has been reset successfully",
     "continue": "Continue"
-},"linkUber": {
+},
+"theme": {
+  "title": "App Theme",
+  "dark": "Dark Mode",
+  "light": "Light Mode",
+  "select": "Select"
+}
+
+
+
+
+,"linkUber": {
   "title": "Link Uber",
   "subtitle": "Kick off your journey with Uber Driver",
   "inputLabel": "Mobile Number or Email Address",
@@ -268,7 +279,7 @@
       "desc": "Let us know if you found a bug"
     },
     "updates": {
-      "title": "App Updates & Announcements",
+      "title": "Announcements & Updates",
       "desc": "See what’s new"
     },
     "cache": {
@@ -283,10 +294,54 @@
       "title": "Logout",
       "desc": "Logout from your account"
     }
+  },
+   "modals": {
+    "logout": {
+      "title": "Are You Logging Out?",
+      "desc": "You can always log back in at any time.",
+      "button": "Logout"
+    },
+"contactSupport": {
+  "title": "Contact Support",
+  "name": "Name",
+  "namePlaceholder": "John Doe",
+  "subject": "Subject",
+  "subjectPlaceholder": "Enter Your Subject",
+  "message": "Message",
+  "messagePlaceholder": "Type Here..",
+  "sendBtn": "Send",
+  "success": {
+    "title": "Success",
+    "desc": "Your message has been sent to Drive Hub support team. You will receive a reply shortly.",
+    "button": "Continue"
   }
 }
 
-
+    ,
+    "delete": {
+      "title": "Delete Account",
+      "desc": "This action is permanent and cannot be undone.",
+      "button": "Delete"
+    },
+    "cache": {
+      "title": "Clear Cache",
+      "desc": "This will free up storage space by removing cached data.",
+      "button": "Clear"
+    },
+    "reportIssue": {
+      "title": "Report An Issue",
+      "bugDetail": "Bug Detail",
+      "placeholder": "Type here..",
+      "reportBtn": "Report",
+      "success": {
+        "title": "Success",
+        "desc": "Your report sent to Drive Hub department. You will receive update shortly.",
+        "button": "Continue"
+      }
+    },
+    "cancel": "Cancel"
+  }
+}
 
 
 

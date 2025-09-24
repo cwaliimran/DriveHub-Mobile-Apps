@@ -25,174 +25,176 @@
     }
   },
   "signin": {
-  "title": "Iniciar sesión",
-  "subtitle": "Para una experiencia personalizada, accede a tu cuenta.",
-  "email": "Dirección de correo electrónico",
-  "password": "Contraseña",
-  "forgot": "¿Olvidaste tu contraseña?",
-  "signinBtn": "Iniciar sesión",
-  "or": "O continúa con",
-  "google": "Google",
-  "apple": "Apple",
-  "noAccount": "¿No tienes una cuenta?",
-  "create": "Crear nueva cuenta"
-},
-"signup": {
-  "title": "Crear nueva cuenta",
-  "fullname": "Nombre completo",
-  "phone": "Número de teléfono",
-  "email": "Dirección de correo electrónico",
-  "vehicleName": "Nombre del vehículo",
-  "vehicleModel": "Modelo del vehículo",
-  "password": "Contraseña",
-  "confirmPassword": "Confirmar contraseña",
-  "terms1": "Acepto",
-  "terms2": "términos y condiciones",
-  "createBtn": "Crear cuenta",
-  "already": "¿Ya tienes una cuenta?",
-  "signin": "Iniciar sesión"
-},
-"otp": {
-  "title": "Verificar OTP",
-  "subtitle": "Hemos enviado un código de un solo uso a",
-  "enterCode": "Introducir código",
-  "verify": "Verificar",
-  "didntReceive": "¿No recibiste el código?",
-  "sendAgain": "Reenviar en {{seconds}} segundos",
-  "resend": "Reenviar código"
-},
-
-"confirmation": {
-  "accountCreatedTitle": "Cuenta creada",
-  "accountCreatedDesc": "Tu cuenta se ha creado correctamente",
-  "continue": "Continuar"
-},
-"platform": {
-  "heading": "¿Qué servicio usas?",
-  "select": "Seleccionar"
-},
-"forgotPassword": {
-  "title": "Olvidé mi contraseña",
-  "subtitle": "Enviaremos un código de un solo uso a tu dirección de correo electrónico registrada.",
-  "email": "Dirección de correo electrónico",
-  "continue": "Continuar"
-},
-"passwordUpdated": {
-  "title": "Contraseña actualizada",
-  "description": "Tu contraseña se ha actualizado correctamente",
-  "button": "Iniciar sesión"
-},
-"resetPassword": {
-  "title": "Restablecer contraseña",
-  "subtitle": "Ahora puedes restablecer tu contraseña.",
-  "password": "Contraseña",
-  "confirmPassword": "Confirmar contraseña",
-  "resetBtn": "Restablecer",
-  "successTitle": "Contraseña restablecida",
-  "successDesc": "Tu contraseña se ha restablecido correctamente",
-  "continue": "Continuar"
-},
-"linkUber": {
-  "title": "Vincular Uber",
-  "subtitle": "Empieza tu viaje con Uber Driver",
-  "inputLabel": "Número de móvil o dirección de correo",
-  "placeholder": "Introduce número de teléfono o correo",
-  "continue": "Continuar",
-  "or": "O continúa con",
-  "google": "Google",
-  "apple": "Apple",
-  "switchToPhonePrefix": "Continuar con",
-  "switchToPhoneSuffix": "número de teléfono",
-  "switchToEmailPrefix": "Continuar con",
-  "switchToEmailSuffix": "dirección de correo"
-}
-,
-"verifyUber": {
-  "subtitle": "Introduce el código enviado por SMS a",
-  "enterCode": "Introducir código",
-  "verify": "Verificar",
-  "didNotReceive": "¿No recibiste el código?",
-  "sendAgain": "Reenviar en {{seconds}} segundos",
-  "resend": "Reenviar código",
-  "tryAnother": "Probar otra forma",
-  "alt": {
-    "title": "Elige otra forma de verificar",
+    "title": "Iniciar sesión",
+    "subtitle": "Para una experiencia personalizada, accede a tu cuenta.",
     "email": "Dirección de correo electrónico",
     "password": "Contraseña",
-    "changePhone": "Cambiar número de móvil"
-  }
-},
-
-"linkUberPassword": {
-  "welcome": "Bienvenido de nuevo,",
-  "password": "Contraseña",
-  "continue": "Continuar"
-},
-"setup": {
-  "loading": "Danos un momento para configurar <bold>todo</bold> para ti.",
-  "accessibilityTitle": "Aviso de accesibilidad",
-  "accessibilityDesc": "DriveHub utiliza la API de accesibilidad para automatizar acciones en la aplicación del Conductor, como tocar <bold>IR</bold> para conectarse.",
-  "points": {
-    "data": "<bold>Acceso a datos:</bold> DriveHub puede interactuar con la interfaz de la aplicación.",
-    "privacy": "<bold>Privacidad:</bold> Los datos se utilizan solo con fines de automatización.",
-    "control": "<bold>Control:</bold> Puedes desactivar esta función en la configuración."
+    "forgot": "¿Olvidaste tu contraseña?",
+    "signinBtn": "Iniciar sesión",
+    "or": "O continúa con",
+    "google": "Google",
+    "apple": "Apple",
+    "noAccount": "¿No tienes una cuenta?",
+    "create": "Crear nueva cuenta"
   },
-  "finalNote": "Para habilitarlo, toca <bold>Abrir configuración</bold> y activa el servicio de acceso de DriveHub.",
-  "skip": "Omitir",
-  "allow": "Permitir acceso"
-},
-"linkLyft": {
-  "title": "Vincular Lyft",
-  "subtitle": "Empieza tu viaje con Lyft",
-  "inputLabel": "Introduce el número de teléfono registrado en Lyft",
-  "placeholder": "Número de teléfono",
-  "continue": "Continuar"
-},
+  "signup": {
+    "title": "Crear nueva cuenta",
+    "fullname": "Nombre completo",
+    "phone": "Número de teléfono",
+    "email": "Dirección de correo electrónico",
+    "vehicleName": "Nombre del vehículo",
+    "vehicleModel": "Modelo del vehículo",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "terms1": "Acepto",
+    "terms2": "términos y condiciones",
+    "createBtn": "Crear cuenta",
+    "already": "¿Ya tienes una cuenta?",
+    "signin": "Iniciar sesión"
+  },
+  "otp": {
+    "title": "Verificar OTP",
+    "subtitle": "Hemos enviado un código de un solo uso a",
+    "enterCode": "Introducir código",
+    "verify": "Verificar",
+    "didntReceive": "¿No recibiste el código?",
+    "sendAgain": "Reenviar en {{seconds}} segundos",
+    "resend": "Reenviar código"
+  },
+  "confirmation": {
+    "accountCreatedTitle": "Cuenta creada",
+    "accountCreatedDesc": "Tu cuenta se ha creado correctamente",
+    "continue": "Continuar"
+  },
+  "platform": {
+    "heading": "¿Qué servicio usas?",
+    "select": "Seleccionar"
+  },
+  "forgotPassword": {
+    "title": "Olvidé mi contraseña",
+    "subtitle": "Enviaremos un código de un solo uso a tu dirección de correo electrónico registrada.",
+    "email": "Dirección de correo electrónico",
+    "continue": "Continuar"
+  },
+  "passwordUpdated": {
+    "title": "Contraseña actualizada",
+    "description": "Tu contraseña se ha actualizado correctamente",
+    "button": "Iniciar sesión"
+  },
+  "resetPassword": {
+    "title": "Restablecer contraseña",
+    "subtitle": "Ahora puedes restablecer tu contraseña.",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "resetBtn": "Restablecer",
+    "successTitle": "Contraseña restablecida",
+    "successDesc": "Tu contraseña se ha restablecido correctamente",
+    "continue": "Continuar"
+  },
 
-"verifyLyft": {
-  "subtitle": "Introduce el código enviado por SMS a",
-  "enterCode": "Introducir código",
-  "verify": "Verificar",
-  "didNotReceive": "¿No recibiste el código?",
-  "sendAgain": "Reenviar en {{seconds}} segundos",
-  "resend": "Reenviar código"
-},
-"linkLyftLicense": {
-  "subtitle": "Por favor, introduce el número de tu licencia de conducir.",
-  "inputLabel": "Número de licencia de conducir",
-  "placeholder": "Introduce tu número de licencia de conducir",
-  "continue": "Continuar"
-},
-"linkDoorDash": {
-  "title": "Vincular DoorDash",
-  "subtitle": "Empieza tu viaje con DoorDash",
-  "emailLabel": "Dirección de correo electrónico",
-  "passwordLabel": "Contraseña",
-  "phoneLabel": "Introduce el número de teléfono registrado en DoorDash",
-  "emailPlaceholder": "johndoe@gmail.com",
-  "phonePlaceholder": "Número de teléfono",
-  "passwordPlaceholder": "Contraseña",
-  "continue": "Continuar",
-  "forgot": "¿Olvidaste tu contraseña?",
-  "switchToPhone": "Iniciar sesión con número de teléfono",
-  "switchToEmail": "Iniciar sesión con correo y contraseña"
+"theme": {
+  "title": "Tema de la aplicación",
+  "dark": "Modo oscuro",
+  "light": "Modo claro",
+  "select": "Seleccionar"
 }
 
-,
-"verifyDoorDash": {
-  "title": "Vincular DoorDash",
-  "subtitleSMS": "Introduce el código enviado por SMS a",
-  "subtitleEmail": "Introduce el código enviado a",
-  "otpExpire": "(El código expira en 30 minutos)",
-  "enterCode": "Introducir código",
-  "verify": "Verificar",
-  "didNotReceive": "¿No recibiste el código?",
-  "sendAgain": "Reenviar en {{seconds}} segundos",
-  "resend": "Reenviar código",
-  "switchToEmail": "Iniciar sesión con correo y contraseña",
-  "switchToPhone": "Iniciar sesión con teléfono"
-},
-
+  ,
+  "linkUber": {
+    "title": "Vincular Uber",
+    "subtitle": "Empieza tu viaje con Uber Driver",
+    "inputLabel": "Número de móvil o dirección de correo",
+    "placeholder": "Introduce número de teléfono o correo",
+    "continue": "Continuar",
+    "or": "O continúa con",
+    "google": "Google",
+    "apple": "Apple",
+    "switchToPhonePrefix": "Continuar con",
+    "switchToPhoneSuffix": "número de teléfono",
+    "switchToEmailPrefix": "Continuar con",
+    "switchToEmailSuffix": "dirección de correo"
+  },
+  "verifyUber": {
+    "subtitle": "Introduce el código enviado por SMS a",
+    "enterCode": "Introducir código",
+    "verify": "Verificar",
+    "didNotReceive": "¿No recibiste el código?",
+    "sendAgain": "Reenviar en {{seconds}} segundos",
+    "resend": "Reenviar código",
+    "tryAnother": "Probar otra forma",
+    "alt": {
+      "title": "Elige otra forma de verificar",
+      "email": "Dirección de correo electrónico",
+      "password": "Contraseña",
+      "changePhone": "Cambiar número de móvil"
+    }
+  },
+  "linkUberPassword": {
+    "welcome": "Bienvenido de nuevo,",
+    "password": "Contraseña",
+    "continue": "Continuar"
+  },
+  "setup": {
+    "loading": "Danos un momento para configurar <bold>todo</bold> para ti.",
+    "accessibilityTitle": "Aviso de accesibilidad",
+    "accessibilityDesc": "DriveHub utiliza la API de accesibilidad para automatizar acciones en la aplicación del Conductor, como tocar <bold>IR</bold> para conectarse.",
+    "points": {
+      "data": "<bold>Acceso a datos:</bold> DriveHub puede interactuar con la interfaz de la aplicación.",
+      "privacy": "<bold>Privacidad:</bold> Los datos se utilizan solo con fines de automatización.",
+      "control": "<bold>Control:</bold> Puedes desactivar esta función en la configuración."
+    },
+    "finalNote": "Para habilitarlo, toca <bold>Abrir configuración</bold> y activa el servicio de acceso de DriveHub.",
+    "skip": "Omitir",
+    "allow": "Permitir acceso"
+  },
+  "linkLyft": {
+    "title": "Vincular Lyft",
+    "subtitle": "Empieza tu viaje con Lyft",
+    "inputLabel": "Introduce el número de teléfono registrado en Lyft",
+    "placeholder": "Número de teléfono",
+    "continue": "Continuar"
+  },
+  "verifyLyft": {
+    "subtitle": "Introduce el código enviado por SMS a",
+    "enterCode": "Introducir código",
+    "verify": "Verificar",
+    "didNotReceive": "¿No recibiste el código?",
+    "sendAgain": "Reenviar en {{seconds}} segundos",
+    "resend": "Reenviar código"
+  },
+  "linkLyftLicense": {
+    "subtitle": "Por favor, introduce el número de tu licencia de conducir.",
+    "inputLabel": "Número de licencia de conducir",
+    "placeholder": "Introduce tu número de licencia de conducir",
+    "continue": "Continuar"
+  },
+  "linkDoorDash": {
+    "title": "Vincular DoorDash",
+    "subtitle": "Empieza tu viaje con DoorDash",
+    "emailLabel": "Dirección de correo electrónico",
+    "passwordLabel": "Contraseña",
+    "phoneLabel": "Introduce el número de teléfono registrado en DoorDash",
+    "emailPlaceholder": "johndoe@gmail.com",
+    "phonePlaceholder": "Número de teléfono",
+    "passwordPlaceholder": "Contraseña",
+    "continue": "Continuar",
+    "forgot": "¿Olvidaste tu contraseña?",
+    "switchToPhone": "Iniciar sesión con número de teléfono",
+    "switchToEmail": "Iniciar sesión con correo y contraseña"
+  },
+  "verifyDoorDash": {
+    "title": "Vincular DoorDash",
+    "subtitleSMS": "Introduce el código enviado por SMS a",
+    "subtitleEmail": "Introduce el código enviado a",
+    "otpExpire": "(El código expira en 30 minutos)",
+    "enterCode": "Introducir código",
+    "verify": "Verificar",
+    "didNotReceive": "¿No recibiste el código?",
+    "sendAgain": "Reenviar en {{seconds}} segundos",
+    "resend": "Reenviar código",
+    "switchToEmail": "Iniciar sesión con correo y contraseña",
+    "switchToPhone": "Iniciar sesión con teléfono"
+  },
   "home": {
     "title": "Esta es la pantalla de inicio"
   },
@@ -204,95 +206,137 @@
   },
   "earning": {
     "title": "Esta es la pantalla de ganancias"
-  }
-,
-"profileCard": {
-  "edit": "Editar",
-  "trips": "Viajes totales",
-  "earnings": "Ganancias",
-  "thisMonth": "Este mes",
-  "member": "Miembro Premium"
-}
-,
-
-"more": {
-  "title": "Más",
-  "sections": {
-    "subscription": "Suscripción",
-    "settings": "Configuración y personalización",
-    "terms": "Términos",
-    "support": "Ayuda y soporte",
-    "account": "Gestión de cuenta"
   },
-  "options": {
-    "premium": {
-      "title": "Plan Premium",
-      "desc": "Activo hasta dic 2024"
+  "profileCard": {
+    "edit": "Editar",
+    "trips": "Viajes totales",
+    "earnings": "Ganancias",
+    "thisMonth": "Este mes",
+    "member": "Miembro Premium"
+  },
+
+  "more": {
+    "title": "Más",
+    "sections": {
+      "subscription": "Suscripción",
+      "settings": "Configuración y personalización",
+      "terms": "Términos",
+      "support": "Ayuda y soporte",
+      "account": "Gestión de cuenta"
     },
-    "payment": {
-      "title": "Métodos de pago",
-      "desc": "Activo hasta dic 2024"
+    "options": {
+      "premium": {
+        "title": "Plan Premium",
+        "desc": "Activo hasta dic 2024"
+      },
+      "payment": {
+        "title": "Métodos de pago",
+        "desc": "Activo hasta dic 2024"
+      },
+      "filters": {
+        "title": "Gestionar filtros",
+        "desc": "Puedes gestionar tus filtros"
+      },
+      "notifications": {
+        "title": "Notificaciones",
+        "desc": "Viajes, ganancias, alertas"
+      },
+      "theme": {
+        "title": "Tema",
+        "desc": "Personaliza tu tema"
+      },
+      "language": {
+        "title": "Idioma",
+        "desc": "Cambiar el idioma de la aplicación"
+      },
+      "privacy": {
+        "title": "Política de privacidad",
+        "desc": "Ver la política de privacidad de la app"
+      },
+      "about": {
+        "title": "Sobre nosotros",
+        "desc": "Ver información sobre la app"
+      },
+      "terms": {
+        "title": "Términos y condiciones",
+        "desc": "Ver términos y condiciones de la app"
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "desc": "Ver las preguntas frecuentes de la app"
+      },
+      "support": {
+        "title": "Contactar soporte",
+        "desc": "Cuéntanos si tienes algún comentario"
+      },
+      "report": {
+        "title": "Reportar un problema",
+        "desc": "Avísanos si encuentras un error"
+      },
+      "updates": {
+        "title": "Anuncios y actualizaciones",
+        "desc": "Ver qué hay de nuevo"
+      }
+
+      ,
+      "cache": {
+        "title": "Borrar caché",
+        "desc": "Acelera tu proceso"
+      },
+      "delete": {
+        "title": "Eliminar cuenta",
+        "desc": "Eliminar cuenta"
+      },
+      "logout": {
+        "title": "Cerrar sesión",
+        "desc": "Cerrar sesión de tu cuenta"
+      }
     },
-    "filters": {
-      "title": "Gestionar filtros",
-      "desc": "Puedes gestionar tus filtros"
-    },
-    "notifications": {
-      "title": "Notificaciones",
-      "desc": "Viajes, ganancias, alertas"
-    },
-    "theme": {
-      "title": "Tema",
-      "desc": "Personaliza tu tema"
-    },
-    "language": {
-      "title": "Idioma",
-      "desc": "Cambiar el idioma de la aplicación"
-    },
-    "privacy": {
-      "title": "Política de privacidad",
-      "desc": "Ver la política de privacidad de la app"
-    },
-    "about": {
-      "title": "Sobre nosotros",
-      "desc": "Ver información sobre la app"
-    },
-    "terms": {
-      "title": "Términos y condiciones",
-      "desc": "Ver términos y condiciones de la app"
-    },
-    "faq": {
-      "title": "Preguntas frecuentes",
-      "desc": "Ver las preguntas frecuentes de la app"
-    },
-    "support": {
-      "title": "Contactar soporte",
-      "desc": "Cuéntanos si tienes algún comentario"
-    },
-    "report": {
-      "title": "Reportar un problema",
-      "desc": "Avísanos si encuentras un error"
-    },
-    "updates": {
-      "title": "Actualizaciones y anuncios de la app",
-      "desc": "Ver qué hay de nuevo"
-    },
-    "cache": {
-      "title": "Borrar caché",
-      "desc": "Acelera tu proceso"
-    },
-    "delete": {
-      "title": "Eliminar cuenta",
-      "desc": "Eliminar cuenta"
-    },
-    "logout": {
-      "title": "Cerrar sesión",
-      "desc": "Cerrar sesión de tu cuenta"
-    }
+"modals": {
+  "logout": {
+    "title": "¿Quieres cerrar sesión?",
+    "desc": "Siempre puedes volver a iniciar sesión en cualquier momento.",
+    "button": "Cerrar sesión"
+  },
+  "delete": {
+    "title": "Eliminar cuenta",
+    "desc": "Esta acción es permanente y no se puede deshacer.",
+    "button": "Eliminar"
+  },
+  "contactSupport": {
+  "title": "Contactar soporte",
+  "name": "Nombre",
+  "namePlaceholder": "John Doe",
+  "subject": "Asunto",
+  "subjectPlaceholder": "Introduce tu asunto",
+  "message": "Mensaje",
+  "messagePlaceholder": "Escribe aquí...",
+  "sendBtn": "Enviar",
+  "success": {
+    "title": "Éxito",
+    "desc": "Tu mensaje ha sido enviado al equipo de soporte de Drive Hub. Recibirás una respuesta en breve.",
+    "button": "Continuar"
   }
 }
-
-
-
+,
+  "cache": {
+    "title": "Borrar caché",
+    "desc": "Esto liberará espacio de almacenamiento eliminando los datos en caché.",
+    "button": "Borrar"
+  },
+  "reportIssue": {
+    "title": "Reportar un problema",
+    "bugDetail": "Detalle del error",
+    "placeholder": "Escribe aquí...",
+    "reportBtn": "Reportar",
+    "success": {
+      "title": "Éxito",
+      "desc": "Tu reporte fue enviado al departamento de Drive Hub. Recibirás una actualización en breve.",
+      "button": "Continuar"
+    }
+  },
+  "cancel": "Cancelar"
 }
 
+  }
+}

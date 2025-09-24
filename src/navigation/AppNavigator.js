@@ -22,7 +22,15 @@ import DoorDashAuthScreen from '../screens/DoorDash/Auth';
 import VerifyDoorDashOTPScreen from '../screens/DoorDash/VerifyOTP';
 import BottomTabNavigator from './BottomTabNavigator';
 import MoreScreen from '../screens/More';
-
+import FAQScreen from '../screens/More/Options/FAQ';
+import AnnouncementScreen from '../screens/More/Options/Announcement';
+import ReportIssueScreen from '../screens/More/Options/ReportIssue';
+import ContactSupportScreen from '../screens/More/Options/Support';
+import AboutScreen from '../screens/More/Options/About';
+import PrivacyScreen from '../screens/More/Options/Privacy';
+import TermsScreen from '../screens/More/Options/Terms';
+import LanguageMoreScreen from '../screens/More/Options/Language';
+import ThemeMoreScreen from '../screens/More/Options/Theme';
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => (
@@ -46,35 +54,44 @@ const AppNavigator = () => (
     <Stack.Screen name="VerifyUberOTP" component={VerifyUberOTPScreen} />
     <Stack.Screen name="LinkLyft" component={LinkLyftScreen} />
     <Stack.Screen name="VerifyLyftOTP" component={VerifyLyftOTPScreen} />
-  <Stack.Screen name="LinkLyftLicense" component={LinkLyftLicenseScreen} />
+    <Stack.Screen name="LinkLyftLicense" component={LinkLyftLicenseScreen} />
 
 
-<Stack.Screen 
-  name="LinkUberPassword" 
-  component={LinkUberPasswordScreen} 
-  options={{ headerShown: false }} 
-/>
-<Stack.Screen
-  name="SetupAccessibility"
-  component={SetupAccessibilityScreen}
-  options={{ headerShown: false }}
-/>
-<Stack.Screen
-  name="DoorDashAuth"
-  component={DoorDashAuthScreen}
-  options={{ headerShown: false }}
-/>
-<Stack.Screen
-  name="VerifyDoorDashOTP"
-  component={VerifyDoorDashOTPScreen}
-  options={{ headerShown: false }}
-/>
-<Stack.Screen
-  name="Home"
-  component={BottomTabNavigator}
-  options={{ headerShown: false }}
-/>
-<Stack.Screen name="More" component={MoreScreen} />
+    <Stack.Screen
+      name="LinkUberPassword"
+      component={LinkUberPasswordScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="SetupAccessibility"
+      component={SetupAccessibilityScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="DoorDashAuth"
+      component={DoorDashAuthScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="VerifyDoorDashOTP"
+      component={VerifyDoorDashOTPScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Home"
+      component={BottomTabNavigator}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen name="More" component={MoreScreen} />
+    <Stack.Screen name="Announcements" component={AnnouncementScreen} />
+<Stack.Screen name="ReportIssue" component={ReportIssueScreen} />
+<Stack.Screen name="ContactSupport" component={ContactSupportScreen} />
+<Stack.Screen name="FAQ" component={FAQScreen} />
+<Stack.Screen name="About" component={AboutScreen} />
+<Stack.Screen name="Privacy" component={PrivacyScreen} />
+<Stack.Screen name="Terms" component={TermsScreen} />
+<Stack.Screen name="LanguageMore" component={LanguageMoreScreen} />
+<Stack.Screen name="Theme" component={ThemeMoreScreen} />
 
   </Stack.Navigator>
 );

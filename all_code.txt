@@ -1,7 +1,7 @@
 
 // ==== src/assets/assets.js ====
 export const Images = {
-    logoLight: require('./images/logo-light.png'), // for light theme
+  logoLight: require('./images/logo-light.png'), // for light theme
   logoDark: require('./images/logo-dark.png'),   // for dark theme
   backgroundEffect: require('./images/background-effect.png'),
   onboarding1: require('./images/onboarding-1.png'),
@@ -16,8 +16,8 @@ export const Images = {
   setupPicture: require('./images/setup-picture.png'),
   accessibility: require('./images/accessibility.png'),
   lyftOnboarding: require('./images/lyft-onboarding.png'),
-    doorDashOnboarding: require('./images/door-dash-onboarding.png'),
-
+  doorDashOnboarding: require('./images/door-dash-onboarding.png'),
+  userProfile: require('./images/user-profile.png'),
 };
 
 export const Icons = {
@@ -44,6 +44,48 @@ export const Icons = {
   bottomPassword: require('./icons/bottom-password.png'),
   bottomPhone: require('./icons/bottom-phone.png'),
   license: require('./icons/license.png'),
+  bottomHome: require('./icons/bottom-home.png'),
+  bottomHomeSelected: require('./icons/bottom-home-selected.png'),
+  bottomAutomation: require('./icons/bottom-automation.png'),
+  bottomAutomationSelected: require('./icons/bottom-automation-selected.png'),
+  bottomHistory: require('./icons/bottom-history.png'),
+  bottomHistorySelected: require('./icons/bottom-history-selected.png'),
+  bottomEarning: require('./icons/bottom-earning.png'),
+  bottomEarningSelected: require('./icons/bottom-earning-selected.png'),
+  bottomPlay: require('./icons/bottom-play.png'),
+  bottomPause: require('./icons/bottom-pause.png'),
+  darkHeaderProfile: require('./icons/dark-header-profile.png'),
+  darkHeaderNotification: require('./icons/dark-header-notification.png'),
+  lightHeaderProfile: require('./icons/light-header-profile.png'),
+  lightHeaderNotification: require('./icons/light-header-notification.png'),
+  edit: require('./icons/edit.png'),
+  star: require('./icons/star.png'),
+  premiumPlan: require('./icons/premium-plan.png'),
+  paymentMethods: require('./icons/payment-methods.png'),
+  manageFilters: require('./icons/manage-filters.png'),
+  notifications: require('./icons/notifications.png'),
+  theme: require('./icons/theme.png'),
+  language: require('./icons/language.png'),
+  privacy: require('./icons/privacy.png'),
+  about: require('./icons/about.png'),
+  terms: require('./icons/terms.png'),
+  faq: require('./icons/faq.png'),
+  support: require('./icons/support.png'),
+  report: require('./icons/report.png'),
+  updates: require('./icons/updates.png'),
+  cache: require('./icons/cache.png'),
+  delete: require('./icons/delete.png'),
+  logout: require('./icons/logout.png'),
+  successModal: require('./icons/success-modal.png'),
+  faqExpand: require('./icons/faq-expand.png'),
+  faqStress: require('./icons/faq-stress.png'),
+  logoutModal: require('./icons/logout-modal.png'),
+  deleteModal: require('./icons/delete-modal.png'),
+  cacheModal: require('./icons/cache-modal.png'),
+  darkMode: require('./icons/dark-mode.png'),
+lightMode: require('./icons/light-mode.png'),
+
+
 };
 export const Fonts = {
   regular: 'Lexend-Regular',
@@ -287,100 +329,7 @@ const styles = StyleSheet.create({
 export default DoorDashOTPInput;
 
 // ==== src/components/common/LanguageOption.js ====
-import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
-import typography from '../../theme/typography';
-import colors from '../../theme/colors';
-import { Icons } from '../../assets/assets';
-
-const LanguageOption = ({ flag, label, selected, onPress }) => {
-  const scheme = useColorScheme();
-  const isDark = scheme === 'dark';
-
-  return (
-    <TouchableOpacity
-      style={[
-        styles.container,
-        {
-          borderColor: isDark ? colors.borderDark : colors.borderLight,
-          backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight,
-        },
-        selected && {
-          backgroundColor: colors.primary,
-          borderColor: colors.primary,
-        },
-      ]}
-      onPress={onPress}
-      activeOpacity={0.8}
-    >
-      <View style={styles.row}>
-        <Image source={flag} style={styles.flag} resizeMode="contain" />
-        <Text
-          style={[
-            styles.label,
-            { color: isDark ? colors.textDark : colors.textLight },
-            selected && styles.selectedLabel,
-          ]}
-        >
-          {label}
-        </Text>
-      </View>
-      <Image
-        source={selected ? Icons.uncheck : Icons.check}
-        style={[
-          styles.checkIcon,
-          { tintColor: selected ? '#fff' : isDark ? colors.textDark : colors.secondary },
-        ]}
-        resizeMode="contain"
-      />
-    </TouchableOpacity>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    alignSelf: 'stretch',
-    marginHorizontal: 20,
-    marginBottom: 12,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  flag: {
-    width: 24,
-    height: 24,
-    marginRight: 12,
-  },
-  label: {
-    fontSize: 14,
-    fontFamily: typography.fontRegular,
-  },
-  selectedLabel: {
-    color: '#fff',
-  },
-  checkIcon: {
-    width: 24,
-    height: 24,
-  },
-});
-
-export default LanguageOption;
-
+import React from 'react'; import { View, Text, Image, TouchableOpacity, StyleSheet, useColorScheme, } from 'react-native'; import typography from '../../theme/typography'; import colors from '../../theme/colors'; import { Icons } from '../../assets/assets'; const LanguageOption = ({ flag, label, selected, onPress }) => { const scheme = useColorScheme(); const isDark = scheme === 'dark'; return (<TouchableOpacity style={[styles.container, { borderColor: isDark ? colors.borderDark : colors.borderLight, backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight, }, selected && { backgroundColor: colors.primary, borderColor: colors.primary, },]} onPress={onPress} activeOpacity={0.8} > <View style={styles.row}> <Image source={flag} style={styles.flag} resizeMode="contain" /> <Text style={[styles.label, { color: isDark ? colors.textDark : colors.textLight }, selected && styles.selectedLabel,]} > {label} </Text> </View> <Image source={selected ? Icons.uncheck : Icons.check} style={[styles.checkIcon, { tintColor: selected ? '#fff' : isDark ? colors.textDark : colors.secondary },]} resizeMode="contain" /> </TouchableOpacity>); }; const styles = StyleSheet.create({ container: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingVertical: 14, paddingHorizontal: 16, alignSelf: 'stretch', marginHorizontal: 20, marginBottom: 12, }, row: { flexDirection: 'row', alignItems: 'center', }, flag: { width: 24, height: 24, marginRight: 12, }, label: { fontSize: 14, fontFamily: typography.fontRegular, }, selectedLabel: { color: '#fff', }, checkIcon: { width: 24, height: 24, }, }); export default LanguageOption;
 // ==== src/components/common/LyftOTPInput.js ====
 import React, { useRef, useState } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
@@ -464,6 +413,95 @@ const styles = StyleSheet.create({
 });
 
 export default LyftOTPInput;
+
+// ==== src/components/common/MainHeader.js ====
+import React from 'react';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Images, Icons } from '../../assets/assets';
+import useTheme from '../../hooks/useTheme';
+
+const MainHeader = ({ onProfilePress, onNotificationPress, showNotificationDot = true }) => {
+  const theme = useTheme();
+  const isDark = theme.background === '#121212';
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Logo */}
+      <Image
+        source={isDark ? Images.logoDark : Images.logoLight}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+
+      {/* Right actions */}
+      <View style={styles.actions}>
+        {/* Profile */}
+        <TouchableOpacity style={styles.iconWrapper} onPress={onProfilePress}>
+          <Image
+            source={isDark ? Icons.darkHeaderProfile : Icons.lightHeaderProfile}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+
+        {/* Notification */}
+        <TouchableOpacity style={styles.iconWrapper} onPress={onNotificationPress}>
+          <Image
+            source={isDark ? Icons.darkHeaderNotification : Icons.lightHeaderNotification}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+          {showNotificationDot && <View style={styles.dot} />}
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    top: 15,
+  },
+  logo: {
+    width: 90,
+    height: 36,
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iconWrapper: {
+    width: 34,
+    height: 34,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 12,
+  },
+  icon: {
+    width: 36,
+    height: 36,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'red',
+    position: 'absolute',
+    top: 6,
+    right: 6,
+  },
+});
+
+export default MainHeader;
 
 // ==== src/components/common/OTPInput.js ====
 import React, { useRef, useState } from 'react';
@@ -1069,6 +1107,518 @@ const styles = StyleSheet.create({
 
 export default VerifyAlternativeModal;
 
+// ==== src/components/more/ActionModal.js ====
+import React from 'react';
+import { View, Text, StyleSheet, Modal, TouchableOpacity, Image, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import typography from '../../theme/typography';
+import colors from '../../theme/colors';
+import { useTranslation } from 'react-i18next';
+
+const ActionModal = ({ visible, onClose, onConfirm, icon, type }) => {
+  const { t } = useTranslation();
+
+  if (!visible) return null;
+
+  const getButtonColor = () => {
+    if (type === 'logout') {
+      return colors.primary; // blue
+    } else if (type === 'delete' || type === 'cache') {
+      return '#A50000'; // red
+    }
+    return colors.primary;
+  };
+
+
+  
+
+  return (
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
+      <StatusBar barStyle="light-content" backgroundColor="rgba(0, 0, 0, 0.4)" />
+      <TouchableWithoutFeedback onPress={onClose}>
+        <View style={styles.overlay}>
+          <TouchableWithoutFeedback>
+            <View style={styles.container}>
+              {/* Icon */}
+              <Image source={icon} style={styles.icon} resizeMode="contain" />
+
+              {/* Title */}
+              <Text style={styles.title}>{t(`more.modals.${type}.title`)}</Text>
+
+              {/* Description */}
+              <Text style={styles.desc}>{t(`more.modals.${type}.desc`)}</Text>
+
+              {/* Confirm Button */}
+              <TouchableOpacity
+                style={[styles.confirmBtn, { backgroundColor: getButtonColor() }]}
+                onPress={onConfirm}
+              >
+                <Text style={styles.confirmText}>{t(`more.modals.${type}.button`)}</Text>
+              </TouchableOpacity>
+
+              {/* Cancel */}
+              <TouchableOpacity onPress={onClose}>
+                <Text style={styles.cancel}>{t('more.modals.cancel')}</Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      </TouchableWithoutFeedback>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 50, // Add padding to cover notch area
+  },
+  container: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  icon: { width: 147, height: 120, marginBottom: 15 },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    color: colors.textLight,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  desc: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  confirmBtn: {
+    paddingVertical: 13,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  confirmText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+  cancel: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    marginTop: 15,
+  },
+});
+
+export default ActionModal;
+
+// ==== src/components/more/MoreOptionCard.js ====
+import React from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import typography from '../../theme/typography';
+import useTheme from '../../hooks/useTheme';
+
+const { width } = Dimensions.get('window');
+const CARD_WIDTH = (width - 48) / 2; // 2 cards per row
+
+const MoreOptionCard = ({ icon, title, description, onPress }) => {
+  const theme = useTheme();
+
+  return (
+    <TouchableOpacity
+      style={[styles.card, { backgroundColor: theme.background, shadowColor: theme.text }]}
+      onPress={onPress}
+    >
+      {/* Icon inside primary-colored box */}
+      <View style={[styles.iconContainer, { backgroundColor: theme.primary }]}>
+        <Image source={icon} style={styles.icon} resizeMode="contain" />
+      </View>
+
+      {/* Title */}
+      <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
+
+      {/* Description */}
+      {description ? (
+        <Text style={[styles.description, { color: theme.textSecondary }]}>{description}</Text>
+      ) : null}
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  card: {
+    width: CARD_WIDTH,
+    borderRadius: 12,
+    padding: 16,
+    margin: 8,
+    elevation: 2,
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+  },
+  iconContainer: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  icon: {
+    width: 28,
+    height: 28,
+    tintColor: '#fff', // ✅ always white for contrast
+  },
+  title: {
+    fontSize: 14,
+    fontFamily: typography.fontSemiBold,
+    marginBottom: 6,
+  },
+  description: {
+    fontSize: 12,
+    fontFamily: typography.fontRegular,
+  },
+});
+
+export default MoreOptionCard;
+
+// ==== src/components/more/ProfileOverviewCard.js ====
+import React from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Icons, Images } from '../../assets/assets';
+import typography from '../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../hooks/useTheme';
+
+const ProfileOverviewCard = ({
+  name = 'John Anderson',
+  memberStatus = 'profileCard.member',
+  rating = 4.9,
+  trips = 127,
+  earnings = '$2,847',
+  thisMonth = 18,
+  onEdit,
+}) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.cardContainer, { backgroundColor: theme.bottom_background }]}>
+      {/* Blue left line */}
+      <View style={[styles.leftBlueLine, { backgroundColor: theme.primary }]} />
+
+      <View style={[styles.card, { backgroundColor: theme.bottom_background }]}>
+        {/* Edit button (unchanged) */}
+        <TouchableOpacity style={styles.editBtn} onPress={onEdit}>
+          <Image source={Icons.edit} style={styles.editIcon} />
+          <Text style={styles.editText}>{t('profileCard.edit')}</Text>
+        </TouchableOpacity>
+
+        {/* Left Section */}
+        <View style={styles.left}>
+          <Image source={Images.userProfile} style={styles.avatar} />
+          <Text style={[styles.name, { color: theme.text }]}>{name}</Text>
+          <Text style={[styles.member, { color: theme.textSecondary }]}>{t(memberStatus)}</Text>
+          <View style={styles.rating}>
+            <Image source={Icons.star} style={styles.starIcon} />
+            <Text style={[styles.ratingText, { color: theme.text }]}>{rating}</Text>
+          </View>
+        </View>
+
+        {/* Divider */}
+        <View style={[styles.divider, { borderColor: theme.border }]} />
+
+        {/* Right Section */}
+        <View style={styles.right}>
+          <View style={styles.statBlock}>
+            <Text style={[styles.value, { color: theme.text }]}>{trips}</Text>
+            <Text style={[styles.label, { color: theme.textSecondary }]}>{t('profileCard.trips')}</Text>
+          </View>
+
+          <View style={styles.statBlock}>
+            <Text style={[styles.value, { color: theme.text }]}>{earnings}</Text>
+            <Text style={[styles.label, { color: theme.textSecondary }]}>{t('profileCard.earnings')}</Text>
+          </View>
+
+          <View style={styles.statBlock}>
+            <Text style={[styles.value, { color: theme.text }]}>{thisMonth}</Text>
+            <Text style={[styles.label, { color: theme.textSecondary }]}>{t('profileCard.thisMonth')}</Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    flexDirection: 'row',
+    margin: 16,
+    borderRadius: 16,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    overflow: 'hidden',
+  },
+  leftBlueLine: {
+    width: 4,
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
+  },
+  card: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 20,
+    position: 'relative',
+  },
+  editBtn: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#007BFF', // stays the same
+    borderTopRightRadius: 12,
+    borderBottomLeftRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  editIcon: {
+    width: 16,
+    height: 16,
+    tintColor: '#fff', // stays the same
+    marginRight: 4,
+  },
+  editText: {
+    fontSize: 12,
+    fontFamily: typography.fontMedium,
+    color: '#fff', // stays the same
+  },
+  left: { flex: 1 },
+  avatar: { width: 70, height: 70, borderRadius: 35, marginBottom: 10 },
+  name: { fontSize: 17, fontFamily: typography.fontSemiBold },
+  member: { fontSize: 12, fontFamily: typography.fontRegular },
+  rating: { flexDirection: 'row', alignItems: 'center', marginTop: 6 },
+  starIcon: { width: 16, height: 16, tintColor: '#f4a261', marginRight: 4 },
+  ratingText: { fontSize: 13, fontFamily: typography.fontMedium },
+  divider: {
+    width: 1,
+    borderLeftWidth: 1,
+    borderStyle: 'dashed',
+    marginHorizontal: 15,
+  },
+  right: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  statBlock: { alignItems: 'center', marginBottom: 8 },
+  value: { fontSize: 20, fontFamily: typography.fontMedium },
+  label: { fontSize: 12, fontFamily: typography.fontRegular },
+});
+
+export default ProfileOverviewCard;
+
+// ==== src/components/more/SuccessModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  Image,
+  StatusBar,
+} from 'react-native';
+import typography from '../../theme/typography';
+import colors from '../../theme/colors';
+import { Icons } from '../../assets/assets';
+import { useTranslation } from 'react-i18next';
+
+const SuccessModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
+
+  if (!visible) return null;
+
+  return (
+    <Modal
+      transparent
+      animationType="fade"
+      visible={visible}
+      onRequestClose={onClose}
+      statusBarTranslucent={true} // 👈 ensures overlay covers status bar
+    >
+      <TouchableOpacity
+        style={styles.overlay}
+        activeOpacity={1}
+        onPress={onClose} // 👈 tapping overlay closes modal
+      >
+        <TouchableOpacity
+          style={styles.container}
+          activeOpacity={1} // prevent closing when clicking inside modal
+        >
+          {/* Icon */}
+          <Image source={Icons.successModal} style={styles.icon} resizeMode="contain" />
+
+          {/* Title */}
+          <Text style={styles.title}>{t('more.modals.reportIssue.success.title')}</Text>
+
+          {/* Description */}
+          <Text style={styles.desc}>{t('more.modals.reportIssue.success.desc')}</Text>
+
+          {/* Confirm Button */}
+          <TouchableOpacity style={styles.button} onPress={onClose}>
+            <Text style={styles.buttonText}>
+              {t('more.modals.reportIssue.success.button')}
+            </Text>
+          </TouchableOpacity>
+        </TouchableOpacity>
+      </TouchableOpacity>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  icon: { width: 147, height: 120, marginBottom: 15 },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    color: colors.textLight,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  desc: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: colors.primary,
+    paddingVertical: 12,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+});
+
+export default SuccessModal;
+
+// ==== src/components/more/ThemeOption.js ====
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import typography from '../../theme/typography';
+import { Icons } from '../../assets/assets';
+import useTheme from '../../hooks/useTheme';
+
+const ThemeOption = ({ icon, label, selected, onPress }) => {
+  const theme = useTheme();
+
+  return (
+    <TouchableOpacity
+      style={[
+        styles.container,
+        {
+          borderColor: theme.border,
+          backgroundColor: theme.card,
+        },
+        selected && {
+          backgroundColor: theme.primary,
+          borderColor: theme.primary,
+        },
+      ]}
+      onPress={onPress}
+      activeOpacity={0.8}
+    >
+      <View style={styles.row}>
+        <Image source={icon} style={styles.icon} resizeMode="contain" />
+        <Text
+          style={[
+            styles.label,
+            { color: theme.text },
+            selected && styles.selectedLabel,
+          ]}
+        >
+          {label}
+        </Text>
+      </View>
+      <Image
+        source={selected ? Icons.uncheck : Icons.check}
+        style={[
+          styles.checkIcon,
+          { tintColor: selected ? '#fff' : theme.textSecondary },
+        ]}
+        resizeMode="contain"
+      />
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    alignSelf: 'stretch',
+    marginHorizontal: 20,
+    marginBottom: 12,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    width: 24,
+    height: 24,
+    marginRight: 12,
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+  },
+  selectedLabel: {
+    color: '#fff',
+  },
+  checkIcon: {
+    width: 24,
+    height: 24,
+  },
+});
+
+export default ThemeOption;
+
 // ==== src/config/appConfig.js ====
 
 // ==== src/hooks/useTheme.js ====
@@ -1143,7 +1693,17 @@ import VerifyLyftOTPScreen from '../screens/LinkLyft/VerifyOTP';
 import LinkLyftLicenseScreen from '../screens/LinkLyft/License';
 import DoorDashAuthScreen from '../screens/DoorDash/Auth';
 import VerifyDoorDashOTPScreen from '../screens/DoorDash/VerifyOTP';
-
+import BottomTabNavigator from './BottomTabNavigator';
+import MoreScreen from '../screens/More';
+import FAQScreen from '../screens/More/Options/FAQ';
+import AnnouncementScreen from '../screens/More/Options/Announcement';
+import ReportIssueScreen from '../screens/More/Options/ReportIssue';
+import ContactSupportScreen from '../screens/More/Options/Support';
+import AboutScreen from '../screens/More/Options/About';
+import PrivacyScreen from '../screens/More/Options/Privacy';
+import TermsScreen from '../screens/More/Options/Terms';
+import LanguageMoreScreen from '../screens/More/Options/Language';
+import ThemeMoreScreen from '../screens/More/Options/Theme';
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => (
@@ -1167,33 +1727,241 @@ const AppNavigator = () => (
     <Stack.Screen name="VerifyUberOTP" component={VerifyUberOTPScreen} />
     <Stack.Screen name="LinkLyft" component={LinkLyftScreen} />
     <Stack.Screen name="VerifyLyftOTP" component={VerifyLyftOTPScreen} />
-  <Stack.Screen name="LinkLyftLicense" component={LinkLyftLicenseScreen} />
+    <Stack.Screen name="LinkLyftLicense" component={LinkLyftLicenseScreen} />
 
 
-<Stack.Screen 
-  name="LinkUberPassword" 
-  component={LinkUberPasswordScreen} 
-  options={{ headerShown: false }} 
-/>
-<Stack.Screen
-  name="SetupAccessibility"
-  component={SetupAccessibilityScreen}
-  options={{ headerShown: false }}
-/>
-<Stack.Screen
-  name="DoorDashAuth"
-  component={DoorDashAuthScreen}
-  options={{ headerShown: false }}
-/>
-<Stack.Screen
-  name="VerifyDoorDashOTP"
-  component={VerifyDoorDashOTPScreen}
-  options={{ headerShown: false }}
-/>
+    <Stack.Screen
+      name="LinkUberPassword"
+      component={LinkUberPasswordScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="SetupAccessibility"
+      component={SetupAccessibilityScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="DoorDashAuth"
+      component={DoorDashAuthScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="VerifyDoorDashOTP"
+      component={VerifyDoorDashOTPScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Home"
+      component={BottomTabNavigator}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen name="More" component={MoreScreen} />
+    <Stack.Screen name="Announcements" component={AnnouncementScreen} />
+<Stack.Screen name="ReportIssue" component={ReportIssueScreen} />
+<Stack.Screen name="ContactSupport" component={ContactSupportScreen} />
+<Stack.Screen name="FAQ" component={FAQScreen} />
+<Stack.Screen name="About" component={AboutScreen} />
+<Stack.Screen name="Privacy" component={PrivacyScreen} />
+<Stack.Screen name="Terms" component={TermsScreen} />
+<Stack.Screen name="LanguageMore" component={LanguageMoreScreen} />
+<Stack.Screen name="Theme" component={ThemeMoreScreen} />
+
   </Stack.Navigator>
 );
 
 export default AppNavigator;
+
+// ==== src/navigation/BottomTabNavigator.js ====
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+  Image,
+  Dimensions,
+} from 'react-native';
+import { CurvedBottomBar } from 'react-native-curved-bottom-bar';
+import { Icons, Fonts } from '../assets/assets';
+import useTheme from '../hooks/useTheme';
+
+// Screens
+import HomeScreen from '../screens/Home';
+import AutomationScreen from '../screens/Automation';
+import HistoryScreen from '../screens/History';
+import EarningScreen from '../screens/Earning';
+
+const { width, height } = Dimensions.get('window');
+const circleSize = width * 0.15;
+
+const BottomTabNavigator = () => {
+  const theme = useTheme();
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const _renderIcon = (routeName, selectedTab) => {
+    let icon, label;
+
+    switch (routeName) {
+      case 'Home':
+        icon = selectedTab === 'Home' ? Icons.bottomHomeSelected : Icons.bottomHome;
+        label = 'Home';
+        break;
+      case 'Automation':
+        icon =
+          selectedTab === 'Automation'
+            ? Icons.bottomAutomationSelected
+            : Icons.bottomAutomation;
+        label = 'Automation';
+        break;
+      case 'History':
+        icon =
+          selectedTab === 'History'
+            ? Icons.bottomHistorySelected
+            : Icons.bottomHistory;
+        label = 'History';
+        break;
+      case 'Earning':
+        icon =
+          selectedTab === 'Earning'
+            ? Icons.bottomEarningSelected
+            : Icons.bottomEarning;
+        label = 'Earning';
+        break;
+      default:
+        icon = null;
+        label = '';
+    }
+
+    return (
+      <View style={styles.tabIconContainer}>
+        {icon && <Image source={icon} style={styles.tabIcon} />}
+        <Text
+          style={[
+            styles.tabLabel,
+            {
+              color: selectedTab === routeName ? theme.primary : theme.textSecondary,
+              fontFamily: selectedTab === routeName ? Fonts.bold : Fonts.regular,
+            },
+          ]}
+        >
+          {label}
+        </Text>
+      </View>
+    );
+  };
+
+  const renderTabBar = ({ routeName, selectedTab, navigate }) => (
+    <TouchableOpacity onPress={() => navigate(routeName)} style={styles.tabbarItem}>
+      {_renderIcon(routeName, selectedTab)}
+    </TouchableOpacity>
+  );
+
+  const handleCenterButtonPress = () => {
+    setIsPlaying((prev) => !prev);
+    console.log('Center button pressed, playing:', !isPlaying);
+  };
+
+  return (
+    <CurvedBottomBar.Navigator
+      type="DOWN"
+      style={styles.bottomBar}
+      height={70}
+      bgColor={theme.bottom_background}
+      circleWidth={50}
+      initialRouteName="Home"
+      borderTopLeftRight={false}
+      screenOptions={{ headerShown: false }}
+      renderCircle={() => (
+        <View style={[styles.btnCircleUp, { backgroundColor: theme.primary_bottom }]}>
+          <TouchableOpacity
+            style={styles.centerButton}
+            onPress={handleCenterButtonPress}
+          >
+            <Image
+              source={isPlaying ? Icons.bottomPause : Icons.bottomPlay}
+              style={[styles.centerPlayIcon]}
+            />
+          </TouchableOpacity>
+        </View>
+      )}
+      tabBar={renderTabBar}
+    >
+      <CurvedBottomBar.Screen name="Home" component={HomeScreen} position="LEFT" />
+      <CurvedBottomBar.Screen
+        name="Automation"
+        component={AutomationScreen}
+        position="LEFT"
+      />
+      <CurvedBottomBar.Screen
+        name="History"
+        component={HistoryScreen}
+        position="RIGHT"
+      />
+      <CurvedBottomBar.Screen
+        name="Earning"
+        component={EarningScreen}
+        position="RIGHT"
+      />
+    </CurvedBottomBar.Navigator>
+  );
+};
+
+const styles = StyleSheet.create({
+  bottomBar: {
+    position: 'absolute',
+    left: 0,
+    backgroundColor:"white",
+    right: 0,
+    bottom: 0,
+    elevation: 13,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+  },
+  btnCircleUp: {
+    width: circleSize,
+    height: circleSize,
+    borderRadius: circleSize / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: -(circleSize / 3),
+  },
+  centerButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+  },
+  centerPlayIcon: {
+    top: 0,                 
+    width: 42,
+    height: 42,
+  },
+  tabbarItem: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 10,
+  },
+  tabIconContainer: {
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 4,
+  },
+  tabIcon: {
+    width: 24,
+    height: 24,
+    marginBottom: 4,
+    resizeMode: 'contain',
+  },
+  tabLabel: {
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 2,
+  },
+});
+
+export default BottomTabNavigator;
 
 // ==== src/navigation/NavigationService.js ====
 
@@ -2822,6 +3590,35 @@ const styles = StyleSheet.create({
 
 export default VerifyOTPScreen;
 
+// ==== src/screens/Automation/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import MainHeader from '../../components/common/MainHeader';
+import useTheme from '../../hooks/useTheme';
+
+const AutomationScreen = ({navigation}) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <MainHeader
+        onProfilePress={() => navigation.navigate('More')}
+        onNotificationPress={() => console.log('Notification pressed')}
+        showNotificationDot={true}
+      />
+      <Text style={{ color: theme.text, marginTop: 20 }}>{t('automation.title')}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+});
+
+export default AutomationScreen;
+
 // ==== src/screens/DoorDash/Auth/index.js ====
 import React, { useState } from 'react';
 import {
@@ -3126,32 +3923,87 @@ const styles = StyleSheet.create({
 });
 
 export default VerifyDoorDashOTPScreen;
-// ==== src/screens/Home/index.js ====
+// ==== src/screens/Earning/index.js ====
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import colors from '../../theme/colors';
-import typography from '../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import MainHeader from '../../components/common/MainHeader';
+import useTheme from '../../hooks/useTheme';
 
-const HomeScreen = () => {
+const AutomationScreen = ({navigation}) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Drive Hub 🚗</Text>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <MainHeader
+        onProfilePress={() => navigation.navigate('More')}
+        onNotificationPress={() => console.log('Notification pressed')}
+        showNotificationDot={true}
+      />
+      <Text style={{ color: theme.text, marginTop: 20 }}>{t('automation.title')}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.backgroundLight,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 20,
-    fontFamily: typography.fontMedium,
-    color: colors.textLight,
-  },
+  container: { flex: 1 },
+});
+
+export default AutomationScreen;
+
+// ==== src/screens/History/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import MainHeader from '../../components/common/MainHeader';
+import useTheme from '../../hooks/useTheme';
+
+const HistoryScreen = ({navigation}) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <MainHeader
+        onProfilePress={() => navigation.navigate('More')}
+        onNotificationPress={() => console.log('Notification pressed')}
+        showNotificationDot={true}
+      />
+      <Text style={{ color: theme.text, marginTop: 20 }}>{t('history.title')}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+});
+
+export default HistoryScreen;
+
+// ==== src/screens/Home/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import MainHeader from '../../components/common/MainHeader';
+import useTheme from '../../hooks/useTheme';
+
+const HomeScreen = ({navigation}) => {
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <MainHeader
+        onProfilePress={() => navigation.navigate('More')}
+        onNotificationPress={() => console.log('Notification pressed')}
+        showNotificationDot={true}
+      />
+      {/* <Text style={{ color: theme.text, marginTop: 20 }}>This is Home Screen</Text> */}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
 });
 
 export default HomeScreen;
@@ -3466,6 +4318,873 @@ const styles = StyleSheet.create({
 });
 
 export default VerifyLyftOTPScreen;
+
+// ==== src/screens/More/Options/About/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const AboutScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={{ flex: 1, backgroundColor: theme.background }}>
+      {/* Header - No padding affecting it */}
+      <AppHeader title={t('more.options.about.title')} />
+
+      {/* Content */}
+      <ScrollView contentContainerStyle={styles.content}>
+        <Text style={[styles.text, { color: theme.text }]}>
+          Welcome to Drive Hub – the smarter way to move. Whether it’s your daily commute, a night out, 
+          or a last-minute trip, Drive Hub is here to make your ride seamless, transparent, and stress-free.
+        </Text>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  content: { padding: 16 },
+  text: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    lineHeight: 22,
+  },
+});
+
+export default AboutScreen;
+
+// ==== src/screens/More/Options/Announcement/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const AnnouncementScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header */}
+      <AppHeader title={t('more.options.updates.title')} />
+
+      {/* Content */}
+      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        <Text style={[styles.heading, { color: theme.text }]}>Announcements</Text>
+        <Text style={[styles.paragraph, { color: theme.textSecondary }]}>
+          Welcome to the Announcements section! Here’s where we share important news and highlights
+          with you: Launch of new services and ride options, special promotions, seasonal discounts,
+          and rewards, expansion into new cities or service areas, policy changes or safety
+          guidelines, and community programs and partnerships.
+        </Text>
+
+        <Text style={[styles.heading, { color: theme.text }]}>Updates</Text>
+        <Text style={[styles.paragraph, { color: theme.textSecondary }]}>
+          The Updates section is your space to see what’s new inside the app. Every update is
+          designed to improve your journey.
+        </Text>
+        <Text style={[styles.paragraph, { color: theme.textSecondary }]}>
+          Added new features to enhance ride booking, improved app speed and performance, fixed
+          minor bugs for smoother trips, strengthened security and rider safety, polished design for
+          a cleaner look. Keep your app updated to enjoy the best version of Drive Hub at all times.
+        </Text>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { padding: 16 },
+  heading: {
+    fontSize: 16,
+    fontFamily: typography.fontSemiBold,
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  paragraph: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    lineHeight: 20,
+    marginBottom: 10,
+  },
+});
+
+export default AnnouncementScreen;
+// ==== src/screens/More/Options/FAQ/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import { Icons } from '../../../../assets/assets';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const faqData = [
+  {
+    id: '1',
+    question: 'How do I book a ride on Drive Hub?',
+    answer: 'To book a ride, open the app, select your destination, and confirm the request.',
+  },
+  {
+    id: '2',
+    question: 'How can drivers join Drive Hub?',
+    answer: 'Drivers can join by signing up through the app and uploading their vehicle details.',
+  },
+  {
+    id: '3',
+    question: 'How do I contact support?',
+    answer: 'You can contact support via the “More” section under “Contact Support”.',
+  },
+  {
+    id: '4',
+    question: 'How is the fare calculated?',
+    answer: 'Fares are calculated based on time, distance, and surge pricing when applicable.',
+  },
+];
+
+const FAQScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [expanded, setExpanded] = useState(null);
+
+  const toggleExpand = (id) => {
+    setExpanded(expanded === id ? null : id);
+  };
+
+  const renderItem = ({ item }) => {
+    const isOpen = expanded === item.id;
+    return (
+      <View style={[styles.item, { borderBottomColor: theme.border }]}>
+        <TouchableOpacity style={styles.questionRow} onPress={() => toggleExpand(item.id)}>
+          <Text style={[styles.question, { color: theme.text }]}>{item.question}</Text>
+          <Image
+            source={isOpen ? Icons.faqStress : Icons.faqExpand}
+            style={[styles.icon, { tintColor: theme.text }]}
+          />
+        </TouchableOpacity>
+        {isOpen && <Text style={[styles.answer, { color: theme.textSecondary }]}>{item.answer}</Text>}
+      </View>
+    );
+  };
+
+  return (
+    <View style={{ flex: 1, backgroundColor: theme.background }}>
+      {/* Header - No padding affecting it */}
+      <AppHeader title={t('more.options.faq.title')} />
+
+      {/* Content */}
+      <View style={styles.container}>
+        {/* FAQ Intro */}
+        <Text style={[styles.heading, { color: theme.text }]}>Frequently Asked Questions</Text>
+        <Text style={[styles.subHeading, { color: theme.textSecondary }]}>
+          Have a question about Drive Hub? Find the answers here!
+        </Text>
+
+        {/* FAQ List */}
+        <FlatList
+          data={faqData}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ paddingBottom: 20 }}
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, paddingHorizontal: 16 },
+  heading: {
+    fontSize: 16,
+    fontFamily: typography.fontSemiBold,
+    marginTop: 16,
+  },
+  subHeading: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    marginBottom: 16,
+  },
+  item: {
+    borderBottomWidth: 1,
+    paddingVertical: 12,
+  },
+  questionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  question: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    flex: 1,
+    marginRight: 8,
+  },
+  answer: {
+    marginTop: 6,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  icon: {
+    width: 18,
+    height: 18,
+  },
+});
+
+export default FAQScreen;
+
+// ==== src/screens/More/Options/Language/index.js ====
+import React, { useState } from 'react';
+import { View, StyleSheet, useColorScheme } from 'react-native';
+import { Icons } from '../../../../assets/assets';
+import typography from '../../../../theme/typography';
+import colors from '../../../../theme/colors';
+import LanguageOption from '../../../../components/common/LanguageOption';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18n from '../../../../localization/i18n';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../../components/common/AppHeader';
+
+const LanguageMoreScreen = ({ navigation }) => {
+  const scheme = useColorScheme();
+  const { t } = useTranslation();
+  const [selected, setSelected] = useState(null);
+
+  const languages = [
+    { key: 'en', label: 'English', flag: Icons.flagUK },
+    { key: 'es', label: 'Spanish', flag: Icons.flagSpain },
+    { key: 'tr', label: 'Turkish', flag: Icons.flagTurkey },
+  ];
+
+  return (
+    <View style={[styles.container, { backgroundColor: scheme === 'dark' ? '#000' : '#fff' }]}>
+      {/* ✅ Use common AppHeader */}
+      <AppHeader title={t('select_language')} />
+
+      {/* Language Options */}
+      <View style={styles.optionsWrapper}>
+        {languages.map(lang => (
+          <LanguageOption
+            key={lang.key}
+            flag={lang.flag}
+            label={lang.label}
+            selected={selected === lang.key}
+            onPress={() => setSelected(lang.key)}
+          />
+        ))}
+      </View>
+
+      {/* Bottom Button */}
+      <View style={styles.bottomButton}>
+        <PrimaryButton
+          title={t('select')}
+          onPress={async () => {
+            try {
+              await AsyncStorage.setItem('appLanguage', selected);
+              await i18n.changeLanguage(selected);
+            } catch (e) {
+              console.log('Error saving language:', e);
+            }
+            navigation.navigate('More'); // ✅ back to More screen
+          }}
+          disabled={!selected}
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  optionsWrapper: {
+    flex: 1,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    marginTop: 10,
+  },
+  bottomButton: {
+    marginBottom: 40,
+    marginHorizontal: 6,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    color: colors.textLight,
+  },
+});
+
+export default LanguageMoreScreen;
+
+// ==== src/screens/More/Options/Privacy/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const PrivacyScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={{ flex: 1, backgroundColor: theme.background }}>
+      {/* Header - No padding affecting it */}
+      <AppHeader title={t('more.options.privacy.title')} />
+
+      {/* Content */}
+      <ScrollView contentContainerStyle={styles.content}>
+        <Text style={[styles.text, { color: theme.text }]}>
+          At Drive Hub, your privacy and trust matter to us. We explain how we collect, use, and protect 
+          your data when you use our services. Information we collect includes profile details, location 
+          data, and payment information – used only to enhance your ride experience.
+        </Text>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  content: { padding: 16 },
+  text: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    lineHeight: 22,
+  },
+});
+
+export default PrivacyScreen;
+
+// ==== src/screens/More/Options/ReportIssue/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import SuccessModal from '../../../../components/more/SuccessModal';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const ReportIssueScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [bugDetail, setBugDetail] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header */}
+      <AppHeader title={t('more.modals.reportIssue.title')} />
+
+      {/* Bug Detail */}
+      <Text style={[styles.label, { color: theme.text }]}>
+        {t('more.modals.reportIssue.bugDetail')}
+      </Text>
+      <TextInput
+        style={[
+          styles.textArea,
+          { color: theme.text, borderColor: theme.border },
+        ]}
+        placeholder={t('more.modals.reportIssue.placeholder')}
+        placeholderTextColor={theme.textSecondary}
+        multiline
+        value={bugDetail}
+        onChangeText={setBugDetail}
+      />
+
+      {/* Report Button */}
+      <View style={styles.btnWrapper}>
+        <PrimaryButton
+          title={t('more.modals.reportIssue.reportBtn')}
+          onPress={() => setModalVisible(true)}
+        />
+      </View>
+
+      {/* Success Modal */}
+      <SuccessModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    marginTop: 20,
+    marginBottom: 8,
+    paddingHorizontal: 16, // Padding for label and text area
+  },
+  textArea: {
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    height: 120,
+    textAlignVertical: 'top',
+    marginHorizontal: 16, // Padding for text area
+  },
+  btnWrapper: {
+    marginTop: 'auto',
+    marginBottom: 20,
+    paddingHorizontal: 16, // Padding for the button
+  },
+});
+
+export default ReportIssueScreen;
+
+// ==== src/screens/More/Options/Support/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import SuccessModal from '../../../../components/more/SuccessModal';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const ContactSupportScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const [name, setName] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleSend = () => {
+    setModalVisible(true);
+  };
+
+  return (
+    <View style={{ flex: 1, backgroundColor: theme.background }}>
+      <AppHeader title={t('more.modals.contactSupport.title')} />
+
+      <View style={styles.container}>
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('more.modals.contactSupport.name')}
+        </Text>
+        <TextInput
+          style={[styles.input, { color: theme.text, borderColor: theme.border }]}
+          placeholder={t('more.modals.contactSupport.namePlaceholder')}
+          placeholderTextColor={theme.textSecondary}
+          value={name}
+          onChangeText={setName}
+        />
+
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('more.modals.contactSupport.subject')}
+        </Text>
+        <TextInput
+          style={[styles.input, { color: theme.text, borderColor: theme.border }]}
+          placeholder={t('more.modals.contactSupport.subjectPlaceholder')}
+          placeholderTextColor={theme.textSecondary}
+          value={subject}
+          onChangeText={setSubject}
+        />
+
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('more.modals.contactSupport.message')}
+        </Text>
+        <TextInput
+          style={[styles.input, styles.textArea, { color: theme.text, borderColor: theme.border }]}
+          placeholder={t('more.modals.contactSupport.messagePlaceholder')}
+          placeholderTextColor={theme.textSecondary}
+          multiline
+          value={message}
+          onChangeText={setMessage}
+        />
+
+        <View style={styles.btnWrapper}>
+          <PrimaryButton
+            title={t('more.modals.contactSupport.sendBtn')}
+            onPress={handleSend}
+          />
+        </View>
+      </View>
+
+      <SuccessModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        type="contactSupport"
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16 },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    marginTop: 20,
+    marginBottom: 8,
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  textArea: {
+    height: 120,
+    textAlignVertical: 'top',
+  },
+  btnWrapper: {
+    marginTop: 'auto',
+    marginBottom: 20,
+  },
+});
+
+export default ContactSupportScreen;
+
+// ==== src/screens/More/Options/Terms/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const TermsScreen = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title={t('more.options.terms.title')} />
+      <ScrollView contentContainerStyle={styles.content}>
+        <Text style={[styles.text, { color: theme.text }]}>
+          By using Drive Hub, you agree to our terms and conditions. These include transparent fares, 
+          trusted drivers, and a safe, reliable experience. Please review our policies to understand 
+          your rights and responsibilities while using our service.
+        </Text>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { padding: 16 },
+  text: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    lineHeight: 22,
+  },
+});
+
+export default TermsScreen;
+
+// ==== src/screens/More/Options/Theme/index.js ====
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Icons } from '../../../../assets/assets';
+import typography from '../../../../theme/typography';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import ThemeOption from '../../../../components/more/ThemeOption';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTranslation } from 'react-i18next';
+import AppHeader from '../../../../components/common/AppHeader';
+import useTheme from '../../../../hooks/useTheme';
+
+const ThemeMoreScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [selected, setSelected] = useState(null);
+
+  const themes = [
+    { key: 'dark', label: t('theme.dark'), icon: Icons.darkMode },
+    { key: 'light', label: t('theme.light'), icon: Icons.lightMode },
+  ];
+
+  // Load saved theme
+  useEffect(() => {
+    const loadTheme = async () => {
+      const savedTheme = await AsyncStorage.getItem('appTheme');
+      setSelected(savedTheme || null);
+    };
+    loadTheme();
+  }, []);
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* ✅ Common Header */}
+      <AppHeader title={t('theme.title')} />
+
+      {/* Options */}
+      <View style={styles.optionsWrapper}>
+        {themes.map(th => (
+          <ThemeOption
+            key={th.key}
+            icon={th.icon}
+            label={th.label}
+            selected={selected === th.key}
+            onPress={() => setSelected(th.key)}
+          />
+        ))}
+      </View>
+
+      {/* Bottom Button */}
+      <View style={styles.bottomButton}>
+        <PrimaryButton
+          title={t('select')}
+          onPress={async () => {
+            try {
+              await AsyncStorage.setItem('appTheme', selected);
+              console.log('Theme saved:', selected);
+            } catch (e) {
+              console.log('Error saving theme:', e);
+            }
+            navigation.navigate('More'); // back to More
+          }}
+          disabled={!selected}
+        />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  optionsWrapper: {
+    flex: 1,
+    marginTop: 20,
+  },
+  bottomButton: {
+    marginBottom: 40,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+  },
+});
+
+export default ThemeMoreScreen;
+
+// ==== src/screens/More/index.js ====
+import React, { useState } from 'react';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import AppHeader from '../../components/common/AppHeader';
+import ProfileOverviewCard from '../../components/more/ProfileOverviewCard';
+import MoreOptionCard from '../../components/more/MoreOptionCard';
+import ActionModal from '../../components/more/ActionModal';
+import useTheme from '../../hooks/useTheme';
+import { Icons } from '../../assets/assets';
+import { useTranslation } from 'react-i18next';
+import typography from '../../theme/typography';
+
+const MoreScreen = ({ navigation }) => {
+  const theme = useTheme();
+  const { t } = useTranslation();
+
+  const [modalType, setModalType] = useState(null);
+
+  const handleOpenModal = (type) => setModalType(type);
+  const handleCloseModal = () => setModalType(null);
+
+  const handleConfirm = () => {
+    console.log(`${modalType} confirmed`);
+    handleCloseModal();
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title={t('more.title')} />
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ProfileOverviewCard onEdit={() => console.log('Edit Profile')} />
+
+        {/* ---------------- Subscription ---------------- */}
+        <Text style={styles.sectionHeader}>{t('more.sections.subscription')}</Text>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.premiumPlan}
+            title={t('more.options.premium.title')}
+            description={t('more.options.premium.desc')}
+          />
+          <MoreOptionCard
+            icon={Icons.paymentMethods}
+            title={t('more.options.payment.title')}
+            description={t('more.options.payment.desc')}
+          />
+        </View>
+
+        {/* ---------------- Settings ---------------- */}
+        <Text style={styles.sectionHeader}>{t('more.sections.settings')}</Text>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.manageFilters}
+            title={t('more.options.filters.title')}
+            description={t('more.options.filters.desc')}
+          />
+          <MoreOptionCard
+            icon={Icons.notifications}
+            title={t('more.options.notifications.title')}
+            description={t('more.options.notifications.desc')}
+          />
+        </View>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.theme}
+            title={t('more.options.theme.title')}
+            description={t('more.options.theme.desc')}
+              onPress={() => navigation.navigate('Theme')}
+
+          />
+          <MoreOptionCard
+            icon={Icons.language}
+            title={t('more.options.language.title')}
+            description={t('more.options.language.desc')}
+              onPress={() => navigation.navigate('LanguageMore')}
+          />
+        </View>
+
+        {/* ---------------- Terms ---------------- */}
+        <Text style={styles.sectionHeader}>{t('more.sections.terms')}</Text>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.privacy}
+            title={t('more.options.privacy.title')}
+            description={t('more.options.privacy.desc')}
+              onPress={() => navigation.navigate('Privacy')}
+            
+          />
+          <MoreOptionCard
+            icon={Icons.about}
+            title={t('more.options.about.title')}
+            description={t('more.options.about.desc')}
+              onPress={() => navigation.navigate('About')}
+          />
+        </View>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.terms}
+            title={t('more.options.terms.title')}
+            description={t('more.options.terms.desc')}
+              onPress={() => navigation.navigate('Terms')}
+
+          />
+        </View>
+
+        {/* ---------------- Help & Support ---------------- */}
+        <Text style={styles.sectionHeader}>{t('more.sections.support')}</Text>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.faq}
+            title={t('more.options.faq.title')}
+            description={t('more.options.faq.desc')}
+              onPress={() => navigation.navigate('FAQ')}
+
+
+          />
+          <MoreOptionCard
+            icon={Icons.support}
+            title={t('more.options.support.title')}
+            description={t('more.options.support.desc')}
+            onPress={() => navigation.navigate('ContactSupport')}
+
+          />
+        </View>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.report}
+            title={t('more.options.report.title')}
+            description={t('more.options.report.desc')}
+            onPress={() => navigation.navigate('ReportIssue')}
+          />
+          <MoreOptionCard
+            icon={Icons.updates}
+            title={t('more.options.updates.title')}
+            description={t('more.options.updates.desc')}
+            onPress={() => navigation.navigate('Announcements')}
+          />
+        </View>
+        {/* Account Management */}
+        <Text style={styles.sectionHeader}>{t('more.sections.account')}</Text>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.cache}
+            title={t('more.options.cache.title')}
+            description={t('more.options.cache.desc')}
+            onPress={() => handleOpenModal('cache')}
+          />
+          <MoreOptionCard
+            icon={Icons.delete}
+            title={t('more.options.delete.title')}
+            description={t('more.options.delete.desc')}
+            onPress={() => handleOpenModal('delete')}
+          />
+        </View>
+        <View style={styles.gridRow}>
+          <MoreOptionCard
+            icon={Icons.logout}
+            title={t('more.options.logout.title')}
+            description={t('more.options.logout.desc')}
+            onPress={() => handleOpenModal('logout')}
+          />
+        </View>
+      </ScrollView>
+
+      {/* Modals */}
+      <ActionModal
+        visible={modalType === 'logout'}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirm}
+        icon={Icons.logoutModal}
+        type="logout"
+      />
+      <ActionModal
+        visible={modalType === 'delete'}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirm}
+        icon={Icons.deleteModal}
+        type="delete"
+      />
+      <ActionModal
+        visible={modalType === 'cache'}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirm}
+        icon={Icons.cacheModal}
+        type="cache"
+      />
+    </View>
+  );
+};
+
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  sectionHeader: {
+    fontSize: 14,
+    fontFamily: typography.fontSemiBold,
+    color: 'grey',
+    marginLeft: 16,
+    marginTop: 10,
+    marginBottom: 6,
+  },
+  gridRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginHorizontal: 4,
+  },
+});
+
+export default MoreScreen;
 
 // ==== src/screens/Profile/index.js ====
 
@@ -3793,12 +5512,14 @@ export default {
 // ==== src/theme/darkTheme.js ====
 export default {
   background: '#121212',
+    bottom_background: '#131313',
   text: '#F5F5F5',
   textSecondary: '#AAAAAA',
   subheading: '#797979',
   overlay: 'rgba(0,0,0,0.6)',
   border: '#333333',
   primary: '#4DA3FF',
+  primary_bottom:'#007AFF',
   card: '#111111',
 };
 
@@ -3825,11 +5546,13 @@ export default {
 // ==== src/theme/lightTheme.js ====
 export default {
   background: '#FFFFFF',
+  bottom_background:"#F5F5F5",
   text: '#222222',
   textSecondary: '#666666',
   overlay: 'rgba(255,255,255,0.7)',
   border: '#DDDDDD',
   primary: '#007BFF',
+    primary_bottom:'#007AFF',
   card: '#F7F7F7',
 };
 
