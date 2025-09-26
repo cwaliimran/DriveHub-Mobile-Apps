@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     fontFamily: typography.fontRegular,
   },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
   },
   footerLink: {

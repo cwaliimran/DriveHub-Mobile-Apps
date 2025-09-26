@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   icon: { width: 22, height: 22, marginRight: 8 },
   input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
-  primaryButtonWrapper: { width: '110%', alignSelf: 'center' },
+  primaryButtonWrapper: { width: '100%', alignSelf: 'center' },
 });
 
 export default LinkLyftLicenseScreen;

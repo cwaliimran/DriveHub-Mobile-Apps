@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginBottom: 10,
   },
-  primaryButtonWrapper: { width: '110%', alignSelf: 'center' },
+  primaryButtonWrapper: { width: '100%', alignSelf: 'center' },
   footerAlt: {
     marginTop: 'auto',
     marginBottom: 20,

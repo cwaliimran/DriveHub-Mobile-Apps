@@ -9,4 +9,5 @@ export default {
   primary: '#4DA3FF',
   primary_bottom:'#007AFF',
   card: '#111111',
+    card_theme: '#131313',
 };

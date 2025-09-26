@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
   },
   inputContainer: {

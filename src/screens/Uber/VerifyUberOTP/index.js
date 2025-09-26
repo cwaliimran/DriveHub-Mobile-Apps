@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   label: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 10, marginLeft: 10 },
   didnt: { fontSize: 15, fontFamily: typography.fontBold, marginTop: 15, alignSelf: 'center' },
   timer: { fontSize: 13, fontFamily: typography.fontRegular, marginTop: 5, textAlign: 'center' },
-  primaryButtonWrapper: { width: '105%', alignSelf: 'center' },
+  primaryButtonWrapper: { width: '100%', alignSelf: 'center' },
   footerAlt: {
     marginTop: 'auto',
     marginBottom: 20,

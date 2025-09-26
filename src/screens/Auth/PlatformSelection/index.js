@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   bottom: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
     marginTop: 'auto',
     marginBottom: 20,

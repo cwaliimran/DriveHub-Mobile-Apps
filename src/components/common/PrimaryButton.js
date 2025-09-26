@@ -17,14 +17,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: 10,
     height: 50,
+    width: '100%',
 
     // 👇 Same as LanguageOption box
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     marginHorizontal: 20,
 
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   disabled: {
     backgroundColor: colors.secondary,

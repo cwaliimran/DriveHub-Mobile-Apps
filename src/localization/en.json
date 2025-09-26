@@ -82,6 +82,27 @@
     "description": "Your password has been updated successfully",
     "button": "Login"
   },
+  "profile": {
+  "title": "Profile",
+  "fullname": "Full Name",
+  "phone": "Phone Number",
+  "email": "Email Address",
+  "vehicleName": "Vehicle Name",
+  "vehicleModel": "Vehicle Model"
+}
+,
+"editProfile": {
+  "title": "Edit Profile",
+  "fullname": "Full Name",
+  "phone": "Phone Number",
+  "email": "Email Address",
+  "vehicleName": "Vehicle Name",
+  "vehicleModel": "Vehicle Model",
+  "resetPassword": "Reset Password",
+  "saveChanges": "Save Changes"
+}
+
+,
   
   "resetPassword": {
     "title": "Reset Password",
@@ -98,6 +119,16 @@
   "dark": "Dark Mode",
   "light": "Light Mode",
   "select": "Select"
+}
+,
+"cards": {
+  "title": "Cards Management",
+  "addNew": "Add New Card",
+  "deleteModal": {
+    "title": "Confirmation",
+    "desc": "Are you sure you want to delete this card?",
+    "button": "Yes, Delete"
+  }
 }
 
 
@@ -301,6 +332,52 @@
       "desc": "You can always log back in at any time.",
       "button": "Logout"
     },
+
+"addCard": {
+  "title": "Add New Card",
+  "holderName": "Card holder name",
+  "number": "Card Number",
+  "expiry": "Expiry Date",
+  "cvc": "CVC",
+  "button": "Add Card",
+  "success": {
+    "title": "Success",
+    "desc": "Card Added Successfully",
+    "button": "Continue"
+  }
+}
+
+,
+"resetPassword": {
+  "title": "Reset Password",
+  "subtitle": "You can now reset your password.",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "buttonReset": "Re-enter your password",
+  "buttn": "Reset",
+  "success": {
+    "title": "Password Updated",
+    "desc": "Your password has been updated successfully.",
+    "button": "Continue"
+  }
+}
+
+,
+"editCard": {
+  "title": "Edit Card",
+  "holderName": "Card holder name",
+  "number": "Card Number",
+  "expiry": "Expiry Date",
+  "cvc": "CVC",
+  "button": "Update Card",
+  "success": {
+    "title": "Success",
+    "desc": "Card Updated Successfully",
+    "button": "Continue"
+  }
+}
+
+,
 "contactSupport": {
   "title": "Contact Support",
   "name": "Name",

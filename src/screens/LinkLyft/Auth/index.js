@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     color: colors.secondary,
   },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
     marginTop: 20,
   },

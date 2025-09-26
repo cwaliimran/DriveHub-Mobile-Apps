@@ -16,6 +16,7 @@ export const Images = {
   lyftOnboarding: require('./images/lyft-onboarding.png'),
   doorDashOnboarding: require('./images/door-dash-onboarding.png'),
   userProfile: require('./images/user-profile.png'),
+    cardBackground: require('./images/card-background.png'),
 };
 
 export const Icons = {
@@ -82,6 +83,13 @@ export const Icons = {
   cacheModal: require('./icons/cache-modal.png'),
   darkMode: require('./icons/dark-mode.png'),
 lightMode: require('./icons/light-mode.png'),
+  editCard: require('./icons/edit-card.png'),
+  deleteCard: require('./icons/delete-card.png'),
+  deleteCardModal: require('./icons/delete-card-modal.png'),
+  editProfile: require('./icons/edit-profile.png'),
+  avatar: require('./icons/avatar.png'), // placeholder
+resetSuccessModal: require('./icons/reset-sucess-modal.png'),
+
 
 
 };

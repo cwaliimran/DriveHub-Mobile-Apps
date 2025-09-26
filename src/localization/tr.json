@@ -81,6 +81,27 @@
     "description": "Şifreniz başarıyla güncellendi",
     "button": "Giriş Yap"
   },
+  "profile": {
+  "title": "Profil",
+  "fullname": "Tam Adı",
+  "phone": "Telefon Numarası",
+  "email": "E-posta Adresi",
+  "vehicleName": "Araç Adı",
+  "vehicleModel": "Araç Modeli"
+}
+,
+"editProfile": {
+  "title": "Profili Düzenle",
+  "fullname": "Tam Adı",
+  "phone": "Telefon Numarası",
+  "email": "E-posta Adresi",
+  "vehicleName": "Araç Adı",
+  "vehicleModel": "Araç Modeli",
+  "resetPassword": "Şifreyi Sıfırla",
+  "saveChanges": "Değişiklikleri Kaydet"
+}
+
+,
   "resetPassword": {
     "title": "Şifreyi Sıfırla",
     "subtitle": "Artık şifrenizi sıfırlayabilirsiniz.",
@@ -98,6 +119,17 @@
   "light": "Aydınlık Mod",
   "select": "Seç"
 }
+,
+"cards": {
+  "title": "Kart Yönetimi",
+  "addNew": "Yeni Kart Ekle",
+  "deleteModal": {
+    "title": "Kartı Sil",
+    "desc": "Bu kartı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+    "button": "Sil"
+  }
+}
+
 
 
   ,
@@ -302,21 +334,47 @@
     "desc": "Bu işlem kalıcıdır ve geri alınamaz.",
     "button": "Sil"
   },
-  "contactSupport": {
-  "title": "Destek ile İletişime Geç",
-  "name": "Ad",
-  "namePlaceholder": "John Doe",
-  "subject": "Konu",
-  "subjectPlaceholder": "Konu Girin",
-  "message": "Mesaj",
-  "messagePlaceholder": "Buraya yazın...",
-  "sendBtn": "Gönder",
+
+"addCard": {
+  "title": "Yeni Kart Ekle",
+  "holderName": "Kart Sahibinin Adı",
+  "number": "Kart Numarası",
+  "expiry": "Son Kullanma Tarihi",
+  "cvc": "CVC",
+  "button": "Kart Ekle",
   "success": {
     "title": "Başarılı",
-    "desc": "Mesajınız Drive Hub destek ekibine gönderildi. Kısa süre içinde yanıt alacaksınız.",
+    "desc": "Kart başarıyla eklendi",
+    "button": "Devam Et"
+  }
+},
+"resetPassword": {
+  "title": "Şifreyi Sıfırla",
+  "subtitle": "Artık şifrenizi sıfırlayabilirsiniz.",
+  "password": "Şifre",
+  "confirmPassword": "Şifreyi Onayla",
+  "button": "Sıfırla",
+  "success": {
+    "title": "Şifre Güncellendi",
+    "desc": "Şifreniz başarıyla güncellendi.",
     "button": "Devam Et"
   }
 }
+,
+"editCard": {
+  "title": "Kartı Düzenle",
+  "holderName": "Kart Sahibinin Adı",
+  "number": "Kart Numarası",
+  "expiry": "Son Kullanma Tarihi",
+  "cvc": "CVC",
+  "button": "Kartı Güncelle",
+  "success": {
+    "title": "Başarılı",
+    "desc": "Kart başarıyla güncellendi",
+    "button": "Devam Et"
+  }
+}
+
 
   ,
   "cache": {

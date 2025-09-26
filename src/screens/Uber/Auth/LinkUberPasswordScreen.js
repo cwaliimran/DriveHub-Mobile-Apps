@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   icon: { width: 22, height: 22, marginRight: 8 },
   input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
   eyeIcon: { width: 22, height: 22 },
-  primaryButtonWrapper: { width: '110%', alignSelf: 'center' },
+  primaryButtonWrapper: { width: '100%', alignSelf: 'center' },
   footerAlt: {
     marginTop: 'auto',
     marginBottom: 20,

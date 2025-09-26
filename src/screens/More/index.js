@@ -28,7 +28,7 @@ const MoreScreen = ({ navigation }) => {
       <AppHeader title={t('more.title')} />
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ProfileOverviewCard onEdit={() => console.log('Edit Profile')} />
+        <ProfileOverviewCard onEdit={() => navigation.navigate('Profile')} />
 
         {/* ---------------- Subscription ---------------- */}
         <Text style={styles.sectionHeader}>{t('more.sections.subscription')}</Text>
@@ -42,6 +42,8 @@ const MoreScreen = ({ navigation }) => {
             icon={Icons.paymentMethods}
             title={t('more.options.payment.title')}
             description={t('more.options.payment.desc')}
+              onPress={() => navigation.navigate('Cards')}
+
           />
         </View>
 

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   content: { padding: 20 },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
   },
   subtitle: {

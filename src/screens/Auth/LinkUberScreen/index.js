@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     color: colors.secondary,
   },
   primaryButtonWrapper: {
-    width: '110%', // Fixed from 110% to prevent overflow
+    width: '100%', // Fixed from 100% to prevent overflow
     alignSelf: 'center',
   },
   dividerContainer: {

@@ -98,13 +98,13 @@ const styles = StyleSheet.create({
   otpSection: { marginBottom: 10, marginTop: 10, width: '100%' },
   label: { fontSize: 14, fontFamily: typography.fontMedium, marginBottom: 10, marginLeft: 10 },
   otpInputWrapper: {
-    width: '105%',
+    width: '100%',
     alignSelf: 'center',
     alignItems: 'center',
   },
   didnt: { fontSize: 15, fontFamily: typography.fontBold, marginTop: 15, alignSelf: 'center' },
   timer: { fontSize: 13, fontFamily: typography.fontRegular, marginTop: 5, textAlign: 'center' },
-  primaryButtonWrapper: { width: '105%', alignSelf: 'center' },
+  primaryButtonWrapper: { width: '100%', alignSelf: 'center' },
   footerAlt: {
     marginTop: 'auto',
     marginBottom: 20,

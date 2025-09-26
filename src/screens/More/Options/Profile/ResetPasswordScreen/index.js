@@ -3,47 +3,54 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   Image,
+  TextInput,
   TouchableOpacity,
 } from 'react-native';
-import { Icons } from '../../../assets/assets';
-import typography from '../../../theme/typography';
-import PrimaryButton from '../../../components/common/PrimaryButton';
-import AppHeader from '../../../components/common/AppHeader';
+import AppHeader from '../../../../../components/common/AppHeader';
+import PrimaryButton from '../../../../../components/common/PrimaryButton';
+import typography from '../../../../../theme/typography';
+import colors from '../../../../../theme/colors';
+import { Icons } from '../../../../../assets/assets';
 import { useTranslation } from 'react-i18next';
-import PasswordUpdatedModal from '../../../components/common/PasswordUpdatedModal';
-import useTheme from '../../../hooks/useTheme';
+import useTheme from '../../../../../hooks/useTheme';
+import ResetSuccessModal from '../../../../../components/more/ResetSuccessModal';
 
-const ResetPasswordScreen = ({ navigation }) => {
+const ResetPasswordScreenMore = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
 
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
+  const handleReset = () => {
+    // Normally API call here
+    setModalVisible(true);
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      {/* App Header */}
+      {/* Header - no padding */}
       <AppHeader title={t('resetPassword.title')} onBack={() => navigation.goBack()} />
 
+      {/* Content with padding */}
       <View style={styles.content}>
-        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          {t('resetPassword.subtitle')}
-        </Text>
+        <Text style={styles.subtitle}>{t('resetPassword.subtitle')}</Text>
 
         {/* Password */}
-        <Text style={[styles.label, { color: theme.text }]}>
-          {t('resetPassword.password')}
-        </Text>
+        <Text style={[styles.label, { color: theme.text }]}>{t('resetPassword.password')}</Text>
         <View style={[styles.inputContainer, { borderColor: theme.border }]}>
           <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
           <TextInput
             style={[styles.input, { color: theme.text }]}
-            placeholder="******"
+            placeholder={t('resetPassword.password')}
             placeholderTextColor={theme.textSecondary}
             secureTextEntry={!showPassword}
+            value={password}
+            onChangeText={setPassword}
           />
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image
@@ -54,16 +61,16 @@ const ResetPasswordScreen = ({ navigation }) => {
         </View>
 
         {/* Confirm Password */}
-        <Text style={[styles.label, { color: theme.text }]}>
-          {t('resetPassword.confirmPassword')}
-        </Text>
+        <Text style={[styles.label, { color: theme.text }]}>{t('resetPassword.confirmPassword')}</Text>
         <View style={[styles.inputContainer, { borderColor: theme.border }]}>
           <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
           <TextInput
             style={[styles.input, { color: theme.text }]}
-            placeholder="******"
+            placeholder={t('resetPassword.confirmPassword')}
             placeholderTextColor={theme.textSecondary}
             secureTextEntry={!showConfirmPassword}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
           />
           <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
             <Image
@@ -73,21 +80,18 @@ const ResetPasswordScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {/* Reset Button */}
-        <View style={styles.primaryButtonWrapper}>
-          <PrimaryButton
-            title={t('resetPassword.resetBtn')}
-            onPress={() => setModalVisible(true)}
-          />
+        {/* Button */}
+        <View style={styles.btnWrapper}>
+          <PrimaryButton title={t('resetPassword.title')} onPress={handleReset} />
         </View>
       </View>
 
-      {/* Confirmation Modal */}
-      <PasswordUpdatedModal
+      {/* Modal */}
+      <ResetSuccessModal
         visible={modalVisible}
         onClose={() => {
           setModalVisible(false);
-          navigation.replace('SignIn');
+          navigation.goBack();
         }}
       />
     </View>
@@ -95,34 +99,35 @@ const ResetPasswordScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  content: { padding: 20 },
+  container: { flex: 1 }, // no padding here
+  content: { flex: 1, padding: 16 }, // ✅ content has padding
   subtitle: {
     fontSize: 14,
-    fontFamily: typography.fontMedium,
-    marginBottom: 10,
-  },
-  primaryButtonWrapper: {
-    width: '100%',
-    alignSelf: 'center',
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    marginBottom: 20,
   },
   label: {
     fontSize: 14,
     fontFamily: typography.fontMedium,
-    marginBottom: 8,
+    marginBottom: 6,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 12,
-    paddingVertical: 3,
     paddingHorizontal: 12,
-    marginBottom: 8,
+    marginBottom: 15,
   },
   icon: { width: 20, height: 20, marginRight: 10 },
-  input: { flex: 1, fontSize: 14, fontFamily: typography.fontMedium },
+  input: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
   eyeIcon: { width: 20, height: 20 },
+  btnWrapper: { marginTop: 'auto', marginBottom: 20 },
 });
 
-export default ResetPasswordScreen;
+export default ResetPasswordScreenMore;

@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
   },
   subtitle: {

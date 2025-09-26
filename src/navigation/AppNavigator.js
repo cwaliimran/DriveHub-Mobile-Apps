@@ -31,6 +31,13 @@ import PrivacyScreen from '../screens/More/Options/Privacy';
 import TermsScreen from '../screens/More/Options/Terms';
 import LanguageMoreScreen from '../screens/More/Options/Language';
 import ThemeMoreScreen from '../screens/More/Options/Theme';
+import CardsScreen from '../screens/More/Options/Cards';
+ import AddCardScreen from '../screens/More/Options/AddCard';
+import EditCardScreen from '../screens/More/Options/EditCard';
+import ProfileScreen from '../screens/More/Options/Profile';
+import EditProfileScreen from '../screens/More/Options/Profile/EditProfile';
+import ResetPasswordScreenMore from '../screens/More/Options/Profile/ResetPasswordScreen';
+
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => (
@@ -92,6 +99,24 @@ const AppNavigator = () => (
 <Stack.Screen name="Terms" component={TermsScreen} />
 <Stack.Screen name="LanguageMore" component={LanguageMoreScreen} />
 <Stack.Screen name="Theme" component={ThemeMoreScreen} />
+<Stack.Screen name="Cards" component={CardsScreen} />
+<Stack.Screen
+  name="AddCard"
+  component={AddCardScreen}
+  // options={{ headerShown: false }}
+/>
+<Stack.Screen name="EditCard" component={EditCardScreen} />
+<Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+<Stack.Screen
+  name="EditProfile"
+  component={EditProfileScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="ResetPasswordMore"
+  component={ResetPasswordScreenMore}
+  options={{ headerShown: false }}
+/>
 
   </Stack.Navigator>
 );

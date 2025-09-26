@@ -81,6 +81,29 @@
     "description": "Tu contraseña se ha actualizado correctamente",
     "button": "Iniciar sesión"
   },
+  "profile": {
+  "title": "Perfil",
+  "fullname": "Nombre completo",
+  "phone": "Número de teléfono",
+  "email": "Dirección de correo electrónico",
+  "vehicleName": "Nombre del vehículo",
+  "vehicleModel": "Modelo del vehículo"
+}
+,
+"editProfile": {
+  "title": "Editar perfil",
+  "fullname": "Nombre completo",
+  "phone": "Número de teléfono",
+  "email": "Dirección de correo electrónico",
+  "vehicleName": "Nombre del vehículo",
+  "vehicleModel": "Modelo del vehículo",
+  "resetPassword": "Restablecer contraseña",
+  "saveChanges": "Guardar cambios"
+}
+
+
+
+,
   "resetPassword": {
     "title": "Restablecer contraseña",
     "subtitle": "Ahora puedes restablecer tu contraseña.",
@@ -97,6 +120,16 @@
   "dark": "Modo oscuro",
   "light": "Modo claro",
   "select": "Seleccionar"
+}
+,
+"cards": {
+  "title": "Gestión de tarjetas",
+  "addNew": "Agregar nueva tarjeta",
+  "deleteModal": {
+    "title": "Eliminar tarjeta",
+    "desc": "¿Estás seguro de que quieres eliminar esta tarjeta? Esta acción no se puede deshacer.",
+    "button": "Eliminar"
+  }
 }
 
   ,
@@ -303,6 +336,49 @@
     "desc": "Esta acción es permanente y no se puede deshacer.",
     "button": "Eliminar"
   },
+"addCard": {
+  "title": "Agregar nueva tarjeta",
+  "holderName": "Nombre del titular",
+  "number": "Número de tarjeta",
+  "expiry": "Fecha de vencimiento",
+  "cvc": "CVC",
+  "button": "Agregar tarjeta",
+  "success": {
+    "title": "Éxito",
+    "desc": "Tarjeta agregada correctamente",
+    "button": "Continuar"
+  }
+},
+"resetPassword": {
+  "title": "Restablecer contraseña",
+  "subtitle": "Ahora puedes restablecer tu contraseña.",
+  "password": "Contraseña",
+  "confirmPassword": "Confirmar contraseña",
+  "button": "Restablecer",
+  "success": {
+    "title": "Contraseña actualizada",
+    "desc": "Tu contraseña se ha actualizado correctamente.",
+    "button": "Continuar"
+  }
+}
+,
+
+"editCard": {
+  "title": "Editar tarjeta",
+  "holderName": "Nombre del titular",
+  "number": "Número de tarjeta",
+  "expiry": "Fecha de vencimiento",
+  "cvc": "CVC",
+  "button": "Actualizar tarjeta",
+  "success": {
+    "title": "Éxito",
+    "desc": "Tarjeta actualizada correctamente",
+    "button": "Continuar"
+  }
+}
+
+
+  ,
   "contactSupport": {
   "title": "Contactar soporte",
   "name": "Nombre",

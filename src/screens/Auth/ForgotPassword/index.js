@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   icon: { width: 20, height: 20, marginRight: 10 },
   primaryButtonWrapper: {
-    width: '110%',
+    width: '100%',
     alignSelf: 'center',
   },
   input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },
