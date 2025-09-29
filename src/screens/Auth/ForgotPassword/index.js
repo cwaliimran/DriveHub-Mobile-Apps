@@ -12,7 +12,7 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import AppHeader from '../../../components/common/AppHeader';
 import { useTranslation } from 'react-i18next';
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const ForgotPasswordScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 5,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: { width: 20, height: 20, marginRight: 10 },
   primaryButtonWrapper: {

@@ -14,7 +14,7 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import { useTranslation } from 'react-i18next';
 import AppHeader from '../../../components/common/AppHeader'; // ✅ reuse your header
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 
 const LinkUberScreen = ({ navigation }) => {
   const { t } = useTranslation();
@@ -126,10 +126,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 4,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: {
     width: 22,

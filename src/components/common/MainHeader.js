@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Images, Icons } from '../../assets/assets';
 import useTheme from '../../hooks/useTheme';
 
 const MainHeader = ({ onProfilePress, onNotificationPress, showNotificationDot = true }) => {
   const theme = useTheme();
+  const { top } = useSafeAreaInsets();
   const isDark = theme.background === '#121212';
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
+    <View style={[styles.container, { backgroundColor: theme.background}]}>
       {/* Logo */}
       <Image
         source={isDark ? Images.logoDark : Images.logoLight}
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15,
     paddingVertical: 10,
-    top: 15,
+    // top: 15,
   },
   logo: {
     width: 90,

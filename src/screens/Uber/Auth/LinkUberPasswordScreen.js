@@ -14,7 +14,7 @@ import VerifyAlternativeModal from '../../../components/common/VerifyAlternative
 import typography from '../../../theme/typography';
 import { Icons } from '../../../assets/assets';
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const LinkUberPasswordScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 4,
-    marginBottom: 20,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: { width: 22, height: 22, marginRight: 8 },
   input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },

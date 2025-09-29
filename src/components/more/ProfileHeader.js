@@ -3,12 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Icons } from '../../assets/assets';
 import typography from '../../theme/typography';
 import useTheme from '../../hooks/useTheme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const ProfileHeader = ({ title, onBack, onEdit }) => {
   const theme = useTheme();
+  const { top } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { borderColor: theme.border }]}>
+    <View style={[styles.container, { borderColor: theme.border}]}>
       {/* Back */}
       <TouchableOpacity onPress={onBack} style={styles.iconWrapper}>
         <Image source={Icons.back} style={[styles.icon, { tintColor: theme.text }]} />
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 25,
+    // marginTop: 25,
     paddingHorizontal: 16,
     justifyContent: 'space-between',
   },

@@ -12,7 +12,7 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import typography from '../../../theme/typography';
 import { Icons } from '../../../assets/assets'; // license.png
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const LinkLyftLicenseScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -23,42 +23,46 @@ const LinkLyftLicenseScreen = ({ navigation }) => {
       {/* Header */}
       <AppHeader title={t('linkLyft.title')} />
 
-      {/* Subtitle */}
-      <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-        {t('linkLyftLicense.subtitle')}
-      </Text>
+      {/* Content Wrapper with Padding */}
+      <View style={styles.contentWrapper}>
+        {/* Subtitle */}
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          {t('linkLyftLicense.subtitle')}
+        </Text>
 
-      {/* Input Label */}
-      <Text style={[styles.inputLabel, { color: theme.text }]}>
-        {t('linkLyftLicense.inputLabel')}
-      </Text>
+        {/* Input Label */}
+        <Text style={[styles.inputLabel, { color: theme.text }]}>
+          {t('linkLyftLicense.inputLabel')}
+        </Text>
 
-      {/* Input */}
-      <View style={[styles.inputContainer, { borderColor: theme.border }]}>
-        <Image source={Icons.license} style={[styles.icon, { tintColor: theme.textSecondary }]} />
-        <TextInput
-          style={[styles.input, { color: theme.text }]}
-          placeholder={t('linkLyftLicense.placeholder')}
-          placeholderTextColor={theme.textSecondary}
-          value={license}
-          onChangeText={setLicense}
-        />
-      </View>
+        {/* Input */}
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.license} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder={t('linkLyftLicense.placeholder')}
+            placeholderTextColor={theme.textSecondary}
+            value={license}
+            onChangeText={setLicense}
+          />
+        </View>
 
-      {/* Continue */}
-      <View style={styles.primaryButtonWrapper}>
-        <PrimaryButton
-          title={t('linkLyftLicense.continue')}
-          disabled={!license.trim()}
-          onPress={() => navigation.replace('SetupAccessibility')}
-        />
+        {/* Continue */}
+        <View style={styles.primaryButtonWrapper}>
+          <PrimaryButton
+            title={t('linkLyftLicense.continue')}
+            disabled={!license.trim()}
+            onPress={() => navigation.replace('SetupAccessibility')}
+          />
+        </View>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingHorizontal: 15 },
+  container: { flex: 1 }, // Remove paddingHorizontal here
+  contentWrapper: { paddingHorizontal: 15, flex: 1 }, // Add this style
   subtitle: {
     fontSize: 14,
     fontFamily: typography.fontRegular,
@@ -75,8 +79,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 4,
-    marginBottom: 20,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: { width: 22, height: 22, marginRight: 8 },
   input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },

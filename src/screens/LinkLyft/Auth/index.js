@@ -13,7 +13,7 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import { useTranslation } from 'react-i18next';
 import AppHeader from '../../../components/common/AppHeader';
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const LinkLyftScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const [phone, setPhone] = useState('');
@@ -89,11 +89,12 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    borderColor:'#ddd',
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 4,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: {
     width: 22,

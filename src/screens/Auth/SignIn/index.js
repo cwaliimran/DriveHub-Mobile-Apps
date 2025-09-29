@@ -6,12 +6,15 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { Images, Icons } from '../../../assets/assets';
 import typography from '../../../theme/typography';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import { useTranslation } from 'react-i18next';
 import useTheme from '../../../hooks/useTheme';
+
+const FIELD_HEIGHT = 50; // consistent size across iOS & Android
 
 const SignInScreen = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -42,6 +45,9 @@ const SignInScreen = ({ navigation }) => {
           placeholder="johndoe@gmail.com"
           placeholderTextColor={theme.textSecondary}
           keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+          textContentType="emailAddress"
         />
       </View>
 
@@ -54,6 +60,8 @@ const SignInScreen = ({ navigation }) => {
           placeholder="******"
           placeholderTextColor={theme.textSecondary}
           secureTextEntry={!showPassword}
+          autoCapitalize="none"
+          textContentType="password"
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
           <Image
@@ -140,43 +148,48 @@ const styles = StyleSheet.create({
     width: '100%',
     alignSelf: 'center',
   },
+
+  /* -------- Inputs -------- */
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 3,
+    height: FIELD_HEIGHT,                 // ← consistent field height
     marginBottom: 8,
   },
   icon: {
-    width: 24,
-    height: 24,
+    width: 22,
+    height: 22,
     marginRight: 10,
   },
   input: {
     flex: 1,
-    fontSize: 13,
+    fontSize: 14,
     fontFamily: typography.fontRegular,
+    paddingVertical: 0,                   // ← avoid extra shrinking on iOS
+    lineHeight: Platform.OS === 'ios' ? 18 : 20, // keeps text nicely centered
   },
   eyeIcon: {
-    width: 24,
-    height: 24,
+    width: 22,
+    height: 22,
   },
+
   forgot: {
     fontSize: 12,
     fontFamily: typography.fontMedium,
     textAlign: 'right',
+    marginBottom: 10,
   },
+
+  /* -------- Divider & Social -------- */
   dividerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 15,
   },
-  divider: {
-    flex: 1,
-    height: 1,
-  },
+  divider: { flex: 1, height: 1 },
   dividerText: {
     marginHorizontal: 10,
     fontSize: 13,
@@ -199,29 +212,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 20,
   },
-  socialIcon: {
-    width: 20,
-    height: 20,
-    marginRight: 8,
-  },
-  socialText: {
-    fontSize: 12,
-    fontFamily: typography.fontMedium,
-  },
+  socialIcon: { width: 20, height: 20, marginRight: 8 },
+  socialText: { fontSize: 12, fontFamily: typography.fontMedium },
+
+  /* -------- Footer -------- */
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 'auto',
     marginBottom: 20,
   },
-  footerText: {
-    fontSize: 13,
-    fontFamily: typography.fontRegular,
-  },
-  footerLink: {
-    fontSize: 13,
-    fontFamily: typography.fontBold,
-  },
+  footerText: { fontSize: 13, fontFamily: typography.fontRegular },
+  footerLink: { fontSize: 13, fontFamily: typography.fontBold },
 });
 
 export default SignInScreen;

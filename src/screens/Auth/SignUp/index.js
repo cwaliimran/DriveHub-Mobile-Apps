@@ -15,7 +15,7 @@ import PrimaryButton from '../../../components/common/PrimaryButton';
 import AppHeader from '../../../components/common/AppHeader';
 import { useTranslation } from 'react-i18next';
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const SignUpScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -144,14 +144,18 @@ const SignUpScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {/* Terms */}
-        <View style={styles.termsRow}>
-          <TouchableOpacity style={[styles.checkbox, { borderColor: theme.textSecondary }]} />
-          <Text style={[styles.termsText, { color: theme.textSecondary }]}>
-            {t('signup.terms1')} <Text style={[styles.link, { color: theme.primary }]}>{t('signup.terms2')}</Text>
-          </Text>
-        </View>
-
+ <View style={styles.termsRow}>
+   <TouchableOpacity style={[styles.checkbox, { borderColor: theme.textSecondary }]} />
+   <Text style={[styles.termsText, { color: theme.textSecondary }]}>
+     {t('signup.terms1')}{' '}
+     <Text
+       style={[styles.link, { color: theme.primary }]}
+       onPress={() => navigation.navigate('Terms')}
+   >
+       {t('signup.terms2')}
+     </Text>
+   </Text>
+ </View>
         {/* Create Account Button */}
         <View style={styles.primaryButtonWrapper}>
           <PrimaryButton title={t('signup.createBtn')} onPress={() => navigation.navigate('VerifyOTP')} />
@@ -191,16 +195,16 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontFamily: typography.fontMedium,
-    marginBottom: 5,
+    marginBottom: 8,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 12,
-        paddingVertical: 3,
     paddingHorizontal: 12,
-    marginBottom: 15,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: { width: 20, height: 20, marginRight: 10 },
   input: {

@@ -14,7 +14,7 @@ import typography from '../../../theme/typography';
 import colors from '../../../theme/colors';
 import { Images, Icons } from '../../../assets/assets';
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const DoorDashAuthScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -145,8 +145,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 4,
-    marginBottom: 15,
+    height: FIELD_HEIGHT,                 // ← consistent field height
+    marginBottom: 8,
   },
   icon: { width: 22, height: 22, marginRight: 8 },
   input: { flex: 1, fontSize: 13, fontFamily: typography.fontRegular },

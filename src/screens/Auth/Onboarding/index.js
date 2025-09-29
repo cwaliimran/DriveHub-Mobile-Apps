@@ -83,7 +83,7 @@ const gradientLocations = theme.mode === 'dark'
       backgroundColor: theme.background,
     },
     imageContainer: {
-      height: height * 0.65,
+      height: height * 0.60,
       width: '100%',
       overflow: 'hidden',
       marginTop: -StatusBar.currentHeight || 0,

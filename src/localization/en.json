@@ -26,7 +26,7 @@
   },
     "signin": {
     "title": "Sign In",
-    "subtitle": "For personalized experience, login to your account.",
+"subtitle": "For personalized experience, login to your \naccount.",
     "email": "Email Address",
     "password": "Password",
     "forgot": "Forgot Password?",

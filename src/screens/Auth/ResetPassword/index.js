@@ -14,7 +14,7 @@ import AppHeader from '../../../components/common/AppHeader';
 import { useTranslation } from 'react-i18next';
 import PasswordUpdatedModal from '../../../components/common/PasswordUpdatedModal';
 import useTheme from '../../../hooks/useTheme';
-
+const FIELD_HEIGHT = 50; 
 const ResetPasswordScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 12,
-    paddingVertical: 3,
     paddingHorizontal: 12,
+    height: FIELD_HEIGHT,                 // ← consistent field height
     marginBottom: 8,
   },
   icon: { width: 20, height: 20, marginRight: 10 },

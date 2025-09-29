@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Icons } from '../../assets/assets';
 import typography from '../../theme/typography';
 import useTheme from '../../hooks/useTheme';
 
 const AppHeader = ({ title, onBack }) => {
   const theme = useTheme();
+  const { top } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { borderColor: theme.border }]}>
+   <View style={[styles.container, { borderColor: theme.border}]}>
       <TouchableOpacity onPress={onBack} style={styles.backButton}>
         <Image source={Icons.back} style={[styles.backIcon, { tintColor: theme.text }]} />
       </TouchableOpacity>
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 25,
+    // marginTop: 25,
     paddingHorizontal: 17,
     justifyContent: 'space-between',
   },
