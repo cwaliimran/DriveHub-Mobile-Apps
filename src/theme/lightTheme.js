@@ -9,4 +9,6 @@ export default {
     primary_bottom:'#007AFF',
   card: '#F7F7F7',
     card_theme: '#F7F7F7',
+    autoRenewRowBackground: 'rgba(0, 123, 255, 0.2)'
+
 };

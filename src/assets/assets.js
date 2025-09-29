@@ -16,6 +16,7 @@ export const Images = {
   lyftOnboarding: require('./images/lyft-onboarding.png'),
   doorDashOnboarding: require('./images/door-dash-onboarding.png'),
   userProfile: require('./images/user-profile.png'),
+    masterplanBackground: require('./images/masterplan-bg.png'), 
     cardBackground: require('./images/card-background.png'),
 };
 
@@ -89,7 +90,10 @@ lightMode: require('./icons/light-mode.png'),
   editProfile: require('./icons/edit-profile.png'),
   avatar: require('./icons/avatar.png'), // placeholder
 resetSuccessModal: require('./icons/reset-sucess-modal.png'),
-
+  priority: require('./icons/priority.png'),
+  fees: require('./icons/fees.png'),
+  discounts: require('./icons/discounts.png'),
+  vouchers: require('./icons/vouchers.png'),
 
 
 };

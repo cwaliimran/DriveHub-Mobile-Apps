@@ -34,10 +34,12 @@ const MoreScreen = ({ navigation }) => {
         <Text style={styles.sectionHeader}>{t('more.sections.subscription')}</Text>
         <View style={styles.gridRow}>
           <MoreOptionCard
-            icon={Icons.premiumPlan}
-            title={t('more.options.premium.title')}
-            description={t('more.options.premium.desc')}
-          />
+  icon={Icons.premiumPlan}
+  title={t('more.options.premium.title')}
+  description={t('more.options.premium.desc')}
+  onPress={() => navigation.navigate('Plans')}   // ⬅️ add this
+/>
+
           <MoreOptionCard
             icon={Icons.paymentMethods}
             title={t('more.options.payment.title')}

@@ -37,6 +37,7 @@ import EditCardScreen from '../screens/More/Options/EditCard';
 import ProfileScreen from '../screens/More/Options/Profile';
 import EditProfileScreen from '../screens/More/Options/Profile/EditProfile';
 import ResetPasswordScreenMore from '../screens/More/Options/Profile/ResetPasswordScreen';
+import PlansScreen from '../screens/More/Options/Plans';
 
 const Stack = createNativeStackNavigator();
 
@@ -117,7 +118,11 @@ const AppNavigator = () => (
   component={ResetPasswordScreenMore}
   options={{ headerShown: false }}
 />
-
+<Stack.Screen
+  name="Plans"
+  component={PlansScreen}
+  options={{ headerShown: false }}
+/>
   </Stack.Navigator>
 );
 

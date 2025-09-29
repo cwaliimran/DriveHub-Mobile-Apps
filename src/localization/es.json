@@ -247,7 +247,27 @@
     "thisMonth": "Este mes",
     "member": "Miembro Premium"
   },
+ "plans": {
+  "title": "Suscripción",
+  "masterTitle": "Plan Maestro",
+  "masterDesc": "Simplifica tu flujo de trabajo con herramientas de registro más rápidas y ajustes personalizables—pruébalo gratis durante 7 días.",
+  "yearlyTitle": "Plan Anual",
+  "yearlyDesc": "Pasa a Premium Anual—desbloquea funciones ilimitadas, herramientas exclusivas y beneficios prioritarios.",
+  "yearlyBilled": "$90.00 facturado anualmente",
+  "yearlyHelpsYou": "El Plan Anual te ayuda a:",
+  "monthlyTitle": "Plan Mensual",
+  "monthlyDesc": "Pasa a Premium Mensual—desbloquea funciones ilimitadas, herramientas exclusivas y beneficios prioritarios.",
+  "monthlyBilled": "Facturado mensualmente",
+  "monthlyHelpsYou": "El Plan Mensual te ayuda a:",
+  "save": "Ahorra 67%",
+  "cta": "Suscribirse",
+  "restore": "Restaurar compra",
+  "auto": "Renovación automática anual por $90.99",
+  "footnote": "La facturación comienza al final de tu prueba gratuita de 7 días, a menos que la canceles. Los planes se renuevan automáticamente. Cancela a través de App Store / Play Store."
+}
 
+
+,
   "more": {
     "title": "Más",
     "sections": {

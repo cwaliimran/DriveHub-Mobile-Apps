@@ -18,6 +18,7 @@ export const Images = {
   lyftOnboarding: require('./images/lyft-onboarding.png'),
   doorDashOnboarding: require('./images/door-dash-onboarding.png'),
   userProfile: require('./images/user-profile.png'),
+    cardBackground: require('./images/card-background.png'),
 };
 
 export const Icons = {
@@ -84,6 +85,13 @@ export const Icons = {
   cacheModal: require('./icons/cache-modal.png'),
   darkMode: require('./icons/dark-mode.png'),
 lightMode: require('./icons/light-mode.png'),
+  editCard: require('./icons/edit-card.png'),
+  deleteCard: require('./icons/delete-card.png'),
+  deleteCardModal: require('./icons/delete-card-modal.png'),
+  editProfile: require('./icons/edit-profile.png'),
+  avatar: require('./icons/avatar.png'), // placeholder
+resetSuccessModal: require('./icons/reset-sucess-modal.png'),
+
 
 
 };
@@ -886,14 +894,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: 10,
     height: 50,
+    width: '100%',
 
     // 👇 Same as LanguageOption box
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     marginHorizontal: 20,
 
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   disabled: {
     backgroundColor: colors.secondary,
@@ -1219,6 +1228,413 @@ const styles = StyleSheet.create({
 
 export default ActionModal;
 
+// ==== src/components/more/AddCardSuccessModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import typography from '../../theme/typography';
+import { Icons } from '../../assets/assets';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../hooks/useTheme';
+
+const AddCardSuccessModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
+      <View style={styles.overlay}>
+        <TouchableOpacity style={StyleSheet.absoluteFill} activeOpacity={1} onPress={onClose} />
+        <View style={[styles.container, { backgroundColor: theme.card }]}>
+          <Image source={Icons.successModal} style={styles.icon} resizeMode="contain" />
+          <Text style={[styles.title, { color: theme.text }]}>
+            {t('more.modals.addCard.success.title')}
+          </Text>
+          <Text style={[styles.desc, { color: theme.textSecondary }]}>
+            {t('more.modals.addCard.success.desc')}
+          </Text>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.primary }]}
+            onPress={onClose}
+          >
+            <Text style={styles.buttonText}>
+              {t('more.modals.addCard.success.button')}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    width: '80%',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  icon: { width: 150, height: 120, marginBottom: 15 },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  desc: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    paddingVertical: 12,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff', // ✅ always white for contrast
+  },
+});
+
+export default AddCardSuccessModal;
+
+// ==== src/components/more/CardItem.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import typography from '../../theme/typography';
+import { Icons, Images } from '../../assets/assets';
+import useTheme from '../../hooks/useTheme';
+
+const CardItem = ({ name, maskedNumber, onEdit, onDelete }) => {
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.card, { backgroundColor: theme.card_theme }]}>
+      {/* Decorative tilted stripes - render first so they're behind */}
+      <Image
+        source={Images.cardBackground}
+        style={styles.stripeOne}
+        resizeMode="cover"
+      />
+      <Image
+        source={Images.cardBackground}
+        style={styles.stripeTwo}
+        resizeMode="cover"
+      />
+
+      {/* Left - Card info */}
+      <View>
+        <Text style={[styles.name, { color: theme.text }]}>{name}</Text>
+        <Text style={[styles.number, { color: theme.textSecondary }]}>
+          {maskedNumber}
+        </Text>
+      </View>
+
+      {/* Right - Actions */}
+      <View style={styles.actions}>
+        <TouchableOpacity
+          style={[styles.iconWrapper, { backgroundColor: theme.card }]}
+          onPress={onEdit}
+        >
+          <Image
+            source={Icons.editCard}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.iconWrapper, { backgroundColor: theme.card }]}
+          onPress={() => {
+            console.log('🗑️ Delete button pressed for:', name, maskedNumber);
+            onDelete();
+          }}
+        >
+          <Image
+            source={Icons.deleteCard}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  card: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 16,
+    padding: 16,
+    marginHorizontal: 16,
+    marginBottom: 12,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  name: {
+    fontSize: 16,
+    fontFamily: typography.fontSemiBold,
+  },
+  number: {
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+    marginTop: 2,
+  },
+  actions: {
+    flexDirection: 'row',
+    zIndex: 2, // ✅ ensure actions are above background
+  },
+  iconWrapper: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+  },
+  icon: {
+    width: 30,
+    height: 30,
+  },
+  // Diagonal Stripes - background layer
+  stripeOne: {
+    position: 'absolute',
+    pointerEvents: 'none',
+    zIndex: 0,
+    right: '40%',
+    top: -40,
+    bottom: -20,
+    width: '12%',
+    opacity: 1.0,
+    transform: [{ rotate: '20deg' }],
+  },
+  stripeTwo: {
+    position: 'absolute',
+    pointerEvents: 'none',
+    zIndex: 0,
+    right: '20%',
+    top: -20,
+    bottom: -20,
+    width: '12%',
+    opacity: 1.0,
+    transform: [{ rotate: '20deg' }],
+  },
+});
+
+export default CardItem;
+
+// ==== src/components/more/DeleteCardModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  Image,
+  TouchableWithoutFeedback,
+} from 'react-native';
+import typography from '../../theme/typography';
+import colors from '../../theme/colors';
+import { Icons } from '../../assets/assets';
+import { useTranslation } from 'react-i18next';
+
+const DeleteCardModal = ({ visible, onClose, onConfirm }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
+      <View style={styles.overlay}>
+        {/* Background clickable */}
+        <TouchableWithoutFeedback onPress={onClose}>
+          <View style={StyleSheet.absoluteFill} />
+        </TouchableWithoutFeedback>
+
+        {/* Modal box */}
+        <View style={styles.container}>
+          {/* Icon */}
+          <Image source={Icons.deleteCardModal} style={styles.icon} resizeMode="contain" />
+
+          {/* Title */}
+          <Text style={styles.title}>{t('cards.deleteModal.title')}</Text>
+
+          {/* Description */}
+          <Text style={styles.desc}>{t('cards.deleteModal.desc')}</Text>
+
+          {/* Confirm Button */}
+          <TouchableOpacity
+            style={[styles.confirmBtn, { backgroundColor: '#A50000' }]}
+            onPress={onConfirm}
+          >
+            <Text style={styles.confirmText}>{t('cards.deleteModal.button')}</Text>
+          </TouchableOpacity>
+
+          {/* Cancel */}
+          <TouchableOpacity onPress={onClose}>
+            <Text style={styles.cancel}>{t('more.modals.cancel')}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 50,
+  },
+  container: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  icon: { width: 147, height: 120, marginBottom: 15},
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    color: colors.textLight,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  desc: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  confirmBtn: {
+    paddingVertical: 13,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  confirmText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+  cancel: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    marginTop: 15,
+  },
+});
+
+export default DeleteCardModal;
+
+// ==== src/components/more/EditCardSuccessModal.js ====
+import React from 'react';
+import { View, Text, StyleSheet, Modal, TouchableOpacity, Image } from 'react-native';
+import typography from '../../theme/typography';
+import { Icons } from '../../assets/assets';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../hooks/useTheme';
+
+const EditCardSuccessModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  if (!visible) return null;
+
+  return (
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
+      <View style={styles.overlay}>
+        <TouchableOpacity style={StyleSheet.absoluteFill} activeOpacity={1} onPress={onClose} />
+        <View style={[styles.container, { backgroundColor: theme.card }]}>
+          <Image source={Icons.successModal} style={styles.icon} resizeMode="contain" />
+          <Text style={[styles.title, { color: theme.text }]}>
+            {t('more.modals.editCard.success.title')}
+          </Text>
+          <Text style={[styles.desc, { color: theme.textSecondary }]}>
+            {t('more.modals.editCard.success.desc')}
+          </Text>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: theme.primary }]}
+            onPress={onClose}
+          >
+            <Text style={styles.buttonText}>
+              {t('more.modals.editCard.success.button')}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    width: '80%',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  icon: { width: 150, height: 120, marginBottom: 15 },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  desc: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    paddingVertical: 12,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff', // ✅ always white for contrast
+  },
+});
+
+export default EditCardSuccessModal;
+
 // ==== src/components/more/MoreOptionCard.js ====
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
@@ -1289,6 +1705,52 @@ const styles = StyleSheet.create({
 
 export default MoreOptionCard;
 
+// ==== src/components/more/ProfileHeader.js ====
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Icons } from '../../assets/assets';
+import typography from '../../theme/typography';
+import useTheme from '../../hooks/useTheme';
+
+const ProfileHeader = ({ title, onBack, onEdit }) => {
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { borderColor: theme.border }]}>
+      {/* Back */}
+      <TouchableOpacity onPress={onBack} style={styles.iconWrapper}>
+        <Image source={Icons.back} style={[styles.icon, { tintColor: theme.text }]} />
+      </TouchableOpacity>
+
+      {/* Title */}
+      <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
+
+      {/* Edit Profile */}
+      <TouchableOpacity onPress={onEdit} style={styles.iconWrapper}>
+        <Image source={Icons.editProfile} style={[styles.icon, { tintColor: theme.text }]} />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 25,
+    paddingHorizontal: 16,
+    justifyContent: 'space-between',
+  },
+  iconWrapper: { width: 40, height: 40, justifyContent: 'center', alignItems: 'center' },
+  icon: { width: 40, height: 40 },
+  title: {
+    fontSize: 17,
+    fontFamily: typography.fontSemiBold,
+  },
+});
+
+export default ProfileHeader;
+ 
 // ==== src/components/more/ProfileOverviewCard.js ====
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
@@ -1427,6 +1889,94 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileOverviewCard;
+
+// ==== src/components/more/ResetSuccessModal.js ====
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import typography from '../../theme/typography';
+import colors from '../../theme/colors';
+import { Icons } from '../../assets/assets';
+import { useTranslation } from 'react-i18next';
+
+const ResetSuccessModal = ({ visible, onClose }) => {
+  const { t } = useTranslation();
+
+  if (!visible) return null;
+
+  return (
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
+      <View style={styles.overlay}>
+        <View style={styles.container}>
+          {/* Icon */}
+          <Image source={Icons.resetSuccessModal} style={styles.icon} resizeMode="contain" />
+
+          {/* Title */}
+          <Text style={styles.title}>{t('resetPassword.success.title')}</Text>
+
+          {/* Description */}
+          <Text style={styles.desc}>{t('resetPassword.success.desc')}</Text>
+
+          {/* Confirm Button */}
+          <TouchableOpacity style={styles.button} onPress={onClose}>
+            <Text style={styles.buttonText}>{t('resetPassword.success.button')}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  icon: { width: 147, height: 120, marginBottom: 15 },
+  title: {
+    fontSize: 20,
+    fontFamily: typography.fontSemiBold,
+    color: colors.textLight,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  desc: {
+    fontSize: 15,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: colors.primary,
+    paddingVertical: 12,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 15,
+    fontFamily: typography.fontMedium,
+    color: '#fff',
+  },
+});
+
+export default ResetSuccessModal;
 
 // ==== src/components/more/SuccessModal.js ====
 import React from 'react';
@@ -1621,6 +2171,43 @@ export default ThemeOption;
 
 // ==== src/config/appConfig.js ====
 
+// ==== src/context/ThemeContext.js ====
+// src/context/ThemeContext.js
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import lightTheme from '../theme/lightTheme';
+import darkTheme from '../theme/darkTheme';
+
+const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [themeKey, setThemeKey] = useState('light'); // default
+  const [theme, setTheme] = useState(lightTheme);
+
+  useEffect(() => {
+    (async () => {
+      const saved = await AsyncStorage.getItem('appTheme');
+      if (saved) {
+        updateTheme(saved);
+      }
+    })();
+  }, []);
+
+  const updateTheme = async (key) => {
+    setThemeKey(key);
+    setTheme(key === 'dark' ? darkTheme : lightTheme);
+    await AsyncStorage.setItem('appTheme', key);
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, themeKey, updateTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export const useThemeContext = () => useContext(ThemeContext);
+
 // ==== src/hooks/useTheme.js ====
 import { useColorScheme } from 'react-native';
 import lightTheme from '../theme/lightTheme';
@@ -1704,6 +2291,13 @@ import PrivacyScreen from '../screens/More/Options/Privacy';
 import TermsScreen from '../screens/More/Options/Terms';
 import LanguageMoreScreen from '../screens/More/Options/Language';
 import ThemeMoreScreen from '../screens/More/Options/Theme';
+import CardsScreen from '../screens/More/Options/Cards';
+ import AddCardScreen from '../screens/More/Options/AddCard';
+import EditCardScreen from '../screens/More/Options/EditCard';
+import ProfileScreen from '../screens/More/Options/Profile';
+import EditProfileScreen from '../screens/More/Options/Profile/EditProfile';
+import ResetPasswordScreenMore from '../screens/More/Options/Profile/ResetPasswordScreen';
+
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => (
@@ -1765,6 +2359,24 @@ const AppNavigator = () => (
 <Stack.Screen name="Terms" component={TermsScreen} />
 <Stack.Screen name="LanguageMore" component={LanguageMoreScreen} />
 <Stack.Screen name="Theme" component={ThemeMoreScreen} />
+<Stack.Screen name="Cards" component={CardsScreen} />
+<Stack.Screen
+  name="AddCard"
+  component={AddCardScreen}
+  // options={{ headerShown: false }}
+/>
+<Stack.Screen name="EditCard" component={EditCardScreen} />
+<Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+<Stack.Screen
+  name="EditProfile"
+  component={EditProfileScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="ResetPasswordMore"
+  component={ResetPasswordScreenMore}
+  options={{ headerShown: false }}
+/>
 
   </Stack.Navigator>
 );
@@ -2335,6 +2947,8 @@ const styles = StyleSheet.create({
 
   bottomButton: {
   position: 'absolute',
+  paddingHorizontal: 20,  
+  // width: '90%',
   bottom: 40, // adjust spacing from bottom
   left: 0,
   right: 0,
@@ -2638,13 +3252,16 @@ const OnboardingScreen = ({ navigation }) => {
     }
   };
 
-  // Gradient colors based on theme
+// Gradient colors & locations based on theme
 const gradientColors =
   theme.mode === 'dark'
-    ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.6)', '#000000']
-    : ['rgba(0,0,0,0)', 'rgba(255,255,255,0.6)', '#FFFFFF'];
+    ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.7)', '#000000'] 
+    : ['rgba(0, 0, 0, 0)', 'rgba(255, 255, 255, 0.4)', '#121212'];
 
-const gradientLocations = [0.3, 0.75, 1];
+const gradientLocations = theme.mode === 'dark'
+  ? [0.55, 0.85, 1]   // start lower in dark mode
+  : [0.35, 0.75, 1];  // keep higher in light mode
+
 
   const styles = StyleSheet.create({
     container: {
@@ -2666,12 +3283,12 @@ const gradientLocations = [0.3, 0.75, 1];
       width: '100%',
       height: '100%',
     },
-    contentContainer: {
-      flex: 1,
-      backgroundColor: theme.overlay,
-      justifyContent: 'center',
-      paddingBottom: 160,
-    },
+contentContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  paddingBottom: theme.mode === 'dark' ? 100 : 160, // less padding in dark
+},
+
     textContainer: {
       paddingHorizontal: 30,
       alignItems: 'center',
@@ -4358,6 +4975,135 @@ const styles = StyleSheet.create({
 
 export default AboutScreen;
 
+// ==== src/screens/More/Options/AddCard/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import AddCardSuccessModal from '../../../../components/more/AddCardSuccessModal';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const AddCardScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const [holderName, setHolderName] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiry, setExpiry] = useState('');
+  const [cvc, setCvc] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const theme = useTheme();
+
+  const handleAddCard = () => {
+    // ✅ Normally API call here
+    setModalVisible(true);
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header */}
+      <AppHeader title={t('more.modals.addCard.title')} />
+
+      {/* Content */}
+      <View style={styles.content}>
+        {/* Card holder */}
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('more.modals.addCard.holderName')}
+        </Text>
+        <TextInput
+          style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+          placeholder={t('more.modals.addCard.holderName')}
+          placeholderTextColor={theme.textSecondary}
+          value={holderName}
+          onChangeText={setHolderName}
+        />
+
+        {/* Card Number */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('more.modals.addCard.number')}</Text>
+        <TextInput
+          style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+          placeholder={t('more.modals.addCard.number')}
+          placeholderTextColor={theme.textSecondary}
+          keyboardType="numeric"
+          value={cardNumber}
+          onChangeText={setCardNumber}
+        />
+
+        {/* Expiry + CVC */}
+        <View style={styles.row}>
+          <View style={styles.half}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('more.modals.addCard.expiry')}</Text>
+            <TextInput
+              style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+              placeholder={t('more.modals.addCard.expiry')}
+              placeholderTextColor={theme.textSecondary}
+              value={expiry}
+              onChangeText={setExpiry}
+            />
+          </View>
+          <View style={styles.half}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('more.modals.addCard.cvc')}</Text>
+            <TextInput
+              style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+              placeholder={t('more.modals.addCard.cvc')}
+              placeholderTextColor={theme.textSecondary}
+              value={cvc}
+              onChangeText={setCvc}
+            />
+          </View>
+        </View>
+
+        <View style={styles.btnWrapper}>
+          <PrimaryButton title={t('more.modals.addCard.button')} onPress={handleAddCard} />
+        </View>
+      </View>
+
+      {/* Success Modal */}
+      <AddCardSuccessModal
+        visible={modalVisible}
+        onClose={() => {
+          setModalVisible(false);
+          navigation.goBack();
+        }}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { flex: 1, padding: 16 },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 6,
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    marginBottom: 16,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  half: {
+    flex: 1,
+    marginRight: 8,
+  },
+  btnWrapper: {
+    width: '100%',
+    marginTop: 'auto',
+    marginBottom: 20,
+  },
+});
+
+export default AddCardScreen;
+
 // ==== src/screens/More/Options/Announcement/index.js ====
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
@@ -4418,6 +5164,208 @@ const styles = StyleSheet.create({
 });
 
 export default AnnouncementScreen;
+// ==== src/screens/More/Options/Cards/index.js ====
+import React, { useState } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import CardItem from '../../../../components/more/CardItem';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+import DeleteCardModal from '../../../../components/more/DeleteCardModal';
+
+const CardsScreen = ({ navigation })  => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+  const [selectedCardId, setSelectedCardId] = useState(null);
+
+  const [cards, setCards] = useState([
+    { id: '1', name: 'John Doe', number: 'xxxx xxxx xxxx 3214' },
+    { id: '2', name: 'Jane Doe', number: 'xxxx xxxx xxxx 9876' },
+  ]);
+
+  const handleDeleteConfirm = () => {
+    if (selectedCardId) {
+      setCards(prev => prev.filter(card => card.id !== selectedCardId));
+      setSelectedCardId(null); // reset
+    }
+    setDeleteModalVisible(false);
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title={t('cards.title')} />
+
+      {/* Cards List */}
+      <FlatList
+        data={cards}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <CardItem
+            name={item.name}
+            maskedNumber={item.number}
+            onEdit={() => navigation.navigate('EditCard', { card: item })}
+            onDelete={() => {
+                console.log("Delete pressed for:", item.id);
+
+              setSelectedCardId(item.id);  // ✅ store card id
+              setDeleteModalVisible(true); // ✅ show modal
+            }}
+          />
+        )}
+        contentContainerStyle={{ paddingVertical: 10 }}
+      />
+
+      {/* Add New Card */}
+      <View style={styles.btnWrapper}>
+        <PrimaryButton
+          title={t('cards.addNew')}
+          onPress={() => navigation.navigate('AddCard')}
+        />
+      </View>
+
+      {/* Delete Modal */}
+      <DeleteCardModal
+        visible={deleteModalVisible}
+        onClose={() => {
+          setDeleteModalVisible(false);
+          setSelectedCardId(null);
+        }}
+        onConfirm={handleDeleteConfirm}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  btnWrapper: {
+    margin: 20,
+  },
+});
+
+export default CardsScreen;
+
+// ==== src/screens/More/Options/EditCard/index.js ====
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import AppHeader from '../../../../components/common/AppHeader';
+import PrimaryButton from '../../../../components/common/PrimaryButton';
+import EditCardSuccessModal from '../../../../components/more/EditCardSuccessModal';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const EditCardScreen = ({ route, navigation }) => {
+  const { t } = useTranslation();
+  const { card } = route.params; // ✅ data passed from CardsScreen
+  const [holderName, setHolderName] = useState(card.name);
+  const [cardNumber, setCardNumber] = useState(card.number);
+  const [expiry, setExpiry] = useState(card.expiry || '');
+  const [cvc, setCvc] = useState(card.cvc || '');
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const theme = useTheme();
+
+  const handleUpdateCard = () => {
+    setModalVisible(true);
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header */}
+      <AppHeader title={t('more.modals.editCard.title')} />
+
+      <View style={styles.content}>
+        {/* Card holder */}
+        <Text style={[styles.label, { color: theme.text }]}>
+          {t('more.modals.editCard.holderName')}
+        </Text>
+        <TextInput
+          style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+          placeholder={t('more.modals.editCard.holderName')}
+          placeholderTextColor={theme.textSecondary}
+          value={holderName}
+          onChangeText={setHolderName}
+        />
+
+        {/* Card Number */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('more.modals.editCard.number')}</Text>
+        <TextInput
+          style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+          placeholder={t('more.modals.editCard.number')}
+          placeholderTextColor={theme.textSecondary}
+          value={cardNumber}
+          onChangeText={setCardNumber}
+        />
+
+        {/* Expiry + CVC */}
+        <View style={styles.row}>
+          <View style={styles.half}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('more.modals.editCard.expiry')}</Text>
+            <TextInput
+              style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+              placeholder={t('more.modals.editCard.expiry')}
+              placeholderTextColor={theme.textSecondary}
+              value={expiry}
+              onChangeText={setExpiry}
+            />
+          </View>
+          <View style={styles.half}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('more.modals.editCard.cvc')}</Text>
+            <TextInput
+              style={[styles.input, { color: theme.text, borderColor: theme.border, backgroundColor: theme.card }]}
+              placeholder={t('more.modals.editCard.cvc')}
+              placeholderTextColor={theme.textSecondary}
+              value={cvc}
+              onChangeText={setCvc}
+            />
+          </View>
+        </View>
+
+        {/* Button */}
+        <View style={styles.btnWrapper}>
+          <PrimaryButton title={t('more.modals.editCard.button')} onPress={handleUpdateCard} />
+        </View>
+      </View>
+
+      {/* Success Modal */}
+      <EditCardSuccessModal
+        visible={modalVisible}
+        onClose={() => {
+          setModalVisible(false);
+          navigation.goBack();
+        }}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  content: { flex: 1, padding: 16 },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 6,
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    marginBottom: 16,
+  },
+  row: { flexDirection: 'row', justifyContent: 'space-between' },
+  half: { flex: 1, marginRight: 8 },
+  btnWrapper: { width: '100%', marginTop: 'auto', marginBottom: 20 },
+});
+
+export default EditCardScreen;
+
 // ==== src/screens/More/Options/FAQ/index.js ====
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
@@ -4662,6 +5610,413 @@ const styles = StyleSheet.create({
 });
 
 export default PrivacyScreen;
+
+// ==== src/screens/More/Options/Profile/EditProfile/index.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
+import { Icons } from '../../../../../assets/assets';
+import typography from '../../../../../theme/typography';
+import PrimaryButton from '../../../../../components/common/PrimaryButton'; 
+import ResendButton from '../../../../../components/common/ResendButton'; 
+import AppHeader from '../../../../../components/common/AppHeader';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../../hooks/useTheme';
+
+const EditProfileScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+  const [avatar, setAvatar] = useState(null);
+
+  const pickImage = () => {
+    launchImageLibrary({ mediaType: 'photo' }, (response) => {
+      if (response.assets && response.assets.length > 0) {
+        setAvatar(response.assets[0].uri);
+      }
+    });
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader title={t('editProfile.title')} onBack={() => navigation.goBack()} />
+
+      <ScrollView contentContainerStyle={styles.scroll}>
+        {/* Avatar */}
+        <TouchableOpacity onPress={pickImage} style={styles.avatarContainer}>
+          {avatar ? (
+            <Image source={{ uri: avatar }} style={styles.avatar} />
+          ) : (
+            <Image source={Icons.camera} style={styles.cameraIcon} />
+          )}
+        </TouchableOpacity>
+
+        {/* Full Name */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('editProfile.fullname')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.person} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="John Doe"
+            placeholderTextColor={theme.textSecondary}
+          />
+        </View>
+
+        {/* Phone */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('editProfile.phone')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.phone} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="+1 555 010 1234"
+            placeholderTextColor={theme.textSecondary}
+            keyboardType="phone-pad"
+          />
+        </View>
+
+        {/* Email */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('editProfile.email')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.mail} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder="johndoe@gmail.com"
+            placeholderTextColor={theme.textSecondary}
+            keyboardType="email-address"
+          />
+        </View>
+
+        {/* Vehicle Info */}
+        <View style={styles.row}>
+          <View style={{ flex: 1, marginRight: 5 }}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('editProfile.vehicleName')}</Text>
+            <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+              <Image source={Icons.vehicle} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+              <TextInput
+                style={[styles.input, { color: theme.text }]}
+                placeholder="Toyota Camry"
+                placeholderTextColor={theme.textSecondary}
+              />
+            </View>
+          </View>
+          <View style={{ flex: 1, marginLeft: 5 }}>
+            <Text style={[styles.label, { color: theme.text }]}>{t('editProfile.vehicleModel')}</Text>
+            <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+              <Image source={Icons.calendar} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+              <TextInput
+                style={[styles.input, { color: theme.text }]}
+                placeholder="2021"
+                placeholderTextColor={theme.textSecondary}
+              />
+            </View>
+          </View>
+        </View>
+{/* Buttons */}
+<View style={styles.buttonsWrapper}>
+  <ResendButton
+    title={t('editProfile.resetPassword')}
+       onPress={() => navigation.navigate('ResetPasswordMore')}
+  />
+
+  <PrimaryButton
+    title={t('editProfile.saveChanges')}
+    onPress={() => navigation.navigate('Profile')}
+  />
+</View>
+
+
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  scroll: { padding: 20, paddingBottom: 20 },
+  avatarContainer: {
+    width: 100,
+    height: 100,
+    borderRadius: 60,
+    alignSelf: 'center',
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  avatar: { width: '100%', height: '100%', borderRadius: 60 },
+  cameraIcon: { width: 121, height: 121 },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 5,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 3,
+    paddingHorizontal: 12,
+    marginBottom: 5,
+  },
+  icon: { width: 20, height: 20, marginRight: 10 },
+  input: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+buttonsWrapper: {
+  marginTop: 100,   // ⬅ increase this
+},
+
+  saveBtnWrapper: {
+    alignItems: 'center',
+    width: '100%', // Make button take full width of the container
+  },
+  row: { flexDirection: 'row', justifyContent: 'space-between' },
+});
+
+export default EditProfileScreen;
+
+// ==== src/screens/More/Options/Profile/ResetPasswordScreen/index.js ====
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
+import AppHeader from '../../../../../components/common/AppHeader';
+import PrimaryButton from '../../../../../components/common/PrimaryButton';
+import typography from '../../../../../theme/typography';
+import colors from '../../../../../theme/colors';
+import { Icons } from '../../../../../assets/assets';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../../hooks/useTheme';
+import ResetSuccessModal from '../../../../../components/more/ResetSuccessModal';
+
+const ResetPasswordScreenMore = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleReset = () => {
+    // Normally API call here
+    setModalVisible(true);
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header - no padding */}
+      <AppHeader title={t('resetPassword.title')} onBack={() => navigation.goBack()} />
+
+      {/* Content with padding */}
+      <View style={styles.content}>
+        <Text style={styles.subtitle}>{t('resetPassword.subtitle')}</Text>
+
+        {/* Password */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('resetPassword.password')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder={t('resetPassword.password')}
+            placeholderTextColor={theme.textSecondary}
+            secureTextEntry={!showPassword}
+            value={password}
+            onChangeText={setPassword}
+          />
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            <Image
+              source={showPassword ? Icons.eyeOpen : Icons.eyeClose}
+              style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* Confirm Password */}
+        <Text style={[styles.label, { color: theme.text }]}>{t('resetPassword.confirmPassword')}</Text>
+        <View style={[styles.inputContainer, { borderColor: theme.border }]}>
+          <Image source={Icons.lock} style={[styles.icon, { tintColor: theme.textSecondary }]} />
+          <TextInput
+            style={[styles.input, { color: theme.text }]}
+            placeholder={t('resetPassword.confirmPassword')}
+            placeholderTextColor={theme.textSecondary}
+            secureTextEntry={!showConfirmPassword}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+          />
+          <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
+            <Image
+              source={showConfirmPassword ? Icons.eyeOpen : Icons.eyeClose}
+              style={[styles.eyeIcon, { tintColor: theme.textSecondary }]}
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* Button */}
+        <View style={styles.btnWrapper}>
+          <PrimaryButton title={t('resetPassword.title')} onPress={handleReset} />
+        </View>
+      </View>
+
+      {/* Modal */}
+      <ResetSuccessModal
+        visible={modalVisible}
+        onClose={() => {
+          setModalVisible(false);
+          navigation.goBack();
+        }}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 }, // no padding here
+  content: { flex: 1, padding: 16 }, // ✅ content has padding
+  subtitle: {
+    fontSize: 14,
+    fontFamily: typography.fontRegular,
+    color: colors.secondary,
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: typography.fontMedium,
+    marginBottom: 6,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    marginBottom: 15,
+  },
+  icon: { width: 20, height: 20, marginRight: 10 },
+  input: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: typography.fontRegular,
+  },
+  eyeIcon: { width: 20, height: 20 },
+  btnWrapper: { marginTop: 'auto', marginBottom: 20 },
+});
+
+export default ResetPasswordScreenMore;
+
+// ==== src/screens/More/Options/Profile/index.js ====
+import React from 'react';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import ProfileHeader from '../../../../components/more/ProfileHeader';
+import { Icons } from '../../../../assets/assets';
+import typography from '../../../../theme/typography';
+import { useTranslation } from 'react-i18next';
+import useTheme from '../../../../hooks/useTheme';
+
+const ProfileScreen = ({ navigation }) => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* Header */}
+      <ProfileHeader
+        title={t('profile.title')}
+        onBack={() => navigation.goBack()}
+        onEdit={() => navigation.navigate('EditProfile')}
+      />
+
+     <ScrollView contentContainerStyle={styles.content}>
+  {/* Avatar */}
+  <View style={styles.avatarWrapper}>
+    <Image source={Icons.avatar} style={styles.avatar} resizeMode="contain" />
+  </View>
+
+  {/* Fields */}
+  <View style={styles.fieldWrapper}>
+    <Text style={[styles.label, { color: theme.text }]}>{t('profile.fullname')}</Text>
+    <View style={styles.row}>
+      <Image source={Icons.person} style={styles.icon} />
+      <Text style={[styles.value, { color: theme.textSecondary }]}>John Diaz</Text>
+    </View>
+    <View style={styles.divider} />   {/* ✅ Divider */}
+  </View>
+
+  <View style={styles.fieldWrapper}>
+    <Text style={[styles.label, { color: theme.text }]}>{t('profile.phone')}</Text>
+    <View style={styles.row}>
+      <Image source={Icons.phone} style={styles.icon} />
+      <Text style={[styles.value, { color: theme.textSecondary }]}>+1 (555) 010-1234</Text>
+    </View>
+    <View style={styles.divider} />   {/* ✅ Divider */}
+  </View>
+
+  <View style={styles.fieldWrapper}>
+    <Text style={[styles.label, { color: theme.text }]}>{t('profile.email')}</Text>
+    <View style={styles.row}>
+      <Image source={Icons.mail} style={styles.icon} />
+      <Text style={[styles.value, { color: theme.textSecondary }]}>johndiaz@gmail.com</Text>
+    </View>
+    <View style={styles.divider} />   {/* ✅ Divider */}
+  </View>
+
+  <View style={styles.fieldWrapper}>
+    <Text style={[styles.label, { color: theme.text }]}>{t('profile.vehicleName')}</Text>
+    <View style={styles.row}>
+      <Image source={Icons.vehicle} style={styles.icon} />
+      <Text style={[styles.value, { color: theme.textSecondary }]}>Toyota Camry</Text>
+    </View>
+    <View style={styles.divider} />   {/* ✅ Divider */}
+  </View>
+
+  <View style={styles.fieldWrapper}>
+    <Text style={[styles.label, { color: theme.text }]}>{t('profile.vehicleModel')}</Text>
+    <View style={styles.row}>
+      <Image source={Icons.calendar} style={styles.icon} />
+      <Text style={[styles.value, { color: theme.textSecondary }]}>2021</Text>
+    </View>
+    <View style={styles.divider} />   {/* ✅ Divider */}
+  </View>
+</ScrollView>
+
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  divider: {
+  height: 1,
+  backgroundColor: '#E0E0E0',  // light gray line
+  marginTop: 10,
+},
+
+  content: { padding: 20, paddingBottom: 40 },
+  avatarWrapper: { alignItems: 'center' }, 
+  avatar: { width: 100, height: 100, borderRadius: 40 },
+  fieldWrapper: { marginBottom: 16 },
+  label: { fontSize: 15, fontFamily: typography.fontSemiBold, marginBottom: 6 },
+  row: { flexDirection: 'row', alignItems: 'center' },
+  icon: { width: 24, height: 24, marginRight: 10, tintColor: '#888' },
+  value: { fontSize: 14, fontFamily: typography.fontRegular },
+});
+
+export default ProfileScreen;
 
 // ==== src/screens/More/Options/ReportIssue/index.js ====
 import React, { useState } from 'react';
@@ -5007,7 +6362,7 @@ const MoreScreen = ({ navigation }) => {
       <AppHeader title={t('more.title')} />
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ProfileOverviewCard onEdit={() => console.log('Edit Profile')} />
+        <ProfileOverviewCard onEdit={() => navigation.navigate('Profile')} />
 
         {/* ---------------- Subscription ---------------- */}
         <Text style={styles.sectionHeader}>{t('more.sections.subscription')}</Text>
@@ -5021,6 +6376,8 @@ const MoreScreen = ({ navigation }) => {
             icon={Icons.paymentMethods}
             title={t('more.options.payment.title')}
             description={t('more.options.payment.desc')}
+              onPress={() => navigation.navigate('Cards')}
+
           />
         </View>
 
@@ -5521,6 +6878,7 @@ export default {
   primary: '#4DA3FF',
   primary_bottom:'#007AFF',
   card: '#111111',
+    card_theme: '#131313',
 };
 
 // ==== src/theme/light.js ====
@@ -5554,6 +6912,7 @@ export default {
   primary: '#007BFF',
     primary_bottom:'#007AFF',
   card: '#F7F7F7',
+    card_theme: '#F7F7F7',
 };
 
 // ==== src/theme/typography.js ====

@@ -16,6 +16,7 @@ import HomeScreen from '../screens/Home';
 import AutomationScreen from '../screens/Automation';
 import HistoryScreen from '../screens/History';
 import EarningScreen from '../screens/Earning';
+import typography from '../theme/typography';
 
 const { width, height } = Dimensions.get('window');
 const circleSize = width * 0.15;
@@ -61,17 +62,18 @@ const BottomTabNavigator = () => {
     return (
       <View style={styles.tabIconContainer}>
         {icon && <Image source={icon} style={styles.tabIcon} />}
-        <Text
-          style={[
-            styles.tabLabel,
-            {
-              color: selectedTab === routeName ? theme.primary : theme.textSecondary,
-              fontFamily: selectedTab === routeName ? Fonts.bold : Fonts.regular,
-            },
-          ]}
-        >
-          {label}
-        </Text>
+       <Text
+  numberOfLines={1}
+  style={[
+    styles.tabLabel,
+    {
+      color: selectedTab === routeName ? theme.primary : theme.textSecondary,
+      fontFamily: selectedTab === routeName ? Fonts.bold : Fonts.regular,
+    },
+  ]}
+>
+  {label}
+</Text>
       </View>
     );
   };
@@ -136,10 +138,10 @@ const styles = StyleSheet.create({
   bottomBar: {
     position: 'absolute',
     left: 0,
-    backgroundColor:"white",
+    backgroundColor:"transparent",
     right: 0,
     bottom: 0,
-    elevation: 13,
+    elevation: 0,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
   },
@@ -180,11 +182,13 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     resizeMode: 'contain',
   },
-  tabLabel: {
-    fontSize: 12,
-    textAlign: 'center',
-    marginTop: 2,
-  },
+ tabLabel: {
+  fontFamily:typography.fontRegular,
+  fontSize: 12,
+  textAlign: 'center',
+  marginTop: 2,
+  numberOfLines: 1,
+},
 });
 
 export default BottomTabNavigator;

@@ -250,7 +250,28 @@
   "earnings": "Earnings",
   "thisMonth": "This Month",
   "member": "Premium Member"
-}
+},
+
+  "plans": {
+    "title": "Subscription",
+    "masterTitle": "Master Plan",
+    "masterDesc": "Simplify your workflow with faster logging tools and customizable settings—try it free for 7 days.",
+    "yearlyTitle": "Yearly Plan",
+    "yearlyDesc": "Go Premium Yearly—unlock unlimited features, exclusive tools, and priority perks.",
+    "yearlyBilled": "$90.00 billed annually",
+    "yearlyHelpsYou": "Yearly Plan Helps You:",
+    "monthlyTitle": "Monthly Plan",
+    "monthlyDesc": "Go Premium Monthly—unlock unlimited features, exclusive tools, and priority perks.",
+    "monthlyBilled": "Billed monthly",
+    "monthlyHelpsYou": "Monthly Plan Helps You:",
+    "save": "Save 67%",
+    "cta": "Subscribe",
+    "restore": "Restore Purchase",
+    "auto": "Auto-renews Yearly for $90.99",
+    "footnote": "Billing starts at the end of your 7-day free trial unless you cancel. Plans renew automatically. Cancel via the App Store / Play Store."
+  }
+
+
 ,"more": {
   "title": "More",
   "sections": {

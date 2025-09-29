@@ -247,6 +247,26 @@
     "thisMonth": "Bu Ay",
     "member": "Premium Üye"
   },
+"plans": {
+  "title": "Abonelik",
+  "masterTitle": "Ana Plan",
+  "masterDesc": "Çalışma akışını daha hızlı kayıt araçları ve özelleştirilebilir ayarlarla basitleştir—7 gün ücretsiz dene.",
+  "yearlyTitle": "Yıllık Plan",
+  "yearlyDesc": "Yıllık Premium’a geç—sınırsız özellikleri, özel araçları ve öncelikli ayrıcalıkları aç.",
+  "yearlyBilled": "Yıllık $90.00 faturalandırılır",
+  "yearlyHelpsYou": "Yıllık Plan Şunlara Yardımcı Olur:",
+  "monthlyTitle": "Aylık Plan",
+  "monthlyDesc": "Aylık Premium’a geç—sınırsız özellikleri, özel araçları ve öncelikli ayrıcalıkları aç.",
+  "monthlyBilled": "Aylık faturalandırılır",
+  "monthlyHelpsYou": "Aylık Plan Şunlara Yardımcı Olur:",
+  "save": "%67 Tasarruf Et",
+  "cta": "Abone Ol",
+  "restore": "Satın Alımı Geri Yükle",
+  "auto": "Yıllık $90.99 için otomatik yenilenir",
+  "footnote": "7 günlük ücretsiz deneme süresinin sonunda, iptal etmezsen faturalandırma başlar. Planlar otomatik olarak yenilenir. App Store / Play Store üzerinden iptal edebilirsin."
+}
+
+,
   "more": {
     "title": "Daha Fazla",
     "sections": {
