@@ -82,6 +82,8 @@ const styles = StyleSheet.create({
 
   bottomButton: {
   position: 'absolute',
+  paddingHorizontal: 20,  
+  // width: '90%',
   bottom: 40, // adjust spacing from bottom
   left: 0,
   right: 0,

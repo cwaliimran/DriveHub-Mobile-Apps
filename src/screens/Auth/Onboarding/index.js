@@ -61,13 +61,16 @@ const OnboardingScreen = ({ navigation }) => {
     }
   };
 
-  // Gradient colors based on theme
+// Gradient colors & locations based on theme
 const gradientColors =
   theme.mode === 'dark'
-    ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.6)', '#000000']
-    : ['rgba(0,0,0,0)', 'rgba(255,255,255,0.6)', '#FFFFFF'];
+    ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.7)', '#000000'] 
+    : ['rgba(0, 0, 0, 0)', 'rgba(255, 255, 255, 0.4)', '#121212'];
 
-const gradientLocations = [0.3, 0.75, 1];
+const gradientLocations = theme.mode === 'dark'
+  ? [0.55, 0.85, 1]   // start lower in dark mode
+  : [0.35, 0.75, 1];  // keep higher in light mode
+
 
   const styles = StyleSheet.create({
     container: {
@@ -89,12 +92,12 @@ const gradientLocations = [0.3, 0.75, 1];
       width: '100%',
       height: '100%',
     },
-    contentContainer: {
-      flex: 1,
-      backgroundColor: theme.overlay,
-      justifyContent: 'center',
-      paddingBottom: 160,
-    },
+contentContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  paddingBottom: theme.mode === 'dark' ? 100 : 160, // less padding in dark
+},
+
     textContainer: {
       paddingHorizontal: 30,
       alignItems: 'center',
