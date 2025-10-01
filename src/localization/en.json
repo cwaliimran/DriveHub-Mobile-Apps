@@ -37,6 +37,28 @@
     "noAccount": "Don’t Have An Account?",
     "create": "Create New Account"
   },
+  "notifications": {
+    "title": "Notifications",
+    "exclusive": {
+      "title": "Exclusive Offers",
+      "desc": "Discounts, promo codes, and limited-time deals"
+    },
+    "safety": {
+      "title": "Safety Notices",
+      "desc": "Important security reminders and policy updates."
+    },
+    "announcements": {
+      "title": "Announcements",
+      "desc": "New features, city launches, and service news."
+    },
+    "updates": {
+      "title": "App Updates",
+      "desc": "Improvements, bug fixes, and new versions."
+    }
+  }
+,
+
+
   "signup": {
     "title": "Create New Account",
     "fullname": "Full Name",
@@ -236,7 +258,27 @@
     "title": "This is Home Screen"
   },
   "automation": {
-    "title": "This is Automation Screen"
+    "title": "Automation",
+    "today": "Today",
+       "quickStats": {
+      "title": "Quick Stats",
+      "acceptance": "Acceptance Rate",
+      "rating": "Customer Rating",
+      "distance": "Avg Trip Distance",
+      "peak": "Peak Hours"
+    },
+        "trend": {
+      "title": "Earnings Trend",
+      "period7": "7 Days",
+      "period14": "14 Days",
+      "period30": "30 Days"
+    },
+    "cards": {
+      "totalEarnings": "Total Earnings",
+      "activeTime": "Active Time",
+      "milesDriven": "Miles Driven",
+      "trips": "Trips"
+    }
   },
   "history": {
     "title": "This is History Screen"

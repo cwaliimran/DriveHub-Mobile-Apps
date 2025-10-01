@@ -38,6 +38,7 @@ import ProfileScreen from '../screens/More/Options/Profile';
 import EditProfileScreen from '../screens/More/Options/Profile/EditProfile';
 import ResetPasswordScreenMore from '../screens/More/Options/Profile/ResetPasswordScreen';
 import PlansScreen from '../screens/More/Options/Plans';
+import NotificationsScreen from '../screens/notification';
 
 const Stack = createNativeStackNavigator();
 
@@ -90,6 +91,11 @@ const AppNavigator = () => (
       component={BottomTabNavigator}
       options={{ headerShown: false }}
     />
+    <Stack.Screen
+  name="Notifications"
+  component={NotificationsScreen}
+  options={{ headerShown: false }}
+/>
     <Stack.Screen name="More" component={MoreScreen} />
     <Stack.Screen name="Announcements" component={AnnouncementScreen} />
 <Stack.Screen name="ReportIssue" component={ReportIssueScreen} />

@@ -37,6 +37,31 @@
     "noAccount": "¿No tienes una cuenta?",
     "create": "Crear nueva cuenta"
   },
+"notifications": {
+  "title": "Notificaciones",
+  "exclusive": {
+    "title": "Ofertas Exclusivas",
+    "desc": "Descuentos, códigos promocionales y ofertas por tiempo limitado"
+  },
+  "safety": {
+    "title": "Avisos de Seguridad",
+    "desc": "Recordatorios importantes de seguridad y actualizaciones de políticas."
+  },
+  "announcements": {
+    "title": "Anuncios",
+    "desc": "Nuevas funciones, lanzamientos en ciudades y noticias del servicio."
+  },
+  "updates": {
+    "title": "Actualizaciones de la App",
+    "desc": "Mejoras, correcciones de errores y nuevas versiones."
+  }
+}
+,
+
+
+
+
+
   "signup": {
     "title": "Crear nueva cuenta",
     "fullname": "Nombre completo",
@@ -231,9 +256,31 @@
   "home": {
     "title": "Esta es la pantalla de inicio"
   },
-  "automation": {
-    "title": "Esta es la pantalla de automatización"
-  },
+"automation": {
+  "title": "Automatización",
+  "today": "Hoy",
+  "quickStats": {
+  "title": "Estadísticas Rápidas",
+  "acceptance": "Tasa de Aceptación",
+  "rating": "Calificación de Clientes",
+  "distance": "Distancia Promedio del Viaje",
+  "peak": "Horas Pico"
+},"trend": {
+  "title": "Tendencia de Ganancias",
+  "period7": "7 Días",
+  "period14": "14 Días",
+  "period30": "30 Días"
+}
+,
+
+  "cards": {
+    "totalEarnings": "Ganancias Totales",
+    "activeTime": "Tiempo Activo",
+    "milesDriven": "Millas Conducidas",
+    "trips": "Viajes"
+  }
+}
+,
   "history": {
     "title": "Esta es la pantalla de historial"
   },

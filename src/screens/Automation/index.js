@@ -12,7 +12,7 @@ const AutomationScreen = ({navigation}) => {
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <MainHeader
         onProfilePress={() => navigation.navigate('More')}
-        onNotificationPress={() => console.log('Notification pressed')}
+                onNotificationPress={()  => navigation.navigate('Notifications')}
         showNotificationDot={true}
       />
       <Text style={{ color: theme.text, marginTop: 20 }}>{t('automation.title')}</Text>

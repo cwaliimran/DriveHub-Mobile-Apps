@@ -434,7 +434,7 @@ import useTheme from '../../hooks/useTheme';
 
 const MainHeader = ({ onProfilePress, onNotificationPress, showNotificationDot = true }) => {
   const theme = useTheme();
-  const isDark = theme.background === '#121212';
+  const isDark = theme.background === '#020202';
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
@@ -3579,7 +3579,7 @@ const OnboardingScreen = ({ navigation }) => {
 const gradientColors =
   theme.mode === 'dark'
     ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.7)', '#000000'] 
-    : ['rgba(0, 0, 0, 0)', 'rgba(255, 255, 255, 0.4)', '#121212'];
+    : ['rgba(0, 0, 0, 0)', 'rgba(255, 255, 255, 0.4)', '#020202'];
 
 const gradientLocations = theme.mode === 'dark'
   ? [0.55, 0.85, 1]   // start lower in dark mode
@@ -3643,7 +3643,7 @@ contentContainer: {
       <StatusBar
         translucent
         backgroundColor="transparent"
-        barStyle={theme.background === '#121212' ? 'light-content' : 'dark-content'}
+        barStyle={theme.background === '#020202' ? 'light-content' : 'dark-content'}
       />
 
       <FlatList
@@ -3742,7 +3742,7 @@ const PlatformSelectionScreen = ({ navigation }) => {
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Logo */}
       <Image
-        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        source={theme.background === '#020202' ? Images.logoDark : Images.logoLight}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -3953,7 +3953,7 @@ const SignInScreen = ({ navigation }) => {
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Logo */}
       <Image
-        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        source={theme.background === '#020202' ? Images.logoDark : Images.logoLight}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -7285,7 +7285,7 @@ const colors = {
   borderLight: 'rgba(0,0,0,0.16)',
 
   // Dark theme
-  backgroundDark: '#121212',
+  backgroundDark: '#020202',
   textDark: '#F5F5F5',
   borderDark: 'rgba(255,255,255,0.2)',
 
@@ -7320,7 +7320,7 @@ export default {
 
 // ==== src/theme/darkTheme.js ====
 export default {
-  background: '#121212',
+  background: '#020202',
     bottom_background: '#131313',
   text: '#F5F5F5',
   textSecondary: '#AAAAAA',

@@ -11,7 +11,7 @@ const colors = {
   borderLight: 'rgba(0,0,0,0.16)',
 
   // Dark theme
-  backgroundDark: '#121212',
+  backgroundDark: '#020202',
   textDark: '#F5F5F5',
   borderDark: 'rgba(255,255,255,0.2)',
 

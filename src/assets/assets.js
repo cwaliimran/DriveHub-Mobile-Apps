@@ -22,6 +22,10 @@ export const Images = {
 
 export const Icons = {
   check: require('./icons/check.png'),
+    earnDollar: require('./icons/earnings/dollar.png'),
+  earnClock: require('./icons/earnings/clock.png'),
+  earnRoute: require('./icons/earnings/route.png'),
+  earnCar: require('./icons/earnings/car.png'),
   uncheck: require('./icons/uncheck.png'),
   flagUK: require('./icons/flags/uk.png'),
   flagSpain: require('./icons/flags/spain.png'),
@@ -93,9 +97,14 @@ resetSuccessModal: require('./icons/reset-sucess-modal.png'),
   priority: require('./icons/priority.png'),
   fees: require('./icons/fees.png'),
   discounts: require('./icons/discounts.png'),
-  vouchers: require('./icons/vouchers.png'),
-
-
+  notifExclusive: require('./icons/notifications/exclusive.png'),
+  notifSafety: require('./icons/notifications/safety.png'),
+  notifAnnouncements: require('./icons/notifications/announcements.png'),
+  notifUpdates: require('./icons/notifications/updates.png'),
+  statAcceptance: require('./icons/stats/acceptance.png'),
+  statRating:     require('./icons/stats/ratings.png'),
+  statDistance:   require('./icons/stats/distance.png'),
+  statPeak:       require('./icons/stats/peak.png'),
 };
 export const Fonts = {
   regular: 'Lexend-Regular',

@@ -65,7 +65,7 @@ const OnboardingScreen = ({ navigation }) => {
 const gradientColors =
   theme.mode === 'dark'
     ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.7)', '#000000'] 
-    : ['rgba(0, 0, 0, 0)', 'rgba(255, 255, 255, 0.4)', '#121212'];
+    : ['rgba(0, 0, 0, 0)', 'rgba(255, 255, 255, 0.4)', '#020202'];
 
 const gradientLocations = theme.mode === 'dark'
   ? [0.55, 0.85, 1]   // start lower in dark mode
@@ -129,7 +129,7 @@ contentContainer: {
       <StatusBar
         translucent
         backgroundColor="transparent"
-        barStyle={theme.background === '#121212' ? 'light-content' : 'dark-content'}
+        barStyle={theme.background === '#020202' ? 'light-content' : 'dark-content'}
       />
 
       <FlatList

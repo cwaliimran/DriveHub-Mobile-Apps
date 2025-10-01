@@ -37,6 +37,25 @@
     "noAccount": "Hesabınız yok mu?",
     "create": "Yeni Hesap Oluştur"
   },
+  "notifications": {
+  "title": "Bildirimler",
+  "exclusive": {
+    "title": "Özel Teklifler",
+    "desc": "İndirimler, promosyon kodları ve sınırlı süreli fırsatlar"
+  },
+  "safety": {
+    "title": "Güvenlik Bildirimleri",
+    "desc": "Önemli güvenlik hatırlatmaları ve politika güncellemeleri."
+  },
+  "announcements": {
+    "title": "Duyurular",
+    "desc": "Yeni özellikler, şehir lansmanları ve hizmet haberleri."
+  },
+  "updates": {
+    "title": "Uygulama Güncellemeleri",
+    "desc": "İyileştirmeler, hata düzeltmeleri ve yeni sürümler."
+  }
+},
   "signup": {
     "title": "Yeni Hesap Oluştur",
     "fullname": "Tam Adı",
@@ -231,9 +250,32 @@
   "home": {
     "title": "Burası Ana Ekran"
   },
-  "automation": {
-    "title": "Burası Otomasyon Ekranı"
-  },
+"automation": {
+  "title": "Automatización",
+  "today": "Hoy",
+  "quickStats": {
+  "title": "Hızlı İstatistikler",
+  "acceptance": "Kabul Oranı",
+  "rating": "Müşteri Puanı",
+  "distance": "Ortalama Yolculuk Mesafesi",
+  "peak": "Yoğun Saatler"
+},
+"trend": {
+  "title": "Kazanç Eğilimi",
+  "period7": "7 Gün",
+  "period14": "14 Gün",
+  "period30": "30 Gün"
+}
+
+,
+  "cards": {
+    "totalEarnings": "Ganancias Totales",
+    "activeTime": "Tiempo Activo",
+    "milesDriven": "Millas Conducidas",
+    "trips": "Viajes"
+  }
+}
+,
   "history": {
     "title": "Burası Geçmiş Ekranı"
   },

@@ -25,7 +25,7 @@ const SignInScreen = ({ navigation }) => {
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       {/* Logo */}
       <Image
-        source={theme.background === '#121212' ? Images.logoDark : Images.logoLight}
+        source={theme.background === '#020202' ? Images.logoDark : Images.logoLight}
         style={styles.logo}
         resizeMode="contain"
       />

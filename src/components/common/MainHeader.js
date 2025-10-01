@@ -7,7 +7,7 @@ import useTheme from '../../hooks/useTheme';
 const MainHeader = ({ onProfilePress, onNotificationPress, showNotificationDot = true }) => {
   const theme = useTheme();
   const { top } = useSafeAreaInsets();
-  const isDark = theme.background === '#121212';
+  const isDark = theme.background === '#020202';
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background}]}>
@@ -21,7 +21,7 @@ const MainHeader = ({ onProfilePress, onNotificationPress, showNotificationDot =
       {/* Right actions */}
       <View style={styles.actions}>
         {/* Profile */}
-        <TouchableOpacity style={styles.iconWrapper} onPress={onProfilePress}>
+        <TouchableOpacity style={[styles.iconWrapper, { borderColor: isDark ? '#444' : '#ddd' }]} onPress={onProfilePress}>
           <Image
             source={isDark ? Icons.darkHeaderProfile : Icons.lightHeaderProfile}
             style={styles.icon}
@@ -30,7 +30,7 @@ const MainHeader = ({ onProfilePress, onNotificationPress, showNotificationDot =
         </TouchableOpacity>
 
         {/* Notification */}
-        <TouchableOpacity style={styles.iconWrapper} onPress={onNotificationPress}>
+        <TouchableOpacity style={[styles.iconWrapper, { borderColor: isDark ? '#444' : '#ddd' }]} onPress={onNotificationPress}>
           <Image
             source={isDark ? Icons.darkHeaderNotification : Icons.lightHeaderNotification}
             style={styles.icon}
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     height: 34,
     borderRadius: 18,
     borderWidth: 1,
-    borderColor: '#ddd',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 12,

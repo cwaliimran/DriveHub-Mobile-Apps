@@ -26,7 +26,7 @@ export default function App() {
         <StatusBar
           translucent={Platform.OS === 'android'}                // ← only Android
           backgroundColor={theme.background}
-          barStyle={theme.background === '#121212' ? 'light-content' : 'dark-content'}
+          barStyle={theme.background === '#020202' ? 'light-content' : 'dark-content'}
         />
 
         {/* Protect the top safe area globally */}

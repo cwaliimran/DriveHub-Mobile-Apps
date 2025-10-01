@@ -11,7 +11,7 @@ const MoreOptionCard = ({ icon, title, description, onPress }) => {
 
   return (
     <TouchableOpacity
-      style={[styles.card, { backgroundColor: theme.background, shadowColor: theme.text }]}
+      style={[styles.card, { backgroundColor: theme.card_theme, shadowColor: theme.text }]}
       onPress={onPress}
     >
       {/* Icon inside primary-colored box */}
