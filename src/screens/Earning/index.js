@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import MainHeader from '../../components/common/MainHeader';
@@ -11,6 +11,25 @@ import EarningsTrend from '../../components/earnings/EarningsTrend';
 const EarningScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const [selectedPeriod, setSelectedPeriod] = useState('7 Days');
+
+  // Sample data for different periods
+  const getDataForPeriod = (period) => {
+    switch (period) {
+      case '7 Days':
+        return [170, 190, 210, 200, 240, 220, 245];
+      case 'Last 24 Hrs':
+        return [150, 160, 140, 180, 200, 190, 220, 210, 240, 250, 260, 280];
+      case '1 Month':
+        return [200, 250, 300, 280, 320, 350, 380];
+      default:
+        return [170, 190, 210, 200, 240, 220, 245];
+    }
+  };
+
+  const handlePeriodChange = (newPeriod) => {
+    setSelectedPeriod(newPeriod);
+  };
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
@@ -56,13 +75,11 @@ const EarningScreen = ({ navigation }) => {
           />
         </View>
         <EarningsTrend
-  periodLabel={t('automation.trend.period7')}
-  onPressPeriod={() => {
-    // open your period selector (7d / 14d / 30d)
-  }}
-  data={[170,190,210,200,240,220,245,260,240,255,245,265,250,270,260,275,290,330,380]}
-  labels={['M','T','W','T','F','S','S']}
-/>
+          data={getDataForPeriod(selectedPeriod)}
+          periodLabel={selectedPeriod}
+          onPressPeriod={handlePeriodChange}
+          height={220}
+        />
 
         <QuickStats
   title={t('automation.quickStats.title')}

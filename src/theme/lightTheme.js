@@ -9,7 +9,7 @@ export default {
     primary_bottom:'#007AFF',
   card: '#F7F7F7',
     card_theme: '#ffffff',
-    
-    autoRenewRowBackground: 'rgba(0, 123, 255, 0.2)'
+        trip_card:'#DBEDFF',
+    // autoRenewRowBackground: 'rgba(0, 123, 255, 0.2)'
 
 };

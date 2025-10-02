@@ -282,8 +282,47 @@
 }
 ,
   "history": {
-    "title": "Esta es la pantalla de historial"
+  "title": "Historial",
+  "tabs": {
+    "all": "Todos los Viajes",
+    "uber": "Uber",
+    "lyft": "Lyft",
+    "doordash": "DoorDash"
   },
+  "details": {
+  "title": "Detalles del Viaje",
+  "pickup": "Recogida:",
+  "drop": "Destino:",
+  "duration": "Duración",
+  "start": "Hora de Inicio:",
+  "end": "Hora de Fin:"
+}
+,
+  "stats": {
+  "trips": "Viajes Totales",
+  "earnings": "Ganancias Totales",
+  "rating": "Calificación Promedio"
+},"tripsTitle": "Viajes",
+"status": {
+  "completed": "Completado"
+}
+,
+"filter": {
+  "title": "Ordenar por",
+  "highestPrice": "Mayor Precio",
+  "lowestPrice": "Menor Precio",
+  "quickestTime": "Tiempo Más Rápido",
+  "slowestTime": "Tiempo Más Lento",
+  "leastDistance": "Menor Distancia",
+  "mostDistance": "Mayor Distancia",
+  "highestReview": "Mejor Reseña",
+  "leastReview": "Peor Reseña",
+  "go": "Ir"
+}
+
+
+}
+,
   "earning": {
     "title": "Esta es la pantalla de ganancias"
   },

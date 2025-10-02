@@ -39,14 +39,15 @@ const EarningsTrend = ({
     if (!data.length) return { pathD: '', areaD: '', maxY: 0, ticks: [0, 0, 0] };
 
     const PADDING = 16;
-    const LEFT_PADDING = 40; // Slightly less space for Y-labels
-    const W = Math.max(320, labels.length ? labels.length * 48 : 320); // roomy width for spacing
+    const LEFT_PADDING = 45; // More space for Y-labels to prevent overlap
+    const RIGHT_PADDING = 16;
+    const W = Math.max(320, labels.length ? labels.length * 40 : 320); // Adjusted width calculation
     const H = height;
 
     // scale
     const maxVal = Math.max(...data);
     const niceMax = Math.ceil(maxVal / 50) * 50 + 50; // round up to nicer tick
-    const xStep = (W - LEFT_PADDING - PADDING) / (data.length - 1 || 1);
+    const xStep = (W - LEFT_PADDING - RIGHT_PADDING) / (data.length - 1 || 1);
     const yScale = (v) => {
       // invert (SVG y grows downward)
       const usable = H - PADDING * 2;
@@ -127,7 +128,7 @@ const EarningsTrend = ({
 
       {/* Chart */}
       <View style={{ height, marginTop: 6 }}>
-        <Svg width="100%" height="100%" viewBox={`0 0 ${Math.max(320, (labels.length||7) * 48)} ${height}`}>
+        <Svg width="100%" height="100%" viewBox={`0 0 ${Math.max(320, (labels.length||7) * 40)} ${height}`}>
           {/* bg gradient fade */}
           <Defs>
             <LinearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
@@ -143,12 +144,13 @@ const EarningsTrend = ({
           {/* horizontal grid lines (Y-axis) */}
           {ticks.map((tick, i) => {
             const y = height - 16 - ((tick / (Math.max(...ticks) || 1)) * (height - 32));
+            const chartWidth = Math.max(320, (labels.length||7) * 40);
             return (
               <Rect
                 key={`h-${i}`}
-                x="40"
+                x="45"
                 y={y}
-                width={`${Math.max(320, (labels.length||7) * 48) - 56}`}
+                width={chartWidth - 61}
                 height="1"
                 fill="#E5E7EB"
                 opacity="0.5"
@@ -159,7 +161,8 @@ const EarningsTrend = ({
           {/* vertical grid lines (X-axis) */}
           {labels.map((_, i) => {
             if (i === 0) return null; // Skip first line
-            const x = 40 + (i * (Math.max(320, labels.length * 48) - 56)) / (labels.length - 1);
+            const chartWidth = Math.max(320, labels.length * 40);
+            const x = 45 + (i * (chartWidth - 61)) / (labels.length - 1);
             return (
               <Rect
                 key={`v-${i}`}
@@ -246,7 +249,7 @@ const styles = StyleSheet.create({
   yTickText: { fontSize: 12, color: '#98A2B3', fontFamily: typography.fontRegular },
   xLabels: {
     position: 'absolute',
-    left: 40,
+    left: 45,
     right: 16,
     bottom: 6,
     flexDirection: 'row',

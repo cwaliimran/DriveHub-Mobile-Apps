@@ -257,6 +257,7 @@
   "home": {
     "title": "This is Home Screen"
   },
+
   "automation": {
     "title": "Automation",
     "today": "Today",
@@ -280,8 +281,44 @@
       "trips": "Trips"
     }
   },
-  "history": {
-    "title": "This is History Screen"
+ "history": {
+    "title": "History",
+    "tabs": {
+      "all": "All Trips",
+      "uber": "Uber",
+      "lyft": "Lyft",
+      "doordash": "DoorDash"
+    },
+     "details": {
+      "title": "Trip Details",
+      "pickup": "Pickup:",
+      "drop": "Drop-Off:",
+      "duration": "Duration",
+      "start": "Start Time:",
+      "end": "End Time:"
+    },
+        "stats": {
+      "trips": "Total Trips",
+      "earnings": "Total Earnings",
+      "rating": "Avg. Rating"
+    },
+    "tripsTitle": "Trips",
+    "status": {
+      "completed": "Completed"
+    },
+        "filter": {
+      "title": "Sort by",
+      "highestPrice": "Highest Price",
+      "lowestPrice": "Lowest Price",
+      "quickestTime": "Quickest Time",
+      "slowestTime": "Slowest Time",
+      "leastDistance": "Least Distance",
+      "mostDistance": "Most Distance",
+      "highestReview": "Highest Review",
+      "leastReview": "Least Review",
+      "go": "Go"
+    }
+
   },
   "earning": {
     "title": "This is Earning Screen"
@@ -312,7 +349,6 @@
     "auto": "Auto-renews Yearly for $90.99",
     "footnote": "Billing starts at the end of your 7-day free trial unless you cancel. Plans renew automatically. Cancel via the App Store / Play Store."
   }
-
 
 ,"more": {
   "title": "More",

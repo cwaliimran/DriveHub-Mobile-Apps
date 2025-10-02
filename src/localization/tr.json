@@ -276,9 +276,49 @@
   }
 }
 ,
-  "history": {
-    "title": "Burası Geçmiş Ekranı"
+"history": {
+  "title": "Geçmiş",
+  "tabs": {
+    "all": "Tüm Yolculuklar",
+    "uber": "Uber",
+    "lyft": "Lyft",
+    "doordash": "DoorDash"
   },
+  "details": {
+  "title": "Yolculuk Detayları",
+  "pickup": "Alış:",
+  "drop": "Bırakış:",
+  "duration": "Süre",
+  "start": "Başlangıç Saati:",
+  "end": "Bitiş Saati:"
+}
+,
+  "stats": {
+  "trips": "Toplam Yolculuk",
+  "earnings": "Toplam Kazanç",
+  "rating": "Ortalama Puan"
+},
+"tripsTitle": "Yolculuklar",
+"status": {
+  "completed": "Tamamlandı"
+},
+"filter": {
+  "title": "Sırala",
+  "highestPrice": "En Yüksek Fiyat",
+  "lowestPrice": "En Düşük Fiyat",
+  "quickestTime": "En Hızlı Süre",
+  "slowestTime": "En Yavaş Süre",
+  "leastDistance": "En Kısa Mesafe",
+  "mostDistance": "En Uzun Mesafe",
+  "highestReview": "En Yüksek Değerlendirme",
+  "leastReview": "En Düşük Değerlendirme",
+  "go": "Git"
+}
+
+
+
+  
+},
   "earning": {
     "title": "Burası Kazanç Ekranı"
   },

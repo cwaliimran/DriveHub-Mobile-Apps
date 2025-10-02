@@ -105,6 +105,15 @@ resetSuccessModal: require('./icons/reset-sucess-modal.png'),
   statRating:     require('./icons/stats/ratings.png'),
   statDistance:   require('./icons/stats/distance.png'),
   statPeak:       require('./icons/stats/peak.png'),
+    historyCalendar: require('./icons/history/calendar.png'),
+  historyClock:    require('./icons/history/clock.png'),
+    historyClockWhite:    require('./icons/history/clock-white.png'),
+  historyPickup:   require('./icons/history/pickup-pin.png'),
+  historyDrop:     require('./icons/history/drop-pin.png'),
+  historyDuration: require('./icons/history/stopwatch.png'),
+  historyDistance: require('./icons/history/distance.png'), // route/road icon
+  historyStar:     require('./icons/history/star.png'),
+  historyFilter:   require('./icons/history/filter.png'),   // optional for the "filter" button in the header
 };
 export const Fonts = {
   regular: 'Lexend-Regular',

@@ -10,4 +10,5 @@ export default {
   primary_bottom:'#007AFF',
   card: '#111111',
     card_theme: '#131313',
+    trip_card:'#131313',
 };
