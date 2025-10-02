@@ -259,13 +259,54 @@
 "automation": {
   "title": "Automatización",
   "today": "Hoy",
+  "statsCard": {
+  "titlePrefix": "Automatización de Hoy",
+  "titleEmph": "Estadísticas",
+  "executed": "Ejecutados",
+  "skipped": "Omitidos",
+  "errors": "Errores"
+}
+,
+"rules": {
+  "autoAccept": {
+    "title": "Aceptar/Rechazar Automáticamente",
+    "subtitle": "Filtrado Inteligente de Viajes",
+    "fields": {
+      "minFare": "Tarifa Mínima",
+      "maxDistance": "Distancia Máxima",
+      "tripTypes": "Tipos de Viaje"
+    },
+    "configure": "Configurar"
+  }
+}
+,
+"statusCard": {
+  "title": "Control de Estado de la App",
+  "subtitle": "Auto En Línea/Desconectado",
+  "setup": "Configurar",
+  "autoOnline": "En Línea Automático después del Viaje",
+  "breakTimer": "Temporizador de Pausa"
+}
+,
+"priorityCard": {
+  "title": "Prioridad de Plataforma",
+  "subtitle": "Preferencias de Pedido",
+  "manage": "Gestionar",
+  "priority": "Prioridad {{rank}}",
+  "uber": "Uber",
+  "lyft": "Lyft",
+  "doordash": "DoorDash"
+}
+,
   "quickStats": {
   "title": "Estadísticas Rápidas",
   "acceptance": "Tasa de Aceptación",
   "rating": "Calificación de Clientes",
   "distance": "Distancia Promedio del Viaje",
   "peak": "Horas Pico"
-},"trend": {
+},
+
+"trend": {
   "title": "Tendencia de Ganancias",
   "period7": "7 Días",
   "period14": "14 Días",
@@ -281,6 +322,58 @@
   }
 }
 ,
+"filters": {
+  "title": "Configurar Filtros",
+  "platform": {
+    "uber": "Uber",
+    "lyft": "Lyft",
+    "doordash": "DoorDash"
+  }
+}
+,
+"platformFilter": {
+  "autoAccept": {
+    "title": "Auto-Aceptar",
+    "desc": "Las ofertas no serán aceptadas automáticamente por DriveHub."
+  },
+  "autoReject": {
+    "title": "Auto-Rechazar",
+    "desc": "DriveHub rechazará ofertas si"
+  },
+  "add": {
+    "earnings": "Ganancias",
+    "location": "Ubicación",
+    "trip": "Viaje",
+    "cta": "Agregar"
+  }
+},
+
+"filterFields": {
+  "fare":          { "name": "Tarifa",             "label": "Tarifa",             "opDefault": "es menor que",    "valueDefault": "$15.00" },
+  "totalPay":      { "name": "Pago Total",         "label": "Pago Total",         "opDefault": "es menor que",    "valueDefault": "$25.00" },
+  "surgeBonus":    { "name": "Bono Dinámico",      "label": "Bono Dinámico",      "opDefault": "es menor que",    "valueDefault": "$1.50" },
+  "dollarPerMile": { "name": "$ / Milla",          "label": "$/Milla",            "opDefault": "es menor que",    "valueDefault": "$5.00 / mi" },
+  "dollarPerHour": { "name": "$ / Hora",           "label": "$/Hora",             "opDefault": "es menor que",    "valueDefault": "$20.00 / hr" },
+  "surgeMulti":    { "name": "Multiplicador Dinámico","label": "Multiplicador Dinámico","opDefault": "es menor que","valueDefault": "1.2 x" },
+
+  "pickupEta":       { "name": "ETA de Recogida",   "label": "ETA de Recogida",   "opDefault": "es mayor que", "valueDefault": "5 min" },
+  "pickupDistance":  { "name": "Distancia de Recogida","label": "Distancia de Recogida","opDefault": "es mayor que", "valueDefault": "5.0 mi" },
+  "minTripTime":     { "name": "Tiempo Mínimo de Viaje","label": "Tiempo Mínimo de Viaje","opDefault": "es menor que", "valueDefault": "10 min" },
+  "maxTripTime":     { "name": "Tiempo Máximo de Viaje","label": "Tiempo Máximo de Viaje","opDefault": "es mayor que", "valueDefault": "45 min" },
+  "minTotalDistance":{ "name": "Distancia Total Mínima","label": "Distancia Total Mínima","opDefault": "es menor que", "valueDefault": "2.0 mi" },
+  "maxTotalDistance":{ "name": "Distancia Total Máxima","label": "Distancia Total Máxima","opDefault": "es mayor que", "valueDefault": "20.0 mi" },
+
+  "rideType":        { "name": "Tipo de Viaje",     "label": "Tipo de Viaje",     "opDefault": "es uno de", "valueDefault": "Uber X" },
+  "userRating":      { "name": "Calificación de Usuario","label": "Calificación de Usuario","opDefault": "es menor que","valueDefault": "4.6" },
+  "stackedRide":     { "name": "Viaje Acumulado",   "label": "Viaje Acumulado",   "opDefault": "es", "valueDefault": "Permitido" },
+  "multipleStops":   { "name": "Múltiples Paradas", "label": "Múltiples Paradas", "opDefault": "es", "valueDefault": "Permitido" },
+  "tripRadar":       { "name": "Radar de Viajes",   "label": "Radar de Viajes",   "opDefault": "es", "valueDefault": "Permitido" },
+  "topTipper":       { "name": "Pasajero Mejor Propina","label": "Pasajero Mejor Propina","opDefault": "es", "valueDefault": "Preferido" },
+  "longTrip":        { "name": "Viaje Largo",       "label": "Viaje Largo",       "opDefault": "es mayor que", "valueDefault": "20 mi" },
+  "towardDestination": { "name": "Hacia tu destino","label": "Hacia tu destino", "opDefault": "es", "valueDefault": "Habilitado" }
+}
+,
+
   "history": {
   "title": "Historial",
   "tabs": {

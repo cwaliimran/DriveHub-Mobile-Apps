@@ -60,7 +60,7 @@ const TripCard = ({
           {/* header row: logo + title + date/time | fare */}
           <View style={styles.headerRow}>
             <View style={styles.leftHead}>
-              <View style={[styles.logoWrap, { backgroundColor: theme.surface ?? '#F3F4F6' }]}>
+              <View style={[styles.logoWrap, { backgroundColor: theme.background}]}>
                 <Image source={platformLogo} style={styles.logo} resizeMode="contain" />
               </View>
               <View style={styles.titleSection}>

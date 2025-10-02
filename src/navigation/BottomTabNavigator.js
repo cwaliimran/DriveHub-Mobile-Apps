@@ -13,7 +13,7 @@ import useTheme from '../hooks/useTheme';
 
 // Screens
 import HomeScreen from '../screens/Home';
-import AutomationScreen from '../screens/Automation';
+import AutomationScreen from '../screens/automation';
 import HistoryScreen from '../screens/History';
 import EarningScreen from '../screens/Earning';
 import typography from '../theme/typography';

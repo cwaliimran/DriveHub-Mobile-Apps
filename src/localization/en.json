@@ -268,6 +268,40 @@
       "distance": "Avg Trip Distance",
       "peak": "Peak Hours"
     },
+        "statsCard": {
+      "titlePrefix": "Today’s Automation",
+      "titleEmph": "Stats",
+      "executed": "Executed",
+      "skipped": "Skipped",
+      "errors": "Errors"
+    },    "rules": {
+      "autoAccept": {
+        "title": "Auto Accept/Decline",
+        "subtitle": "Smart Trip Filtering",
+        "fields": {
+          "minFare": "Minimum Fare",
+          "maxDistance": "Max Distance",
+          "tripTypes": "Trip Types"
+        },
+        "configure": "Configure"
+      }
+    },
+        "statusCard": {
+      "title": "App Status Control",
+      "subtitle": "Auto Online/Offline",
+      "setup": "Setup",
+      "autoOnline": "Auto Online after Trip",
+      "breakTimer": "Break Timer"
+    },
+        "priorityCard": {
+      "title": "Platform Priority",
+      "subtitle": "Order Preferences",
+      "manage": "Manage",
+      "priority": "Priority {{rank}}",
+      "uber": "Uber",
+      "lyft": "Lyft",
+      "doordash": "DoorDash"
+    },
         "trend": {
       "title": "Earnings Trend",
       "period7": "7 Days",
@@ -281,6 +315,57 @@
       "trips": "Trips"
     }
   },
+  "filters": {
+    "title": "Configure Filters",
+    "platform": {
+      "uber": "Uber",
+      "lyft": "Lyft",
+      "doordash": "DoorDash"
+    }
+  }
+,
+  "platformFilter": {
+    "autoAccept": {
+      "title": "Auto-Accept",
+      "desc": "Offers will not be auto-accepted by DriveHub."
+    },
+    "autoReject": {
+      "title": "Auto-Reject",
+      "desc": "DriveHub will reject offers if"
+    },
+    "add": {
+      "earnings": "Earnings",
+      "location": "Location",
+      "trip": "Trip",
+      "cta": "Add"
+    }
+  },
+
+  "filterFields": {
+    "fare":          { "name": "Fare",          "label": "Fare",          "opDefault": "is less than",   "valueDefault": "$15.00" },
+    "totalPay":      { "name": "Total Pay",     "label": "Total Pay",     "opDefault": "is less than",   "valueDefault": "$25.00" },
+    "surgeBonus":    { "name": "Surge Bonus",   "label": "Surge Bonus",   "opDefault": "is less than",   "valueDefault": "$1.50" },
+    "dollarPerMile": { "name": "$ / Mile",      "label": "$/Mile",        "opDefault": "is less than",   "valueDefault": "$5.00 / mi" },
+    "dollarPerHour": { "name": "$ /Hour",       "label": "$/Hour",        "opDefault": "is less than",   "valueDefault": "$20.00 / hr" },
+    "surgeMulti":    { "name": "Surge Multi",   "label": "Surge Multi",   "opDefault": "is less than",   "valueDefault": "1.2 x" },
+
+    "pickupEta":       { "name": "Pickup ETA",        "label": "Pickup ETA",        "opDefault": "is more than", "valueDefault": "5 min" },
+    "pickupDistance":  { "name": "Pickup Distance",   "label": "Pickup Distance",   "opDefault": "is more than", "valueDefault": "5.0 mi" },
+    "minTripTime":     { "name": "Min Trip Time",     "label": "Min Trip Time",     "opDefault": "is less than", "valueDefault": "10 min" },
+    "maxTripTime":     { "name": "Max Trip Time",     "label": "Max Trip Time",     "opDefault": "is more than", "valueDefault": "45 min" },
+    "minTotalDistance":{ "name": "Min Total Distance","label": "Min Total Distance","opDefault": "is less than", "valueDefault": "2.0 mi" },
+    "maxTotalDistance":{ "name": "Max Total Distance","label": "Max Total Distance","opDefault": "is more than", "valueDefault": "20.0 mi" },
+
+    "rideType":        { "name": "Ride Type",         "label": "Ride Type",         "opDefault": "is one of the", "valueDefault": "Uber X" },
+    "userRating":      { "name": "User Rating",       "label": "User Rating",       "opDefault": "is less than",   "valueDefault": "4.6" },
+    "stackedRide":     { "name": "Stacked Ride",      "label": "Stacked Ride",      "opDefault": "is",             "valueDefault": "Allowed" },
+    "multipleStops":   { "name": "Multiple Stops",    "label": "Multiple Stops",    "opDefault": "is",             "valueDefault": "Allowed" },
+    "tripRadar":       { "name": "Trip Radar",        "label": "Trip Radar",        "opDefault": "is",             "valueDefault": "Allowed" },
+    "topTipper":       { "name": "Top Tipper Rider",  "label": "Top Tipper Rider",  "opDefault": "is",             "valueDefault": "Preferred" },
+    "longTrip":        { "name": "Long Trip",         "label": "Long Trip",         "opDefault": "is more than",   "valueDefault": "20 mi" },
+    "towardDestination": { "name": "Toward your destination", "label": "Toward your destination", "opDefault": "is", "valueDefault": "Enabled" }
+  }
+,
  "history": {
     "title": "History",
     "tabs": {

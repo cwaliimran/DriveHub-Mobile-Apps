@@ -40,6 +40,8 @@ import ResetPasswordScreenMore from '../screens/More/Options/Profile/ResetPasswo
 import PlansScreen from '../screens/More/Options/Plans';
 import NotificationsScreen from '../screens/notification';
 import TripDetailsScreen from '../screens/History/trips';
+import ConfigureFiltersScreen from '../screens/automation/filters';
+import PlatformFilterMain from '../screens/filter/main';
 
 
 const Stack = createNativeStackNavigator();
@@ -134,6 +136,16 @@ const AppNavigator = () => (
 <Stack.Screen
   name="TripDetails"
   component={TripDetailsScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="ConfigureFilters"
+  component={ConfigureFiltersScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="PlatformFilterMain"
+  component={PlatformFilterMain}
   options={{ headerShown: false }}
 />
   </Stack.Navigator>

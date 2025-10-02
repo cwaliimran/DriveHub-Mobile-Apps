@@ -253,6 +253,45 @@
 "automation": {
   "title": "Automatización",
   "today": "Hoy",
+  "statsCard": {
+  "titlePrefix": "Bugünün Otomasyonu",
+  "titleEmph": "İstatistikler",
+  "executed": "Uygulandı",
+  "skipped": "Atlandı",
+  "errors": "Hatalar"
+}
+,
+"rules": {
+  "autoAccept": {
+    "title": "Otomatik Kabul/Reddet",
+    "subtitle": "Akıllı Yolculuk Filtreleme",
+    "fields": {
+      "minFare": "Minimum Ücret",
+      "maxDistance": "Maksimum Mesafe",
+      "tripTypes": "Yolculuk Türleri"
+    },
+    "configure": "Yapılandır"
+  }
+}
+,
+"statusCard": {
+  "title": "Uygulama Durum Kontrolü",
+  "subtitle": "Otomatik Çevrimiçi/Çevrimdışı",
+  "setup": "Ayarla",
+  "autoOnline": "Yolculuktan Sonra Otomatik Çevrimiçi",
+  "breakTimer": "Mola Zamanlayıcısı"
+}
+,
+"priorityCard": {
+  "title": "Platform Önceliği",
+  "subtitle": "Sipariş Tercihleri",
+  "manage": "Yönet",
+  "priority": "Öncelik {{rank}}",
+  "uber": "Uber",
+  "lyft": "Lyft",
+  "doordash": "DoorDash"
+}
+,
   "quickStats": {
   "title": "Hızlı İstatistikler",
   "acceptance": "Kabul Oranı",
@@ -260,6 +299,7 @@
   "distance": "Ortalama Yolculuk Mesafesi",
   "peak": "Yoğun Saatler"
 },
+
 "trend": {
   "title": "Kazanç Eğilimi",
   "period7": "7 Gün",
@@ -274,6 +314,57 @@
     "milesDriven": "Millas Conducidas",
     "trips": "Viajes"
   }
+}
+,
+"filters": {
+  "title": "Filtreleri Yapılandır",
+  "platform": {
+    "uber": "Uber",
+    "lyft": "Lyft",
+    "doordash": "DoorDash"
+  }
+}
+,
+"platformFilter": {
+  "autoAccept": {
+    "title": "Otomatik Kabul",
+    "desc": "Teklifler DriveHub tarafından otomatik olarak kabul edilmeyecek."
+  },
+  "autoReject": {
+    "title": "Otomatik Reddet",
+    "desc": "DriveHub teklifleri reddedecek eğer"
+  },
+  "add": {
+    "earnings": "Kazanç",
+    "location": "Konum",
+    "trip": "Yolculuk",
+    "cta": "Ekle"
+  }
+},
+
+"filterFields": {
+  "fare":          { "name": "Ücret",             "label": "Ücret",             "opDefault": "daha az ise",   "valueDefault": "$15.00" },
+  "totalPay":      { "name": "Toplam Ödeme",      "label": "Toplam Ödeme",      "opDefault": "daha az ise",   "valueDefault": "$25.00" },
+  "surgeBonus":    { "name": "Yoğunluk Bonusu",   "label": "Yoğunluk Bonusu",   "opDefault": "daha az ise",   "valueDefault": "$1.50" },
+  "dollarPerMile": { "name": "$ / Mil",           "label": "$/Mil",             "opDefault": "daha az ise",   "valueDefault": "$5.00 / mi" },
+  "dollarPerHour": { "name": "$ / Saat",          "label": "$/Saat",            "opDefault": "daha az ise",   "valueDefault": "$20.00 / hr" },
+  "surgeMulti":    { "name": "Yoğunluk Katsayısı","label": "Yoğunluk Katsayısı","opDefault": "daha az ise",   "valueDefault": "1.2 x" },
+
+  "pickupEta":       { "name": "Alış ETA",        "label": "Alış ETA",          "opDefault": "daha fazla ise", "valueDefault": "5 dk" },
+  "pickupDistance":  { "name": "Alış Mesafesi",   "label": "Alış Mesafesi",     "opDefault": "daha fazla ise", "valueDefault": "5.0 mi" },
+  "minTripTime":     { "name": "Min Yolculuk Süresi","label": "Min Yolculuk Süresi","opDefault": "daha az ise", "valueDefault": "10 dk" },
+  "maxTripTime":     { "name": "Maks Yolculuk Süresi","label": "Maks Yolculuk Süresi","opDefault": "daha fazla ise", "valueDefault": "45 dk" },
+  "minTotalDistance":{ "name": "Min Toplam Mesafe","label": "Min Toplam Mesafe","opDefault": "daha az ise",   "valueDefault": "2.0 mi" },
+  "maxTotalDistance":{ "name": "Maks Toplam Mesafe","label": "Maks Toplam Mesafe","opDefault": "daha fazla ise","valueDefault": "20.0 mi" },
+
+  "rideType":        { "name": "Yolculuk Türü",   "label": "Yolculuk Türü",     "opDefault": "şunlardan biri", "valueDefault": "Uber X" },
+  "userRating":      { "name": "Kullanıcı Puanı", "label": "Kullanıcı Puanı",   "opDefault": "daha az ise",   "valueDefault": "4.6" },
+  "stackedRide":     { "name": "Birleşik Yolculuk","label": "Birleşik Yolculuk","opDefault": "eşittir", "valueDefault": "İzin Verildi" },
+  "multipleStops":   { "name": "Birden Fazla Durak","label": "Birden Fazla Durak","opDefault": "eşittir", "valueDefault": "İzin Verildi" },
+  "tripRadar":       { "name": "Yolculuk Radarı", "label": "Yolculuk Radarı",   "opDefault": "eşittir", "valueDefault": "İzin Verildi" },
+  "topTipper":       { "name": "En Çok Bahşiş Veren Yolcu","label": "En Çok Bahşiş Veren Yolcu","opDefault": "eşittir", "valueDefault": "Tercihli" },
+  "longTrip":        { "name": "Uzun Yolculuk",   "label": "Uzun Yolculuk",     "opDefault": "daha fazla ise","valueDefault": "20 mi" },
+  "towardDestination": { "name": "Hedefine Doğru", "label": "Hedefine Doğru", "opDefault": "eşittir", "valueDefault": "Etkin" }
 }
 ,
 "history": {
