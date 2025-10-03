@@ -42,6 +42,8 @@ import NotificationsScreen from '../screens/notification';
 import TripDetailsScreen from '../screens/History/trips';
 import ConfigureFiltersScreen from '../screens/automation/filters';
 import PlatformFilterMain from '../screens/filter/main';
+import AppStatusControlScreen from '../screens/automation/AppStatusControl';
+import PlatformPriorityScreen from '../screens/automation/priority';
 
 
 const Stack = createNativeStackNavigator();
@@ -148,6 +150,17 @@ const AppNavigator = () => (
   component={PlatformFilterMain}
   options={{ headerShown: false }}
 />
+<Stack.Screen
+  name="AppStatusControl"
+  component={AppStatusControlScreen}
+  options={{ headerShown: false }}
+/>
+<Stack.Screen
+  name="PlatformPriorityManage"
+  component={PlatformPriorityScreen}
+  options={{ headerShown: false }}
+/>
+
   </Stack.Navigator>
 );
 

@@ -7,6 +7,7 @@ export const Images = {
   onboarding3: require('./images/onboarding-3.png'),
   accountCreated: require('./images/account-created.png'),
   lyft: require('./images/lyft.png'),
+    homeIntroCar: require('./images/home-intro-car.png'),
   uber: require('./images/uber.png'),
   doorDash: require('./images/door-dash.png'),
   forgotModal: require('./images/forgot-modal.png'),
@@ -20,10 +21,12 @@ export const Images = {
   cardBackground: require('./images/card-background.png'),
   autoAccept: require('./images/auto-accept-decline.png'),
   appStatus: require('./images/app-status.png'),
-
+  platformPriorityBg: require('./images/platform-priority-background.png'), 
 };
 
 export const Icons = {
+    moneyCircle: require('./icons/money-circle.png'),
+    infoCircle: require('./icons/common/info-circle.png'), 
   next: require('./icons/common/chevron-right.png'),
   plus: require('./icons/common/plus.png'),
   close: require('./icons/common/close.png'),

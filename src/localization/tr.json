@@ -247,9 +247,22 @@
     "switchToEmail": "E-posta ve şifre ile giriş yapın",
     "switchToPhone": "Bunun yerine telefonla giriş yapın"
   },
-  "home": {
-    "title": "Burası Ana Ekran"
+"home": {
+  "intro": {
+    "welcome": "Hoş geldin, {{name}}!",
+    "ready": "Bugünün yolculuklarına hazır mısın? Hadi başlayalım!",
+    "title": "Yolculuğunu\nAnında Başlat",
+    "description": "Artık beklemek yok—akıllı sistemimiz seni otomatik olarak en yakın sürücüyle eşleştirir."
   },
+  "earnings": {
+  "title": "Kazanç Özeti",
+  "today": "Bugünkü Kazanç",
+  "week": "Haftalık Kazanç",
+  "month": "Aylık Kazanç"
+}
+
+}
+,
 "automation": {
   "title": "Automatización",
   "today": "Hoy",
@@ -341,7 +354,22 @@
     "cta": "Ekle"
   }
 },
-
+"appStatus": {
+  "title": "Uygulama Durum Kontrolü",
+  "autoOnline": "Otomatik Çevrimiçi",
+  "breakTime": "Mola Süresi"
+},
+"status": {
+  "autoOnlineHint": "Yolculuktan sonra otomatik çevrimiçi",
+  "minutes": "Dak",
+  "seconds": "San"
+}
+,
+"priority": {
+  "title": "Platform Önceliği",
+  "banner": "Platformları öncelik sırasına göre taşı"
+}
+,
 "filterFields": {
   "fare":          { "name": "Ücret",             "label": "Ücret",             "opDefault": "daha az ise",   "valueDefault": "$15.00" },
   "totalPay":      { "name": "Toplam Ödeme",      "label": "Toplam Ödeme",      "opDefault": "daha az ise",   "valueDefault": "$25.00" },

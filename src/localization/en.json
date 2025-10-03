@@ -255,7 +255,22 @@
   "switchToPhone": "Login Via Phone Instead"
 },
   "home": {
-    "title": "This is Home Screen"
+    "intro": {
+      "welcome": "Welcome, {{name}}!",
+      "ready": "Ready for today’s rides? Let’s get started!",
+      "title": "Get Your Ride\nInstantly",
+      "description": "No more waiting—our smart system connects you with the nearest driver automatically."
+    },
+        "earnings": {
+      "title": "Earnings Summary",
+      "today": "Today’s Earning",
+      "week": "Week Earning",
+      "month": "Month Earning"
+    }
+  },
+    "priority": {
+    "title": "Platform Priority",
+    "banner": "Move the platforms in order of priority you"
   },
 
   "automation": {
@@ -268,6 +283,7 @@
       "distance": "Avg Trip Distance",
       "peak": "Peak Hours"
     },
+    
         "statsCard": {
       "titlePrefix": "Today’s Automation",
       "titleEmph": "Stats",
@@ -293,6 +309,7 @@
       "autoOnline": "Auto Online after Trip",
       "breakTimer": "Break Timer"
     },
+    
         "priorityCard": {
       "title": "Platform Priority",
       "subtitle": "Order Preferences",
@@ -340,6 +357,17 @@
       "cta": "Add"
     }
   },
+    "appStatus": {
+    "title": "App Status Control",
+    "autoOnline": "Auto Online",
+    "breakTime": "Break Time"
+  },
+  "status": {
+    "autoOnlineHint": "Auto online after trip",
+    "minutes": "Min",
+    "seconds": "Sec"
+  },
+  
 
   "filterFields": {
     "fare":          { "name": "Fare",          "label": "Fare",          "opDefault": "is less than",   "valueDefault": "$15.00" },

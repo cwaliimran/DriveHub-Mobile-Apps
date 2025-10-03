@@ -56,10 +56,11 @@ const AutomationScreen = ({navigation}) => {
   autoOnlineEnabled={autoOnline}
   onToggleAutoOnline={setAutoOnline}
   breakTimerText="30 min"
-  onSetup={() => {
-    // open a setup sheet or navigate to a config screen
-    // navigation.navigate('AppStatusSetup')
-  }}
+  onSetup={() => navigation.navigate('AppStatusControl', {
+  autoOnline: true,
+  breakEnabled: true,
+  breakSeconds: 15
+})}
 />
 <PlatformPriorityCard
   priorities={[
@@ -67,10 +68,7 @@ const AutomationScreen = ({navigation}) => {
     { key: 'doordash', rank: 2 },
     { key: 'lyft', rank: 3 }, // include all 3 platforms as needed
   ]}
-  onManage={() => {
-    // open sheet or navigate to a manage screen
-    // navigation.navigate('PlatformPriorityManage')
-  }}
+  onManage={() => navigation.navigate('PlatformPriorityManage')}
 />
 
 </ScrollView>

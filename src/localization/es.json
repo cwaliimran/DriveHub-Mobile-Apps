@@ -253,9 +253,22 @@
     "switchToEmail": "Iniciar sesión con correo y contraseña",
     "switchToPhone": "Iniciar sesión con teléfono"
   },
-  "home": {
-    "title": "Esta es la pantalla de inicio"
+"home": {
+  "intro": {
+    "welcome": "¡Bienvenido, {{name}}!",
+    "ready": "¿Listo para los viajes de hoy? ¡Empecemos!",
+    "title": "Consigue tu viaje\nal instante",
+    "description": "No más esperas—nuestro sistema inteligente te conecta automáticamente con el conductor más cercano."
   },
+  "earnings": {
+  "title": "Resumen de Ganancias",
+  "today": "Ganancia de Hoy",
+  "week": "Ganancia Semanal",
+  "month": "Ganancia Mensual"
+}
+
+}
+,
 "automation": {
   "title": "Automatización",
   "today": "Hoy",
@@ -347,7 +360,22 @@
     "cta": "Agregar"
   }
 },
-
+"appStatus": {
+  "title": "Control de Estado de la App",
+  "autoOnline": "En Línea Automático",
+  "breakTime": "Tiempo de Pausa"
+},
+"status": {
+  "autoOnlineHint": "En línea automático después del viaje",
+  "minutes": "Min",
+  "seconds": "Seg"
+}
+,
+"priority": {
+  "title": "Prioridad de Plataforma",
+  "banner": "Mueve las plataformas en el orden de prioridad que prefieras"
+}
+,
 "filterFields": {
   "fare":          { "name": "Tarifa",             "label": "Tarifa",             "opDefault": "es menor que",    "valueDefault": "$15.00" },
   "totalPay":      { "name": "Pago Total",         "label": "Pago Total",         "opDefault": "es menor que",    "valueDefault": "$25.00" },
